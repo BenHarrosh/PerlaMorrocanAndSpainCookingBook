@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ספר הבישול של פרלה בן ארוש ז״ל – מטבח מרוקאי וספרדי מסורתי. קזבלנקה, מרקש ומורשת ספרד.">
-<title>ספר הבישול של פרלה בן ארוש ז"ל | מרוקו · ספרד · ישראל</title>
+<meta name="description" content="ספר הבישול של פרלה בן ארוש ז״ל — 949 מתכונים מסורתיים: מרוקו, ספרד, טורקיה, תימן, פרס, עיראק, כורדיסטן, אשכנז, בוכרה, טוניסיה וישראל.">
+<title>ספר הבישול של פרלה בן ארוש ז"ל | 949 מתכונים יהודיים מסורתיים</title>
 <meta property="og:title" content="ספר הבישול של פרלה בן ארוש ז&quot;ל">
-<meta property="og:description" content="113 מתכונים מרוקאיים וספרדיים מסורתיים — קזבלנקה, מרקש ומורשת ספרד">
+<meta property="og:description" content="949 מתכונים ממטבחים יהודיים מסורתיים — מרוקו, ספרד, טורקיה, תימן, פרס, עיראק ועוד">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://perla-cooking.netlify.app">
 <meta name="theme-color" content="#1c0f08">
@@ -99,10 +99,40 @@ a{color:inherit;text-decoration:none}
 .card:nth-child(1){animation-delay:.04s}.card:nth-child(2){animation-delay:.09s}.card:nth-child(3){animation-delay:.14s}.card:nth-child(4){animation-delay:.19s}.card:nth-child(5){animation-delay:.23s}.card:nth-child(n+6){animation-delay:.28s}
 .card:hover{transform:translateY(-6px);box-shadow:var(--sh-md)}
 .card:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
-.c-img{height:200px;overflow:hidden;position:relative;flex-shrink:0;background:var(--parch-2)}
-.c-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease,opacity .3s ease;opacity:0}.c-img img.loaded{opacity:1}
-.card:hover .c-img img{transform:scale(1.08)}
+
+/* ─── Gallery Carousel (card) ─── */
+.c-img{position:relative;height:200px;overflow:hidden;flex-shrink:0;background:var(--parch-2)}
+.c-gallery{position:relative;width:100%;height:100%}
+.c-gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .5s ease}
+.c-gallery-slide.active{opacity:1}
+.c-gallery-slide img{width:100%;height:100%;object-fit:cover}
+.c-gallery-dots{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
+  display:flex;gap:4px;z-index:3}
+.c-gallery-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);
+  border:none;padding:0;cursor:pointer;transition:background .2s}
+.c-gallery-dot.on{background:#fff}
 .c-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+
+/* ─── Gallery Carousel (modal hero) ─── */
+.m-hero-gallery{position:relative;width:100%;height:100%}
+.m-gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.m-gallery-slide.active{opacity:1}
+.m-gallery-slide img{width:100%;height:100%;object-fit:cover}
+.m-gal-prev,.m-gal-next{position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,.45);color:#fff;border:none;border-radius:50%;
+  width:36px;height:36px;font-size:1.1rem;cursor:pointer;z-index:5;
+  display:flex;align-items:center;justify-content:center;transition:background .2s}
+.m-gal-prev{left:10px}
+.m-gal-next{right:10px}
+.m-gal-prev:hover,.m-gal-next:hover{background:rgba(0,0,0,.7)}
+.m-gal-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  display:flex;gap:6px;z-index:5}
+.m-gal-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);
+  border:none;padding:0;cursor:pointer;transition:background .2s}
+.m-gal-dot.on{background:#fff}
+.m-gal-count{position:absolute;top:8px;left:12px;background:rgba(0,0,0,.45);
+  color:#fff;font-size:.72rem;padding:.18rem .55rem;border-radius:20px;z-index:5}
+
 .c-badge{position:absolute;top:.65rem;right:.65rem;background:var(--clay);color:#fff;font-size:.67rem;font-weight:700;padding:.22rem .65rem;border-radius:12px;letter-spacing:.04em;text-shadow:0 1px 3px rgba(0,0,0,.3)}
 .c-arch{position:absolute;bottom:-1px;left:0;right:0;height:22px;overflow:hidden}
 .c-arch svg{width:100%;height:100%;display:block}
@@ -345,7 +375,7 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
   "@context": "https://schema.org",
   "@type": "Cookbook",
   "name": "ספר הבישול של פרלה בן ארוש ז\"ל",
-  "description": "101 מתכונים מרוקאיים וספרדיים מסורתיים מקזבלנקה, מרקש ומורשת ספרד",
+  "description": "949 מתכונים ממטבחים יהודיים מסורתיים — מרוקו, ספרד, טורקיה, תימן, פרס, עיראק ועוד",
   "author": {
     "@type": "Person",
     "name": "פרלה בן ארוש ז\"ל",
@@ -353,7 +383,7 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
   },
   "inLanguage": "he",
   "url": "https://perla-cooking.netlify.app",
-  "genre": ["מטבח מרוקאי", "מטבח ספרדי-אנדלוסי"]
+  "genre": ["מטבח מרוקאי", "מטבח ספרדי-אנדלוסי", "מטבח טוניסאי", "מטבח טורקי", "מטבח יהודי-ישראלי", "מטבח תימני", "מטבח עיראקי", "מטבח פרסי"]
 }
 </script>
 </head>
@@ -363,7 +393,7 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
   <div class="hdr">
     <div class="hdr-brand">
       <div class="hdr-brand-name">ספר הבישול של פרלה בן ארוש ז"ל</div>
-      <div class="hdr-brand-sub">קזבלנקה · מרקש · מורשת ספרד | מטבח מרוקאי-ספרדי</div>
+      <div class="hdr-brand-sub">קזבלנקה · מרקש · מורשת ספרד | 18 מטבחים יהודיים מסורתיים — 949 מתכונים</div>
     </div>
     <div class="hdr-orn">✦ ✦ ✦</div>
     <div class="hdr-search">
@@ -381,14 +411,14 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
 <section class="hero">
   <div class="hero-c">
     <div class="hero-orn" style="letter-spacing:.8em">✦ ✦ ✦</div>
-    <h1 class="hero-h1">המטבח של <em>אמא פרלה</em></h1>
-    <p class="hero-h2">מרוקו · ספרד · ישראל — טעמים שנולדו מאהבה</p>
-    <p class="hero-story">פרלה בן ארוש ז"ל נולדה בקזבלנקה וגדלה על ריחות השוק של מרוקו. נישאה לאיש ממשפחת קארו — צאצאי מגורשי ספרד — ולמדה את המטבח האנדלוסי מחמותה לבל. עם העלייה לישראל, הגיעו למעברה ואחר כך לשכונת הקטמון בירושלים. שם, בין השכנות מעיראק, כורדיסטן, אשכנז, תימן, פרס ובוכרה, הפך מטבחה לפסיפס שלם: כל שכנה לימדה, כל שכנה למדה. כל תבשיל נושא שם ועיר וזיכרון.</p>
+    <h1 class="hero-h1">המטבח של <em>אמא\סבתא פרלה</em></h1>
+    <p class="hero-h2">מרוקו · ספרד — טעמים שנולדו מאהבה</p>
+    <p class="hero-story">פרלה בן ארוש ז"ל נולדה בקזבלנקה וגדלה על ריחות השוק של מרוקו. נישאה לאיש ממשפחת קארו — צאצאי מגורשי ספרד 1492 — ולמדה את המטבח האנדלוסי מחמותה לבל. עם העלייה לישראל, הגיעו לשכונת הקטמון בירושלים. שם, בין שכנות מעיראק, כורדיסטן, אשכנז, תימן, פרס ובוכרה, הפך מטבחה לפסיפס שלם. כאן תמצאו גם את יהדות טורקיה וטוניסיה, ואת האוכל הישראלי שגדלנו עליו — 949 מתכונים שנשמרו לדורות.</p>
     <div class="hero-pills">
       <span class="hero-pill" id="pill-cnt">טוען...</span>
       <span class="hero-pill">18 קטגוריות</span>
       <span class="hero-pill">מרוקאי · ספרדי · טוניסאי · טורקי</span>
-      <span class="hero-pill">שכנות קטמון</span>
+      <span class="hero-pill">עיראק · כורדיסטן · תימן · פרס · בוכרה · אשכנז</span>
       <span class="hero-pill">מטבח ישראלי</span>
     </div>
   </div>
@@ -399,18 +429,23 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
   <div class="about-in">
     <div class="about-pic"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="80" height="80" opacity=".35"><circle cx="50" cy="38" r="22" fill="rgba(196,154,12,.6)"/><ellipse cx="50" cy="82" rx="28" ry="18" fill="rgba(196,154,12,.4)"/><circle cx="43" cy="35" r="3" fill="rgba(28,15,8,.7)"/><circle cx="57" cy="35" r="3" fill="rgba(28,15,8,.7)"/><path d="M42 46 Q50 53 58 46" stroke="rgba(28,15,8,.6)" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
     <div>
-      <h2 class="about-h">פרלה בן ארוש ז"ל — מי הייתה?</h2>
-      <p class="about-p">נולדה בקזבלנקה, גדלה בין ריחות השוק המרוקאי ואהבה לבשל עוד לפני שלמדה לקרוא. נישאה לאיש ממשפחת קארו — צאצאי מגורשי ספרד בשנת 1492 — ולמדה את המטבח האנדלוסי מחמותה לבל. עם העלייה לישראל, גרה במעברה ואחר כך בשכונת הקטמון בירושלים. שם, בין שכנות מעיראק, כורדיסטן, אשכנז, תימן, פרס ובוכרה — כולן בישלו יחד, למדו אחת מהשנייה, ושלחו סירים הלוך ושוב בין הדלתות. מתכוניה לא נכתבו — הם חיו בראשה ובידיה, ומובאים כאן ממה שסיפרה לילדיה.</p>
+      <h2 class="about-h">פרלה בן ארוש ז"ל — המטבח שלה, הסיפור שלנו</h2>
+      <p class="about-p">נולדה בקזבלנקה, גדלה בין ריחות השוק המרוקאי ואהבה לבשל עוד לפני שלמדה לקרוא. נישאה לאיש ממשפחת קארו — צאצאי מגורשי ספרד בשנת 1492 — ולמדה את המטבח האנדלוסי מחמותה לבל. עם העלייה לישראל, הגיעה לשכונת הקטמון בירושלים. שם, בין שכנות מעיראק, כורדיסטן, אשכנז, תימן, פרס ובוכרה — כולן בישלו יחד, למדו אחת מהשנייה, ושלחו סירים הלוך ושוב בין הדלתות. ספר הבישול הזה הולך מעבר לשכנות הקטמון — הוא כולל גם את מורשת יהדות טורקיה, טוניסיה, ואת האוכל הישראלי שאנחנו כולנו גדלנו עליו. 949 מתכונים שנשמרו לדורות, ממה שסיפרה לילדיה.</p>
       <div class="about-tags">
         <span class="about-tag">קזבלנקה</span>
         <span class="about-tag">מרקש</span>
-        <span class="about-tag">מורשת ספרד</span>
+        <span class="about-tag">מורשת ספרד 1492</span>
         <span class="about-tag">משפחת קארו</span>
-        <span class="about-tag">מגורשי ספרד 1492</span>
         <span class="about-tag">קטמון ירושלים</span>
-        <span class="about-tag">שכנות מכל העדות</span>
         <span class="about-tag">מטבח מרוקאי</span>
         <span class="about-tag">מטבח אנדלוסי</span>
+        <span class="about-tag">יהדות טורקיה</span>
+        <span class="about-tag">יהדות טוניסיה</span>
+        <span class="about-tag">מטבח עיראקי</span>
+        <span class="about-tag">מטבח תימני</span>
+        <span class="about-tag">מטבח פרסי</span>
+        <span class="about-tag">מטבח בוכרי</span>
+        <span class="about-tag">מטבח ישראלי</span>
       </div>
     </div>
   </div>
@@ -431,9 +466,9 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
 
 <footer>
   <div class="ft">לזכר נשמת פרלה בן ארוש ז"ל</div>
-  <div>קזבלנקה · מרקש · ישראל | משפחת קארו — צאצאי מגורשי ספרד 1492</div>
-  <div style="margin:.4rem 0;font-size:.8rem;opacity:.45">104 מתכונים מסורתיים שנשמרו לדורות</div>
-  <div class="fq">"הטעם הכי טוב בעולם הוא הטעם שזוכרים" — פרלה</div>
+  <div>קזבלנקה · מרקש · איסטנבול · ג׳רבה · בגדד · תהרן · סמרקנד | משפחת קארו — מגורשי ספרד 1492</div>
+  <div style="margin:.4rem 0;font-size:.8rem;opacity:.45">949 מתכונים מסורתיים שנשמרו לדורות</div>
+  <div class="fq">"הטעם הכי טוב בעולם הוא הטעם שזוכרים" — פרלה בן ארוש ז"ל</div>
   <div style="margin-top:.8rem;font-size:.75rem;opacity:.3">
     נבנה באהבה לזכרה | perla-cooking.netlify.app
   </div>
@@ -502,9 +537,7 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
 </div>
 
 <script>
-/* ══════════════════════════════════════
-   CATEGORIES
-══════════════════════════════════════ */
+
 const CATS=[
   {id:'all',   lbl:'כל המתכונים'},
   {id:'soups', lbl:'מרקים'},
@@ -530,73 +563,296 @@ const CATS=[
 ];
 const PH={soups:'ph-s',salads:'ph-sa',veg:'ph-v',fish:'ph-f',meat:'ph-m',chick:'ph-c',hol:'ph-h',des:'ph-d',span:'ph-sp',iraq:'ph-iraq',kurd:'ph-kurd',ashk:'ph-ashk',yem:'ph-yem',pers:'ph-pers',buk:'ph-buk',tun:'ph-tun',isr:'ph-isr',turk:'ph-turk'};
 
-/* ══════════════════════════════════════
-   IMAGES (Wikipedia commons, free)
-══════════════════════════════════════ */
-const IMG={
-  harira:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Harira.JPG/800px-Harira.JPG',
-  matbucha:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Matbukha.jpg/800px-Matbukha.jpg',
-  zaalouk:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Zaalouk_1.jpg/800px-Zaalouk_1.jpg',
-  chickenlemon:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Moroccan_chicken.jpg/800px-Moroccan_chicken.jpg',
-  kefta:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Kefta_Mkaoura.jpg/800px-Kefta_Mkaoura.jpg',
-  couscous:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Moroccan_Couscous.jpg/800px-Moroccan_Couscous.jpg',
-  tea:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Moroccan_tea.jpg/800px-Moroccan_tea.jpg',
-  fish:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Moroccan_fish_tagine.jpg/800px-Moroccan_fish_tagine.jpg',
-  tagine:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Moroccan-chicken-tagine.jpg/800px-Moroccan-chicken-tagine.jpg',
-  // Extended image set
-  lentilsoup:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Red_lentil_soup.jpg/800px-Red_lentil_soup.jpg',
-  chickensaffron:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chicken_Tagine_with_Preserved_Lemon_and_Olives.jpg/800px-Chicken_Tagine_with_Preserved_Lemon_and_Olives.jpg',
-  bamia:'https://upload.wikimedia.org/wikipedia/commons/8/87/Bamia.jpg',
-  sfenj:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Sfenj.jpg/800px-Sfenj.jpg',
-  meatballs:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Kefta_Mkaoura.jpg/800px-Kefta_Mkaoura.jpg',
-  roastedpeppers:'https://upload.wikimedia.org/wikipedia/commons/a/a3/Peppers_roasted.jpg',
-  sardines:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sardines.jpg/800px-Sardines.jpg',
-  couscousfull:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Moroccan_Couscous.jpg/800px-Moroccan_Couscous.jpg',
-  chickenpot:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Moroccan_chicken.jpg/800px-Moroccan_chicken.jpg',
-  dafina:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Moroccan_stew.jpg/800px-Moroccan_stew.jpg',
-  // קהילות הקטמון — עיראק
-  kubba:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Kubbeh.jpg/800px-Kubbeh.jpg',
-  bamyairaq:'https://upload.wikimedia.org/wikipedia/commons/8/87/Bamia.jpg',
-  dolma:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Dolma_%28Turkish%29.jpg/800px-Dolma_%28Turkish%29.jpg',
-  tebireh:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Kefta_Mkaoura.jpg/800px-Kefta_Mkaoura.jpg',
-  // כורדיסטן
-  kubbakadra:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Kubbeh.jpg/800px-Kubbeh.jpg',
-  pita:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Pita_and_hummus.jpg/800px-Pita_and_hummus.jpg',
-  // אשכנז
-  cholent:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Cholent_at_a_Jewish_holiday.jpg/800px-Cholent_at_a_Jewish_holiday.jpg',
-  gefiltefish:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Gefilte_fish.jpg/800px-Gefilte_fish.jpg',
-  borscht:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Borscht_served.jpg/800px-Borscht_served.jpg',
-  // תימן
-  jachnun:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Jachnun.jpg/800px-Jachnun.jpg',
-  lahoh:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lahoh.jpg/800px-Lahoh.jpg',
-  saltah:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Saltah.jpg/800px-Saltah.jpg',
-  // פרס
-  ghormesabzi:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Ghormeh_sabzi.jpg/800px-Ghormeh_sabzi.jpg',
-  kokosabzi:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kuku_sabzi.jpg/800px-Kuku_sabzi.jpg',
-  // בוכרה
-  plov:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Plov_of_Uzbekistan.jpg/800px-Plov_of_Uzbekistan.jpg',
-  samsa:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Samsa.jpg/800px-Samsa.jpg',
-  // טוניסאים
-  brik:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Brik_%C3%A0_l%27oeuf.jpg/800px-Brik_%C3%A0_l%27oeuf.jpg',
-  harissatun:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Harissa_for_sale.jpg/800px-Harissa_for_sale.jpg',
-  couscoustun:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Moroccan_Couscous.jpg/800px-Moroccan_Couscous.jpg',
-  tunfish:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Moroccan_fish_tagine.jpg/800px-Moroccan_fish_tagine.jpg',
-  // ישראלי
-  falafel:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Falafel_balls.jpg/800px-Falafel_balls.jpg',
-  hummus:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Hummus-Lemon.jpg/800px-Hummus-Lemon.jpg',
-  shakshuka:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Shakshouka.jpg/800px-Shakshouka.jpg',
-  shawarma:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Shwarma_israel.jpg/800px-Shwarma_israel.jpg',
-  mujaddara:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mujaddara.jpg/800px-Mujaddara.jpg',
-  bourekas:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Israeli_Bourekas.jpg/800px-Israeli_Bourekas.jpg',
-  // טורקיה
-  kadaif:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Kadayif.jpg/800px-Kadayif.jpg',
-  baklava:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Baklava_-_Turkish_special%2C_80x80.jpg/800px-Baklava_-_Turkish_special%2C_80x80.jpg',
-  dolma:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Dolmades_Plate.jpg/800px-Dolmades_Plate.jpg',
+/* ══════════════════════════════════════════════════════════
+   GALLERY — multiple images per food type
+   Source: Wikimedia Commons (CC-BY-SA)
+══════════════════════════════════════════════════════════ */
+const G = {
+  /* ── מרקים ── */
+  harira:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Harira.JPG/800px-Harira.JPG',
+             'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Harira.jpg/800px-Harira.jpg'],
+  lentil:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Red_lentil_soup.jpg/800px-Red_lentil_soup.jpg',
+             'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Lentil_soup.jpg/800px-Lentil_soup.jpg'],
+  chicken_soup:['https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Chicken_soup_with_noodles.jpg/800px-Chicken_soup_with_noodles.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/ChickenNoodleSoup.jpg/800px-ChickenNoodleSoup.jpg'],
+  bean_soup:['https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Bean_soup.jpg/800px-Bean_soup.jpg',
+             'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Bean-soup-bowl-jamie.jpg/800px-Bean-soup-bowl-jamie.jpg'],
+  veg_soup: ['https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Vegetable_soup.jpg/800px-Vegetable_soup.jpg',
+             'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Vegetable-Soup.jpg/800px-Vegetable-Soup.jpg'],
+  tomato_soup:['https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Tomato_soup.jpg/800px-Tomato_soup.jpg',
+               'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tomato-basil-cream-soup.jpg/800px-Tomato-basil-cream-soup.jpg'],
+  onion_soup:['https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Classic-french-onion-soup.jpg/800px-Classic-french-onion-soup.jpg'],
+  mushroom_soup:['https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Mushroom_soup.jpg/800px-Mushroom_soup.jpg'],
+  /* ── סלטים ── */
+  matbucha:['https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Matbukha.jpg/800px-Matbukha.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Peppers_roasted.jpg/800px-Peppers_roasted.jpg'],
+  zaalouk: ['https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Zaalouk_1.jpg/800px-Zaalouk_1.jpg'],
+  tabbouleh:['https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tabbouleh_Recipe.jpg/800px-Tabbouleh_Recipe.jpg',
+             'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tabbouleh.jpg/800px-Tabbouleh.jpg'],
+  hummus:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Hummus-Lemon.jpg/800px-Hummus-Lemon.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Hummus_from_The_Nile_Restaurant.jpg/800px-Hummus_from_The_Nile_Restaurant.jpg'],
+  eggplant_salad:['https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roasted_eggplant_salad.jpg/800px-Roasted_eggplant_salad.jpg'],
+  beet:    ['https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Beet_salad.jpg/800px-Beet_salad.jpg'],
+  carrot_salad:['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Carrot_salad.jpg/800px-Carrot_salad.jpg'],
+  tahini:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Tahini.jpg/800px-Tahini.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Sesame_paste.jpg/800px-Sesame_paste.jpg'],
+  salad_israeli:['https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Israeli_salad.jpg/800px-Israeli_salad.jpg',
+                 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Israeli_Salad.jpg/800px-Israeli_Salad.jpg'],
+  /* ── ירקות ── */
+  tagine:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Moroccan-chicken-tagine.jpg/800px-Moroccan-chicken-tagine.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tajine_de_poulet.jpg/800px-Tajine_de_poulet.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Tajine_de_legumes.jpg/800px-Tajine_de_legumes.jpg'],
+  stuffed_veg:['https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Dolmades_Plate.jpg/800px-Dolmades_Plate.jpg',
+               'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Warak_dawali.jpg/800px-Warak_dawali.jpg'],
+  spinach: ['https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Sauteed_spinach.jpg/800px-Sauteed_spinach.jpg'],
+  potato:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Potato-Chicken-Curry.jpg/800px-Potato-Chicken-Curry.jpg'],
+  zucchini:['https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Courgette_dish.jpg/800px-Courgette_dish.jpg'],
+  cauliflower:['https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Roasted_cauliflower.jpg/800px-Roasted_cauliflower.jpg'],
+  pumpkin: ['https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Pumpkin-Butternut.jpg/800px-Pumpkin-Butternut.jpg'],
+  bamia:   ['https://upload.wikimedia.org/wikipedia/commons/8/87/Bamia.jpg'],
+  shakshuka:['https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Shakshouka.jpg/800px-Shakshouka.jpg',
+             'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Shakshuka-ovejanegra.jpg/800px-Shakshuka-ovejanegra.jpg'],
+  beans_stew:['https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Fasolia_bil_lahmeh.jpg/800px-Fasolia_bil_lahmeh.jpg'],
+  /* ── דגים ── */
+  fish_tagine:['https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Moroccan_fish_tagine.jpg/800px-Moroccan_fish_tagine.jpg'],
+  fish_grilled:['https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Grilled_fish_01.jpg/800px-Grilled_fish_01.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Fried_fish.jpg/800px-Fried_fish.jpg'],
+  gefilte: ['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Gefilte_fish_on_plate_with_carrot.jpg/800px-Gefilte_fish_on_plate_with_carrot.jpg'],
+  sardines:['https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Sardine-Plate.jpg/800px-Sardine-Plate.jpg'],
+  fish_balls:['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Gefilte_fish_on_plate_with_carrot.jpg/800px-Gefilte_fish_on_plate_with_carrot.jpg'],
+  brik:    ['https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Brik_%C3%A0_l%27oeuf.jpg/800px-Brik_%C3%A0_l%27oeuf.jpg'],
+  /* ── עוף ── */
+  chicken_lemon:['https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Moroccan_chicken.jpg/800px-Moroccan_chicken.jpg',
+                 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chicken_Tagine_with_Preserved_Lemon_and_Olives.jpg/800px-Chicken_Tagine_with_Preserved_Lemon_and_Olives.jpg'],
+  chicken_roast:['https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Roast_chicken.jpg/800px-Roast_chicken.jpg'],
+  chicken_stew:['https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Potato-Chicken-Curry.jpg/800px-Potato-Chicken-Curry.jpg'],
+  schnitzel:['https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Wiener_Schnitzel02.jpg/800px-Wiener_Schnitzel02.jpg',
+             'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Schnitzel.jpg/800px-Schnitzel.jpg'],
+  shawarma:['https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Shwarma_israel.jpg/800px-Shwarma_israel.jpg'],
+  /* ── בשר ── */
+  kefta:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Kefta_Mkaoura.jpg/800px-Kefta_Mkaoura.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Kofta_kebabs.jpg/800px-Kofta_kebabs.jpg'],
+  kubba:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Kubbeh_soup.jpg/800px-Kubbeh_soup.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Kibbeh.jpg/800px-Kibbeh.jpg'],
+  dafina:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Moroccan_Dafina_Dish.jpg/800px-Moroccan_Dafina_Dish.jpg'],
+  cholent: ['https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Cholent.jpg/800px-Cholent.jpg'],
+  meat_stew:['https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Irish_stew.jpg/800px-Irish_stew.jpg',
+             'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Stew.jpg/800px-Stew.jpg'],
+  kebab:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Kofta_kebabs.jpg/800px-Kofta_kebabs.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Shish_taouk.jpg/800px-Shish_taouk.jpg'],
+  stuffed_leaves:['https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Dolmades_Plate.jpg/800px-Dolmades_Plate.jpg'],
+  pastilla:['https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pastilla_au_poulet.jpg/800px-Pastilla_au_poulet.jpg'],
+  liver:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Chopped_liver.jpg/800px-Chopped_liver.jpg'],
+  /* ── אורז ── */
+  couscous:['https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Moroccan_Couscous.jpg/800px-Moroccan_Couscous.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Couscous_with_veggies.jpg/800px-Couscous_with_veggies.jpg'],
+  plov:    ['https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Plov_of_Uzbekistan.jpg/800px-Plov_of_Uzbekistan.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Osh_plov.jpg/800px-Osh_plov.jpg'],
+  rice:    ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/White_rice_p1160004.jpg/800px-White_rice_p1160004.jpg'],
+  mujaddara:['https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mujaddara.jpg/800px-Mujaddara.jpg'],
+  /* ── מאפים ולחם ── */
+  bourekas:['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Israeli_Bourekas.jpg/800px-Israeli_Bourekas.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Burekas.jpg/800px-Burekas.jpg'],
+  sfenj:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Sfenj.jpg/800px-Sfenj.jpg'],
+  jachnun: ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Jachnun.jpg/800px-Jachnun.jpg'],
+  lahoh:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Lahoh.jpg/800px-Lahoh.jpg'],
+  pita:    ['https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Kuboos.jpg/800px-Kuboos.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Pita_bread_2.jpg/800px-Pita_bread_2.jpg'],
+  bread:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Fresh_made_bread_05.jpg/800px-Fresh_made_bread_05.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Sesame-seed-bun.jpg/800px-Sesame-seed-bun.jpg'],
+  samsa:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Samsa.jpg/800px-Samsa.jpg'],
+  falafel: ['https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Falafel_balls.jpg/800px-Falafel_balls.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Falafel_Sandwich.jpg/800px-Falafel_Sandwich.jpg'],
+  /* ── קינוחים ── */
+  baklava: ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Baklava_-_Turkish_special%2C_80x80.jpg/800px-Baklava_-_Turkish_special%2C_80x80.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Baklava.jpg/800px-Baklava.jpg'],
+  kadaif:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Kadayif.jpg/800px-Kadayif.jpg'],
+  halva:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Halvah.jpg/800px-Halvah.jpg'],
+  cookies: ['https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Chocolate_chip_cookies_homemade.jpg/800px-Chocolate_chip_cookies_homemade.jpg'],
+  almond_cookie:['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Almond_cookies.jpg/800px-Almond_cookies.jpg'],
+  rugelach:['https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Rugelach.jpg/800px-Rugelach.jpg'],
+  cake:    ['https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Pound_layer_cake.jpg/800px-Pound_layer_cake.jpg'],
+  apple_cake:['https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Apple_Pie.jpg/800px-Apple_Pie.jpg'],
+  rice_pudding:['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Rice_pudding.jpg/800px-Rice_pudding.jpg'],
+  jam:     ['https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Strawberry_jam_and_croissant.jpg/800px-Strawberry_jam_and_croissant.jpg'],
+  donut:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sufganiyot.jpg/800px-Sufganiyot.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Blini.jpg/800px-Blini.jpg'],
+  dates:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Date_Fruit.jpg/800px-Date_Fruit.jpg'],
+  tea:     ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Moroccan_tea.jpg/800px-Moroccan_tea.jpg'],
+  /* ── גבינה ויוגורט ── */
+  yogurt:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Labneh.jpg/800px-Labneh.jpg'],
+  cheese:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_Gotland_cheese.jpg/800px-Above_Gotland_cheese.jpg'],
+  pickles: ['https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pickles_and_vegetables.jpg/800px-Pickles_and_vegetables.jpg'],
+  /* ── מטבחים עדתיים ── */
+  mansaf:  ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Mansaf.jpg/800px-Mansaf.jpg'],
+  ghormeh: ['https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kuku_sabzi.jpg/800px-Kuku_sabzi.jpg'],
+  dolma:   ['https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Dolmades_Plate.jpg/800px-Dolmades_Plate.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Warak_dawali.jpg/800px-Warak_dawali.jpg'],
+  borscht: ['https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Borscht.jpg/800px-Borscht.jpg'],
+  tzimmes: ['https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Tzimmes.jpg/800px-Tzimmes.jpg'],
+  harissa: ['https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Harissa_for_sale.jpg/800px-Harissa_for_sale.jpg'],
 };
 
-/* ══════════════════════════════════════
-   ALL RECIPES
-══════════════════════════════════════ */
+const IMG = {
+  bamia: G.bamia[0],
+  borscht: G.borscht[0],
+  bourekas: G.bourekas[0],
+  brik: G.brik[0],
+  chickenlemon: G.chicken_lemon[0],
+  chickenpot: G.chicken_stew[0],
+  chickensaffron: G.chicken_lemon[1],
+  cholent: G.cholent[0],
+  couscous: G.couscous[0],
+  couscoustun: G.couscous[0],
+  dafina: G.dafina[0],
+  dolma: G.dolma[0],
+  falafel: G.falafel[0],
+  fish: G.fish_tagine[0],
+  gefiltefish: G.gefilte[0],
+  ghormesabzi: G.ghormeh[0],
+  harira: G.harira[0],
+  harissatun: G.harissa[0],
+  hummus: G.hummus[0],
+  jachnun: G.jachnun[0],
+  kefta: G.kefta[0],
+  kokosabzi: G.ghormeh[0],
+  kubba: G.kubba[0],
+  kubbakadra: G.kubba[0],
+  lahoh: G.lahoh[0],
+  lentilsoup: G.lentil[0],
+  matbucha: G.matbucha[0],
+  meatballs: G.kefta[0],
+  mujaddara: G.mujaddara[0],
+  pita: G.pita[0],
+  plov: G.plov[0],
+  roastedpeppers: G.matbucha[1],
+  saffronchicken: G.chicken_lemon[0],
+  saltah: G.chicken_soup[0],
+  samsa: G.samsa[0],
+  shakshuka: G.shakshuka[0],
+  shawarma: G.shawarma[0],
+  tagine: G.tagine[0],
+  tea: G.tea[0],
+  tebireh: G.kebab[0],
+  tunfish: G.fish_tagine[0],
+  zaalouk: G.zaalouk[0],
+};
+
+/* Category fallback gallery */
+const G_CAT = {
+  soups:  G.harira, salads: G.matbucha, veg: G.tagine,
+  fish:   G.fish_tagine, meat: G.kefta, chick: G.chicken_lemon,
+  hol:    G.dafina, des: G.sfenj, span: G.tagine,
+  iraq:   G.kubba, kurd: G.kubba, ashk: G.cholent,
+  yem:    G.jachnun, pers: G.ghormeh, buk: G.plov,
+  tun:    G.brik, isr: G.falafel, turk: G.bourekas,
+};
+
+/* Keyword → gallery key */
+const KW = [
+  [['חריר','הרירה'],        'harira'],
+  [['עדש'],                 'lentil'],
+  [['שעועית','מרק'],        'bean_soup'],
+  [['עוף','מרק','תרנגול'],  'chicken_soup'],
+  [['עגבני','מרק'],         'tomato_soup'],
+  [['בצל','מרק'],           'onion_soup'],
+  [['פטריות','מרק'],        'mushroom_soup'],
+  [['ירק','מרק'],           'veg_soup'],
+  [['שאלגם','שורבה','מרק'], 'veg_soup'],
+  [['קוסקוס'],              'couscous'],
+  [['מטבוחה'],              'matbucha'],
+  [['זאלוק','זעלוק'],       'zaalouk'],
+  [['תבולה','טבולה'],       'tabbouleh'],
+  [['חומוס'],               'hummus'],
+  [['חציל','סלט'],          'eggplant_salad'],
+  [['סלק'],                 'beet'],
+  [['גזר','סלט'],           'carrot_salad'],
+  [['טחינה'],               'tahini'],
+  [['סלט ישראלי'],          'salad_israeli'],
+  [['שקשוקה','שחשוכה','מחמרה'],'shakshuka'],
+  [['ביצ','כפתאג','עג׳ה'],  'shakshuka'],
+  [['יוגורט','ג׳אג׳יק','לבנה'],'yogurt'],
+  [['גבינ'],                'cheese'],
+  [['חמוצ','כבוש','פגל','תורשי','מרזגן'],'pickles'],
+  [['עגבניות','ירקות'],     'veg_soup'],
+  [['תרד'],                 'spinach'],
+  [['תפוח אדמה'],           'potato'],
+  [['קישוא'],               'zucchini'],
+  [['כרובית'],              'cauliflower'],
+  [['דלעת','ביניות'],       'pumpkin'],
+  [['בסטורמה','בסטרמה'],    'liver'],
+  [['כבד'],                 'liver'],
+  [['במיה','בביה'],         'bamia'],
+  [['שעועית','תבשיל'],      'beans_stew'],
+  [['חצי','חציל','מושרה','ממולא'],'eggplant_salad'],
+  [['ברייק','בריק'],        'brik'],
+  [['חריסה'],               'harissa'],
+  [['פלאפל'],               'falafel'],
+  [['שוורמה'],              'shawarma'],
+  [['שניצל'],               'schnitzel'],
+  [['עוף','לימון'],         'chicken_lemon'],
+  [['עוף','אפוי','צלוי'],   'chicken_roast'],
+  [['עוף','תבשיל','קדרה'],  'chicken_stew'],
+  [['עוף'],                 'chicken_stew'],
+  [['מג׳דרה'],              'mujaddara'],
+  [['פלאו','פלוב'],         'plov'],
+  [['אורז'],                'rice'],
+  [['קובה','קובא','כפתה'],  'kubba'],
+  [['דולמה','סרמה','עלי גפן'],'dolma'],
+  [['בשר','קציצ','כדורי'],  'kefta'],
+  [['כבב','שישלק'],         'kebab'],
+  [['ממולא','פלפל','קישוא'], 'stuffed_veg'],
+  [['כרוב','ממולא'],        'stuffed_leaves'],
+  [['בשר','תבשיל','מסגוף'], 'meat_stew'],
+  [['מנסף'],                'mansaf'],
+  [['גורמה','סבזי','ירוקות','עשבים'],'ghormeh'],
+  [['דפינה','חמין','שינה'], 'dafina'],
+  [['צ׳ולנט','קולנט'],      'cholent'],
+  [['פסטי','פסטל','בורקס'], 'bourekas'],
+  [['סיגאר','ספינג'],       'bourekas'],
+  [['סמבוסק','סמסה'],       'samsa'],
+  [['פיתה'],                'pita'],
+  [['ג׳חנון'],              'jachnun'],
+  [['לחמין','לחוח'],        'lahoh'],
+  [['ספינג','לחמנ','לחם','נאן'],'bread'],
+  [['בקלאוה'],              'baklava'],
+  [['קדאיף','קאדאיף'],      'kadaif'],
+  [['חלבה','חלווה','הלים'], 'halva'],
+  [['מחמורה','גרבאח','שקדים','אגוז','עוגיות'],'almond_cookie'],
+  [['רוגלך'],               'rugelach'],
+  [['עוגיות'],              'cookies'],
+  [['עוגת תפוח'],           'apple_cake'],
+  [['עוגה'],                'cake'],
+  [['פודינג','שיר-ברנג','מחלביה'],'rice_pudding'],
+  [['ריבת','מרמלאדה'],      'jam'],
+  [['ספינג','זלאביה','לוקמה','סופגנ','דונאט'],'donut'],
+  [['תמרים','טמר','כוקחה'], 'dates'],
+  [['תה'],                  'tea'],
+  [['פסטילה'],              'pastilla'],
+  [['בורשט'],               'borscht'],
+  [['צימעס'],               'tzimmes'],
+  [['סרדין'],               'sardines'],
+  [['גפילטע'],              'gefilte'],
+  [['דג','גריל'],           'fish_grilled'],
+  [['דג','מרוקאי'],         'fish_tagine'],
+  [['דג'],                  'fish_tagine'],
+];
+
+function getImages(r) {
+  /* Returns array of image URLs (1–4) for a recipe */
+  const key = r.img ? null :
+    (()=>{
+      const t = r.title + ' ' + (r.desc||'');
+      for(const [kws,k] of KW) {
+        if(kws.some(w=>t.includes(w))) return k;
+      }
+      return null;
+    })();
+  const imgs = key ? G[key] : (r.img ? [r.img] : null);
+  return (imgs && imgs.length) ? imgs : (G_CAT[r.cat] || G.bread);
+}
+
+
 const R=[
 /* ── SOUPS ── */
 {id:'s1',cat:'soups',badge:'סמלי',title:'מרק חרירה קלאסי',
@@ -15876,8 +16132,13 @@ const R=[
 
 
 ];
+/* ══════════════════════════════════════
+   CATEGORIES
+══════════════════════════════════════ */
 
-
+/* ══════════════════════════════════════
+   ALL RECIPES
+══════════════════════════════════════ */
 /* ── DIFFICULTY FILTER ── */
 let ACT_DIFF = 'all';
 let SHOW_FAVS = false;
@@ -16070,6 +16331,75 @@ function clearSearch(){document.getElementById('srch').value='';doSearch('');}
 ══════════════════════════════════════ */
 
 
+
+/* ─── Card gallery auto-rotate ─── */
+const _gTimers = {};
+function initCardGallery(el, id, imgs) {
+  if(imgs.length <= 1) return;
+  let cur = 0;
+  const slides = el.querySelectorAll('.c-gallery-slide');
+  const dots   = el.querySelectorAll('.c-gallery-dot');
+  function go(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('on');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('on');
+  }
+  dots.forEach((d,i) => d.addEventListener('click', e=>{e.stopPropagation();clearInterval(_gTimers[id]);go(i);_gTimers[id]=setInterval(()=>go(cur+1),3500);}));
+  _gTimers[id] = setInterval(()=>go(cur+1), 3500);
+}
+
+/* ─── Modal gallery ─── */
+let _mGalCur = 0, _mGalImgs = [];
+function buildModalGallery(hz, imgs) {
+  _mGalImgs = imgs; _mGalCur = 0;
+  hz.querySelectorAll('.m-hero-gallery,.m-hero-ph,.m-gal-prev,.m-gal-next,.m-gal-dots,.m-gal-count').forEach(e=>e.remove());
+  const wrap = document.createElement('div'); wrap.className='m-hero-gallery';
+  imgs.forEach((src,i) => {
+    const s = document.createElement('div');
+    s.className = 'm-gallery-slide' + (i===0?' active':'');
+    const img = document.createElement('img');
+    img.src = src; img.alt=''; img.loading = i===0?'eager':'lazy';
+    img.onerror = ()=>{ s.style.display='none'; };
+    s.appendChild(img); wrap.appendChild(s);
+  });
+  if(imgs.length > 1) {
+    // arrows
+    const prev = document.createElement('button'); prev.className='m-gal-prev'; prev.innerHTML='&#8249;'; prev.setAttribute('aria-label','תמונה קודמת');
+    const next = document.createElement('button'); next.className='m-gal-next'; next.innerHTML='&#8250;'; next.setAttribute('aria-label','תמונה הבאה');
+    prev.onclick = e => { e.stopPropagation(); mGalGo(_mGalCur-1); };
+    next.onclick = e => { e.stopPropagation(); mGalGo(_mGalCur+1); };
+    wrap.appendChild(prev); wrap.appendChild(next);
+    // dots
+    const dotsWrap = document.createElement('div'); dotsWrap.className='m-gal-dots';
+    imgs.forEach((_,i) => {
+      const d = document.createElement('button');
+      d.className='m-gal-dot'+(i===0?' on':'');
+      d.onclick = e => { e.stopPropagation(); mGalGo(i); };
+      dotsWrap.appendChild(d);
+    });
+    wrap.appendChild(dotsWrap);
+    // count badge
+    const cnt = document.createElement('div'); cnt.className='m-gal-count'; cnt.id='m-gal-count';
+    cnt.textContent = '1 / ' + imgs.length;
+    wrap.appendChild(cnt);
+  }
+  hz.insertBefore(wrap, hz.firstChild);
+}
+function mGalGo(n) {
+  const slides = document.querySelectorAll('.m-gallery-slide');
+  const dots   = document.querySelectorAll('.m-gal-dot');
+  const cnt    = document.getElementById('m-gal-count');
+  if(!slides.length) return;
+  slides[_mGalCur].classList.remove('active');
+  if(dots[_mGalCur]) dots[_mGalCur].classList.remove('on');
+  _mGalCur = (n + slides.length) % slides.length;
+  slides[_mGalCur].classList.add('active');
+  if(dots[_mGalCur]) dots[_mGalCur].classList.add('on');
+  if(cnt) cnt.textContent = (_mGalCur+1) + ' / ' + _mGalImgs.length;
+}
+
 function renderGrid(){
   const list=filtered();
   const g=document.getElementById('grid');
@@ -16083,18 +16413,17 @@ function renderGrid(){
   }
   g.innerHTML=list.map(r=>{
     const ph=PH[r.cat]||'';
-    const imgH=r.img
-      ?`<img src="${r.img}" alt="${r.title}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-      :'';
-    const phD=r.img?'style="display:none"':'';
+    const imgs=getImages(r);
+    const slides=imgs.map((src,i)=>`<div class="c-gallery-slide${i===0?' active':''}"><img src="${src}" alt="${r.title}" loading="${i===0?'eager':'lazy'}" onerror="this.parentElement.style.display='none'"></div>`).join('');
+    const dots=imgs.length>1?`<div class="c-gallery-dots">${imgs.map((_,i)=>`<button class="c-gallery-dot${i===0?' on':''}" aria-label="תמונה ${i+1}"></button>`).join('')}</div>`:'';
     return`<article class="card" role="listitem" tabindex="0"
-      onclick="openM('${r.id}')" onkeydown="if(event.key==='Enter')openM('${r.id}')">
+      onclick="openM('${r.id}')" onkeydown="if(event.key==='Enter')openM('${r.id}')" data-id="${r.id}">
       <div class="c-img">
-        ${imgH}
+        <div class="c-gallery">${slides}${dots}</div>
         <button class="fav-btn${FAV.has(r.id)?' fav-active':''}" onclick="event.stopPropagation();toggleFav('${r.id}',this)" aria-label="שמור מועדף">
           <span id="fi-${r.id}">${FAV.has(r.id)?'♥':'♡'}</span>
         </button>
-        <div class="c-ph ${ph}" ${phD}></div>
+        <div class="c-ph ${ph}" style="display:none"></div>
         ${r.badge?`<span class="c-badge">${r.badge}</span>`:''}
         <div class="c-arch"><svg viewBox="0 0 400 22" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,22 C100,0 300,0 400,22 Z" fill="var(--parch)"/></svg></div>
       </div>
@@ -16108,6 +16437,13 @@ function renderGrid(){
       </div>
     </article>`;
   }).join('');
+  // init card galleries
+  requestAnimationFrame(()=>{
+    list.forEach(r=>{
+      const el=document.querySelector(`[data-id="${r.id}"] .c-gallery`);
+      if(el) initCardGallery(el, r.id, getImages(r));
+    });
+  });
 }
 
 /* ══════════════════════════════════════
@@ -16126,12 +16462,7 @@ function openM(id){
   if(siEl) siEl.textContent = '';
   const hz=document.getElementById('m-hero');
   hz.querySelectorAll('img,.m-hero-ph').forEach(e=>e.remove());
-  if(r.img){
-    const img=document.createElement('img');
-    img.src=r.img;img.alt=r.title;
-    img.onerror=()=>{img.remove();addPh()};
-    hz.insertBefore(img,hz.firstChild);
-  } else addPh();
+  buildModalGallery(hz, getImages(r));
   function addPh(){const d=document.createElement('div');d.className='m-hero-ph '+(PH[r.cat]||'');hz.insertBefore(d,hz.firstChild);}
   const b=document.getElementById('m-badge');
   if(r.badge){b.textContent=r.badge;b.style.display='';}else b.style.display='none';
