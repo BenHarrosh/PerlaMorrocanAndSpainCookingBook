@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ספר הבישול של פרלה בן ארוש ז״ל – מטבח מרוקאי וספרדי מסורתי. קזבלנקה, מרקש ומורשת ספרד.">
+<title>ספר הבישול של פרלה בן ארוש ז"ל | מרוקו · ספרד · ישראל</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════ */
+:root{
+  --clay:#b84223;--clay-d:#8c2e14;--clay-l:#d4603a;
+  --saffron:#c49a0c;--saffron-l:#e8bb2a;--saffron-d:#9a7808;
+  --indigo:#1e3a6e;--green:#3d6e3a;
+  --parch:#faf3e0;--parch-2:#f3e8c8;--parch-3:#ece0b8;--cream:#fffdf6;
+  --wood-d:#1c0f08;--wood-m:#3d1a0a;--wood-l:#6b3520;
+  --ink:#1a0c06;--ink-m:#4a2a14;--ink-l:#8a6044;
+  --bdr:rgba(155,95,45,.2);
+  --sh-sm:0 2px 10px rgba(28,15,8,.12);
+  --sh-md:0 8px 32px rgba(28,15,8,.2);
+  --sh-lg:0 24px 64px rgba(28,15,8,.32);
+  --tr:.25s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:var(--parch);color:var(--ink);direction:rtl;text-align:right;line-height:1.65;overflow-x:hidden;min-height:100vh}
+img{display:block;max-width:100%}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+a{color:inherit;text-decoration:none}
+
+/* ═══ HEADER ═══ */
+.site-header{
+  background:linear-gradient(135deg,var(--wood-d) 0%,var(--wood-m) 55%,#5c2010 100%);
+  border-bottom:3px solid var(--saffron);
+  position:sticky;top:0;z-index:400;
+  box-shadow:0 4px 24px rgba(0,0,0,.42);
+}
+.hdr{max-width:1520px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 2rem;flex-wrap:wrap}
+.hdr-brand-name{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.15rem,2.5vw,1.7rem);font-weight:900;color:var(--saffron-l);text-shadow:0 2px 10px rgba(0,0,0,.4);line-height:1.2}
+.hdr-brand-sub{font-size:.72rem;color:rgba(228,188,100,.65);font-weight:300;letter-spacing:.1em;margin-top:.1rem}
+.hdr-orn{color:rgba(196,154,12,.38);font-size:1.3rem;letter-spacing:.35em;flex-shrink:0}
+.hdr-search{flex:1;max-width:380px;min-width:170px;position:relative}
+.hdr-search-ic{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);color:rgba(228,188,100,.45);pointer-events:none;width:15px;height:15px}
+#srch{width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(196,154,12,.28);border-radius:28px;color:#f0dcb0;padding:.58rem 2.4rem .58rem .9rem;font-family:'Heebo',sans-serif;font-size:.87rem;outline:none;direction:rtl;transition:var(--tr)}
+#srch::placeholder{color:rgba(228,188,100,.35)}
+#srch:focus{background:rgba(255,255,255,.13);border-color:var(--saffron-l);box-shadow:0 0 0 3px rgba(196,154,12,.16)}
+#srch-clr{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:rgba(228,188,100,.55);font-size:1.1rem;display:none;line-height:1;padding:0 .15rem}
+#srch-clr.show{display:block}
+@media(max-width:650px){.hdr{padding:.6rem 1rem}.hdr-orn{display:none}}
+
+/* ═══ CAT NAV ═══ */
+.cat-nav{background:var(--wood-m);border-bottom:2.5px solid rgba(196,154,12,.32);overflow-x:auto;scrollbar-width:none;position:sticky;top:62px;z-index:350}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-inner{max-width:1520px;margin:0 auto;display:flex;padding:0 1.5rem}
+.cat-btn{color:rgba(196,160,90,.6);font-family:'Frank Ruhl Libre',serif;font-size:.88rem;font-weight:500;padding:.8rem 1rem;border-bottom:3px solid transparent;margin-bottom:-2.5px;white-space:nowrap;transition:var(--tr);letter-spacing:.02em}
+.cat-btn:hover{color:var(--saffron-l);background:rgba(255,255,255,.03)}
+.cat-btn.active{color:var(--saffron-l);border-bottom-color:var(--saffron-l);background:rgba(196,154,12,.07)}
+@media(max-width:640px){.cat-nav{top:54px}.cat-btn{font-size:.79rem;padding:.72rem .82rem}}
+
+/* ═══ HERO ═══ */
+.hero{background:linear-gradient(155deg,#120903 0%,#2c1208 42%,#501c08 100%);padding:4.5rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='rgba(196,154,12,.07)' stroke-width='1'%3E%3Cpolygon points='60,6 114,33 114,87 60,114 6,87 6,33'/%3E%3Cpolygon points='60,22 98,41 98,79 60,98 22,79 22,41'/%3E%3Ccircle cx='60' cy='60' r='15'/%3E%3Cline x1='60' y1='6' x2='60' y2='22'/%3E%3Cline x1='60' y1='98' x2='60' y2='114'/%3E%3Cline x1='6' y1='33' x2='22' y2='41'/%3E%3Cline x1='98' y1='79' x2='114' y2='87'/%3E%3Cline x1='114' y1='33' x2='98' y2='41'/%3E%3Cline x1='22' y1='79' x2='6' y2='87'/%3E%3C/g%3E%3C/svg%3E") repeat;pointer-events:none}
+.hero::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:350px;background:radial-gradient(ellipse,rgba(196,154,12,.1) 0%,transparent 68%);pointer-events:none}
+.hero-c{position:relative;z-index:1;max-width:820px;margin:0 auto;text-align:center}
+.hero-orn{color:var(--saffron);font-size:1.6rem;letter-spacing:.5em;margin-bottom:1.3rem;opacity:.65}
+.hero-h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2.2rem,6.5vw,4.2rem);font-weight:900;color:#fff;line-height:1.12;margin-bottom:.5rem;text-shadow:0 4px 24px rgba(0,0,0,.55)}
+.hero-h1 em{color:var(--saffron-l);font-style:normal}
+.hero-h2{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1rem,2.2vw,1.25rem);color:rgba(228,188,100,.7);font-weight:300;letter-spacing:.09em;margin-bottom:2.2rem}
+.hero-story{color:rgba(218,188,148,.8);font-size:clamp(.86rem,1.8vw,1.02rem);line-height:2;font-weight:300;max-width:680px;margin:0 auto 2.8rem}
+.hero-pills{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.hero-pill{background:rgba(196,154,12,.13);border:1.5px solid rgba(196,154,12,.32);color:var(--saffron-l);border-radius:30px;padding:.38rem 1.1rem;font-size:.79rem;font-weight:500;letter-spacing:.03em}
+@media(max-width:600px){.hero{padding:3rem 1rem 3rem}}
+
+/* ═══ MAIN ═══ */
+.main{max-width:1520px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+.sec-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;padding-bottom:.8rem;border-bottom:2px solid var(--bdr)}
+.sec-h2{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.3rem,3vw,1.85rem);font-weight:700;color:var(--clay)}
+.sec-count{font-size:.79rem;color:var(--ink-l);background:var(--parch-2);border:1px solid var(--bdr);border-radius:20px;padding:.17rem .7rem}
+.no-res{grid-column:1/-1;text-align:center;padding:5rem 1rem;color:var(--ink-l);font-family:'Frank Ruhl Libre',serif;font-size:1.2rem}
+
+/* ═══ GRID ═══ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.6rem}
+@media(max-width:500px){.grid{grid-template-columns:1fr;gap:1.1rem}}
+
+/* ═══ CARD ═══ */
+.card{background:var(--cream);border-radius:16px;border:1.5px solid var(--bdr);box-shadow:var(--sh-sm);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform var(--tr),box-shadow var(--tr);animation:cIn .45s ease both}
+@keyframes cIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.card:nth-child(1){animation-delay:.04s}.card:nth-child(2){animation-delay:.09s}.card:nth-child(3){animation-delay:.14s}.card:nth-child(4){animation-delay:.19s}.card:nth-child(5){animation-delay:.23s}.card:nth-child(n+6){animation-delay:.28s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--sh-md)}
+.card:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
+.c-img{height:200px;overflow:hidden;position:relative;flex-shrink:0;background:var(--parch-2)}
+.c-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.card:hover .c-img img{transform:scale(1.08)}
+.c-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.c-badge{position:absolute;top:.65rem;right:.65rem;background:var(--clay);color:#fff;font-size:.67rem;font-weight:700;padding:.22rem .65rem;border-radius:12px;letter-spacing:.04em;text-shadow:0 1px 3px rgba(0,0,0,.3)}
+.c-arch{position:absolute;bottom:-1px;left:0;right:0;height:22px;overflow:hidden}
+.c-arch svg{width:100%;height:100%;display:block}
+.c-body{padding:1.1rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column}
+.c-title{font-family:'Frank Ruhl Libre',serif;font-size:1.12rem;font-weight:700;color:var(--ink);margin-bottom:.35rem;line-height:1.28}
+.c-desc{font-size:.82rem;color:var(--ink-m);line-height:1.65;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.c-foot{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;padding-top:.72rem;border-top:1px solid var(--bdr)}
+.c-time{font-size:.74rem;font-weight:600;color:var(--saffron-d);display:flex;align-items:center;gap:.28rem}
+.c-time svg{width:13px;height:13px;flex-shrink:0}
+.c-diff{font-size:.69rem;background:var(--parch-2);border:1px solid var(--bdr);border-radius:10px;padding:.14rem .55rem;color:var(--ink-l)}
+
+/* Category placeholder gradients */
+.ph-s{background:linear-gradient(140deg,#6b1e0a,#a83522)}
+.ph-sa{background:linear-gradient(140deg,#1e4a12,#3d7a20)}
+.ph-v{background:linear-gradient(140deg,#2a4e26,#5a8040)}
+.ph-f{background:linear-gradient(140deg,#0e2e4a,#1a5280)}
+.ph-m{background:linear-gradient(140deg,#3e0e06,#6b2510)}
+.ph-c{background:linear-gradient(140deg,#4a3208,#8b6010)}
+.ph-h{background:linear-gradient(140deg,#3a0e38,#7a2070)}
+.ph-d{background:linear-gradient(140deg,#3e2008,#7a4510)}
+.ph-sp{background:linear-gradient(140deg,#0e1e4a,#1a3a80)}
+
+/* ═══ MODAL OVERLAY ═══ */
+.ovl{display:none;position:fixed;inset:0;background:rgba(8,3,1,.87);z-index:600;overflow-y:auto;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);padding:1.5rem 1rem;align-items:flex-start;justify-content:center}
+.ovl.open{display:flex;animation:fIn .22s ease}
+@keyframes fIn{from{opacity:0}to{opacity:1}}
+
+/* ═══ MODAL BOX ═══ */
+.mbox{background:var(--parch);width:100%;max-width:940px;border-radius:22px;overflow:hidden;box-shadow:var(--sh-lg);animation:sUp .3s cubic-bezier(.22,.68,0,1.2)}
+@keyframes sUp{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+.m-hero{height:330px;position:relative;overflow:hidden;background:var(--wood-d)}
+.m-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.m-hero-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.m-hero-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,3,1,.88) 0%,rgba(8,3,1,.28) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem 2.2rem}
+.m-badge{background:var(--clay);color:#fff;font-size:.72rem;font-weight:700;padding:.25rem .78rem;border-radius:12px;letter-spacing:.04em;width:fit-content;margin-bottom:.65rem}
+.m-title{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:900;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.6);line-height:1.15}
+.m-subdesc{color:rgba(218,188,148,.82);font-size:.9rem;margin-top:.4rem;font-weight:300}
+.m-cls{position:absolute;top:1rem;left:1rem;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:var(--tr);z-index:5}
+.m-cls:hover{background:var(--clay);transform:scale(1.1)}
+
+.m-body{padding:2rem 2.2rem 2.8rem;direction:rtl}
+@media(max-width:620px){.m-hero{height:240px}.m-hero-grad{padding:1.2rem}.m-body{padding:1.4rem 1.1rem 2.5rem}.ovl{padding:3rem 0 0;align-items:flex-end}.mbox{border-radius:20px 20px 0 0}}
+
+/* Memory */
+.m-mem{background:linear-gradient(135deg,#f9edce,#f0e0a8);border:1.5px solid rgba(196,154,12,.26);border-right:5px solid var(--saffron);border-radius:0 10px 10px 0;padding:1.1rem 1.3rem;margin-bottom:1.8rem;font-style:italic;color:var(--ink-m);font-size:.92rem;line-height:1.88}
+.m-mem-lbl{font-family:'Frank Ruhl Libre',serif;font-size:.72rem;font-weight:700;font-style:normal;color:var(--saffron-d);text-transform:uppercase;letter-spacing:.11em;margin-bottom:.45rem;display:flex;align-items:center;gap:.45rem}
+.m-mem-lbl::before{content:'';display:inline-block;width:18px;height:1.5px;background:var(--saffron)}
+
+/* Meta chips */
+.m-meta{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+.m-chip{background:var(--cream);border:1.5px solid var(--bdr);border-radius:20px;padding:.3rem .9rem;font-size:.79rem;color:var(--ink-m);display:flex;align-items:center;gap:.38rem}
+.m-chip strong{color:var(--clay);font-weight:700}
+
+/* Section titles in modal */
+.m-st{font-family:'Frank Ruhl Libre',serif;font-size:1.08rem;font-weight:700;color:var(--clay);margin-bottom:.88rem;display:flex;align-items:center;gap:.65rem}
+.m-st::after{content:'';flex:1;height:1.5px;background:linear-gradient(to left,transparent,var(--bdr))}
+
+/* Ingredients grid */
+.m-ingr{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:2rem}
+@media(max-width:520px){.m-ingr{grid-template-columns:1fr}}
+.m-ing{display:flex;align-items:flex-start;gap:.55rem;background:var(--cream);border:1.5px solid var(--bdr);border-radius:10px;padding:.55rem .82rem;font-size:.85rem;line-height:1.5}
+.m-dot{width:9px;height:9px;border-radius:50%;background:var(--saffron);margin-top:.38rem;flex-shrink:0}
+.m-qty{font-weight:700;color:var(--clay);margin-left:.2rem}
+.m-sep{grid-column:1/-1;font-weight:700;color:var(--clay);font-size:.79rem;padding:.3rem 0 .1rem;border-bottom:1px dashed var(--bdr)}
+
+/* Steps */
+.m-steps{list-style:none;margin-bottom:2rem}
+.m-step{display:flex;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--bdr)}
+.m-step:last-child{border-bottom:none}
+.m-snum{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--clay),var(--clay-l));color:#fff;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 8px rgba(168,53,34,.35)}
+.m-sbody{font-size:.9rem;line-height:1.76;color:var(--ink);padding-top:.22rem}
+.m-sdur{display:inline-block;background:var(--parch-2);border:1px solid var(--bdr);border-radius:6px;padding:.06rem .5rem;font-size:.71rem;color:var(--saffron-d);font-weight:700;margin-left:.4rem;white-space:nowrap;vertical-align:middle}
+
+/* Tip */
+.m-tip{background:linear-gradient(135deg,#fffde8,#fef8d4);border:1.5px solid rgba(196,154,12,.28);border-right:5px solid var(--saffron);border-radius:0 10px 10px 0;padding:1.1rem 1.3rem;margin-bottom:1.6rem;font-size:.9rem;color:var(--ink-m);line-height:1.8}
+.m-tip-lbl{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:.77rem;color:var(--saffron-d);margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem}
+.m-tip-lbl::before{content:'';display:inline-block;width:18px;height:1.5px;background:var(--saffron)}
+
+/* Video */
+.m-vbtn{display:inline-flex;align-items:center;gap:.55rem;background:var(--clay);color:#fff;border-radius:10px;padding:.7rem 1.4rem;font-size:.88rem;font-weight:600;letter-spacing:.02em;transition:background var(--tr),transform var(--tr);margin-top:.4rem}
+.m-vbtn:hover{background:var(--clay-l);transform:translateY(-2px)}
+.m-vbtn svg{width:18px;height:18px;flex-shrink:0}
+
+/* Scroll top */
+#stb{position:fixed;bottom:1.8rem;left:1.8rem;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--clay),var(--clay-l));color:#fff;font-size:1.15rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);z-index:300;opacity:0;pointer-events:none;transition:opacity var(--tr),transform var(--tr)}
+#stb.on{opacity:1;pointer-events:auto}
+#stb:hover{transform:translateY(-3px)}
+
+/* Footer */
+footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(196,160,90,.68);text-align:center;padding:2.8rem 1rem 2.2rem;font-size:.84rem;line-height:2.2}
+.ft{font-family:'Frank Ruhl Libre',serif;font-size:1.25rem;font-weight:700;color:var(--saffron-l);margin-bottom:.5rem}
+.fq{font-style:italic;opacity:.5;font-size:.78rem;margin-top:.6rem}
+.fo{color:rgba(196,154,12,.28);font-size:1.2rem;letter-spacing:.5em;margin-top:.8rem}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="hdr">
+    <div class="hdr-brand">
+      <div class="hdr-brand-name">ספר הבישול של פרלה בן ארוש ז"ל</div>
+      <div class="hdr-brand-sub">קזבלנקה · מרקש · מורשת ספרד | מטבח מרוקאי-ספרדי</div>
+    </div>
+    <div class="hdr-orn">✦ ✦ ✦</div>
+    <div class="hdr-search">
+      <svg class="hdr-search-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="srch" placeholder="חפשו מתכון..." autocomplete="off" aria-label="חיפוש מתכון" oninput="doSearch(this.value)">
+      <button id="srch-clr" onclick="clearSearch()" aria-label="נקה">×</button>
+    </div>
+  </div>
+</header>
+
+<nav class="cat-nav" aria-label="קטגוריות">
+  <div class="cat-inner" id="cat-inner"></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-c">
+    <div class="hero-orn">✦ ✦ ✦</div>
+    <h1 class="hero-h1">המטבח של <em>אמא פרלה</em></h1>
+    <p class="hero-h2">מרוקו · ספרד · ישראל — טעמים שנולדו מאהבה</p>
+    <p class="hero-story">פרלה בן ארוש ז"ל נולדה בקזבלנקה וגדלה על ריחות השוק של מרוקו. נישאה לאיש ממשפחת קארו — צאצאי מגורשי ספרד — ולמדה את המטבח האנדלוסי מחמותה לבל. מטבחה הפך לפסיפס עשיר: מרוקאי וספרדי, שני עולמות בסיר אחד. כל תבשיל נושא ריח, זיכרון ואהבה.</p>
+    <div class="hero-pills">
+      <span class="hero-pill" id="pill-cnt">טוען...</span>
+      <span class="hero-pill">9 קטגוריות</span>
+      <span class="hero-pill">מרוקאי ✦ ספרדי</span>
+      <span class="hero-pill">קזבלנקה · מרקש</span>
+      <span class="hero-pill">מסורת של דורות</span>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+  <div class="sec-head">
+    <h2 class="sec-h2" id="sec-title">כל המתכונים</h2>
+    <span class="sec-count" id="sec-cnt"></span>
+  </div>
+  <div class="grid" id="grid" role="list"></div>
+</main>
+
+<footer>
+  <div class="ft">לזכר נשמת פרלה בן ארוש ז"ל</div>
+  <div>קזבלנקה · מרקש · ישראל | משפחת קארו — צאצאי מגורשי ספרד</div>
+  <div class="fq">"הטעם הכי טוב בעולם הוא הטעם שזוכרים" — פרלה</div>
+  <div class="fo">✦ ✦ ✦</div>
+</footer>
+
+<button id="stb" aria-label="חזרה לראש הדף" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="ovl" id="ovl" role="dialog" aria-modal="true" onclick="ovlClose(event)">
+  <div class="mbox" id="mbox">
+    <div class="m-hero" id="m-hero">
+      <button class="m-cls" onclick="closeM()" aria-label="סגור">✕</button>
+      <div class="m-hero-grad">
+        <div class="m-badge" id="m-badge" style="display:none"></div>
+        <h2 class="m-title" id="m-title"></h2>
+        <p class="m-subdesc" id="m-subdesc"></p>
+      </div>
+    </div>
+    <div class="m-body">
+      <div class="m-mem">
+        <div class="m-mem-lbl">זיכרון ממרוקו</div>
+        <div id="m-mem-txt"></div>
+      </div>
+      <div class="m-meta" id="m-meta"></div>
+      <h3 class="m-st">רכיבים</h3>
+      <div class="m-ingr" id="m-ingr"></div>
+      <h3 class="m-st">שלבי ההכנה</h3>
+      <ol class="m-steps" id="m-steps"></ol>
+      <div id="m-tip-wrap">
+        <h3 class="m-st">הטיפ של אמא פרלה</h3>
+        <div class="m-tip"><div class="m-tip-lbl">סוד הבישול</div><div id="m-tip-txt"></div></div>
+      </div>
+      <div id="m-vid-wrap" style="display:none">
+        <h3 class="m-st">צפייה בהכנה</h3>
+        <a class="m-vbtn" id="m-vid-link" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.543 6.498C22 8.28 22 12 22 12s0 3.72-.457 5.502c-.254.985-.997 1.76-1.938 2.022C17.896 20 12 20 12 20s-5.893 0-7.605-.476c-.945-.266-1.687-1.04-1.938-2.022C2 15.72 2 12 2 12s0-3.72.457-5.502c.254-.985.997-1.76 1.938-2.022C6.107 4 12 4 12 4s5.896 0 7.605.476c.945.266 1.687 1.04 1.938 2.022zM10 15.5l6-3.5-6-3.5v7z"/></svg>
+          צפייה ביוטיוב
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════
+   CATEGORIES
+══════════════════════════════════════ */
+const CATS=[
+  {id:'all',   lbl:'כל המתכונים'},
+  {id:'soups', lbl:'מרקים'},
+  {id:'salads',lbl:'סלטים'},
+  {id:'veg',   lbl:'תבשילי ירקות'},
+  {id:'fish',  lbl:'דגים'},
+  {id:'meat',  lbl:'בשר וקציצות'},
+  {id:'chick', lbl:'עוף ושבת'},
+  {id:'hol',   lbl:'חגים וחינה'},
+  {id:'des',   lbl:'מימונה וקינוחים'},
+  {id:'span',  lbl:'מורשת ספרד'},
+];
+const PH={soups:'ph-s',salads:'ph-sa',veg:'ph-v',fish:'ph-f',meat:'ph-m',chick:'ph-c',hol:'ph-h',des:'ph-d',span:'ph-sp'};
+
+/* ══════════════════════════════════════
+   IMAGES (Wikipedia commons, free)
+══════════════════════════════════════ */
+const IMG={
+  harira:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Harira.JPG/800px-Harira.JPG',
+  matbucha:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Matbukha.jpg/800px-Matbukha.jpg',
+  zaalouk:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Zaalouk_1.jpg/800px-Zaalouk_1.jpg',
+  chickenlemon:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Moroccan_chicken.jpg/800px-Moroccan_chicken.jpg',
+  kefta:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Kefta_Mkaoura.jpg/800px-Kefta_Mkaoura.jpg',
+  couscous:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Moroccan_Couscous.jpg/800px-Moroccan_Couscous.jpg',
+  tea:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Moroccan_tea.jpg/800px-Moroccan_tea.jpg',
+  fish:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Moroccan_fish_tagine.jpg/800px-Moroccan_fish_tagine.jpg',
+  tagine:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Moroccan-chicken-tagine.jpg/800px-Moroccan-chicken-tagine.jpg',
+};
+
+/* ══════════════════════════════════════
+   ALL RECIPES
+══════════════════════════════════════ */
+const R=[
+/* ── SOUPS ── */
+{id:'s1',cat:'soups',badge:'סמלי',title:'מרק חרירה קלאסי',
+ desc:'המרק הסמלי של יהדות מרוקו — עשיר, עמוק ומחמם. מוגש לאחר הצום ובכל חג.',
+ time:'70 דקות',serv:'6–8 מנות',diff:'בינוני',img:IMG.harira,
+ vid:'https://www.youtube.com/results?search_query=harira+moroccan+jewish+soup',
+ mem:'בכל ערב יום כיפור, הבית היה מלא בריח החרירה עוד משעות הבוקר. אמא שמה סיר ענק על האש ואמרה: "חרירה טובה לא ממהרת — היא מחכה לך." כשהיינו שוברים את הצום, הסיר הראשון שהגיע לשולחן היה תמיד החרירה. הריח הזה — של כמון, כורכום ובשר — זה הריח של בית.',
+ ingr:[
+  {q:'500 גרם',i:'בשר בקר (שריר) — חתוך לקוביות 2 ס"מ'},
+  {q:'בצל גדול',i:'קצוץ דק מאוד'},
+  {q:'3 כפות',i:'שמן זית כתית מעולה'},
+  {q:'3 בינוניות',i:'עגבניות בשלות — מגורדות'},
+  {q:'½ כוס',i:'עדשים כתומות — שטופות'},
+  {q:'½ כוס',i:'חומוס מבושל — שטוף'},
+  {q:'1 כפית',i:'כורכום'},
+  {q:'1 כפית',i:'כמון טחון'},
+  {q:'½ כפית',i:'ג׳ינג׳ר טחון'},
+  {q:'¼ כפית',i:'קינמון טחון'},
+  {q:'1.5 ליטר',i:'מים חמים (6 כוסות)'},
+  {q:'חופן גדול',i:'כוסברה טרייה — קצוצה (לסיום)'},
+  {q:'חופן גדול',i:'פטרוזיליה טרייה — קצוצה (לסיום)'},
+  {q:'לפי הטעם',i:'מלח ופלפל שחור'},
+ ],
+ steps:[
+  {t:'2 דק׳',s:'מחממים שמן זית בסיר כבד וגדול (6 ליטר) על אש בינונית-גבוהה.'},
+  {t:'8 דק׳',s:'מוסיפים בצל קצוץ ומטגנים תוך ערבוב עד שמשחים ומזהיבים — לא לשרוף.'},
+  {t:'5 דק׳',s:'מוסיפים קוביות בשר ומטגנים מכל הצדדים עד שמשחימים — שלב חשוב ליצירת עומק טעם.'},
+  {t:'5 דק׳',s:'מוסיפים עגבניות מגורדות, כורכום, כמון, ג׳ינג׳ר, קינמון, מלח ופלפל. מערבבים ומבשלים עד הסמכה.'},
+  {t:'2 דק׳',s:'מוסיפים 1.5 ליטר מים חמים ומביאים לרתיחה.'},
+  {t:'2 דק׳',s:'מוסיפים עדשים וחומוס. מביאים לרתיחה חוזרת.'},
+  {t:'45 דק׳',s:'מנמיכים לאש נמוכה, מכסים חלקית ומבשלים 45 דקות תוך ערבוב מדי פעם — עד שהעדשים מתרככות והמרק מסמיך.'},
+  {t:'סיום',s:'מכבים, מוסיפים כוסברה ופטרוזיליה קצוצות, טועמים ומתקנים תיבול.'},
+ ],
+ tip:'חרירה טובה משתבחת ביום למחרת — הטעמים מתמזגים בלילה. אמא תמיד הכינה מראש. ביום למחרת אפשר להוסיף מעט מים אם המרק סמיך מדי.'},
+
+{id:'s2',cat:'soups',title:'מרק עדשים מרוקאי',
+ desc:'מרק עדשים פשוט ומזין עם שום, כמון ופפריקה. מוכן ב-40 דקות.',
+ time:'40 דקות',serv:'4–6 מנות',diff:'קל',img:'',
+ mem:'ימי שישי בבית אמא — מרק העדשים היה "המנה הראשונה" לצהריים. הריח הגיע מהמטבח עוד כשחזרנו מבית הספר. כלי חרס, אש נמוכה, וריח של כמון — זה היה בית.',
+ ingr:[
+  {q:'1 כוס (200 גרם)',i:'עדשים כתומות — שטופות'},
+  {q:'בצל בינוני',i:'קצוץ'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'1 כפית',i:'כמון טחון'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'¼ כפית',i:'כורכום'},
+  {q:'2 כפות',i:'שמן זית'},
+  {q:'1 ליטר',i:'מים'},
+  {q:'לפי הטעם',i:'מלח ופלפל שחור'},
+  {q:'אופציונלי',i:'מיץ לימון — לסיום'},
+ ],
+ steps:[
+  {t:'2 דק׳',s:'מחממים שמן זית בסיר על אש בינונית.'},
+  {t:'6 דק׳',s:'מטגנים בצל ושום עד זהוב ורך.'},
+  {t:'2 דק׳',s:'מוסיפים כמון, פפריקה וכורכום — מערבבים עד שהתבלינים "פורחים" בשמן.'},
+  {t:'1 דק׳',s:'מוסיפים עדשים שטופות ומערבבים לציפוי בתבלינים.'},
+  {t:'2 דק׳',s:'מוסיפים מים ומלח, מביאים לרתיחה.'},
+  {t:'30 דק׳',s:'מנמיכים לאש נמוכה, מכסים ומבשלים 30 דקות עד שהעדשים מתפרקות.'},
+  {t:'סיום',s:'טוחנים בלנדר מוט — חלקית לטקסטורה עשירה, או מלא לחלקות מוחלטת. מוסיפים מיץ לימון לפי הטעם.'},
+ ],
+ tip:'אם רוצים מרק עשיר יותר — מוסיפים קוביית בשר בקר עם העדשים. יוצא מרק שלם וכבד שמחמם גם בימי הקיץ החמים של קזבלנקה.'},
+
+{id:'s3',cat:'soups',title:'מרק שעועית לבנה',
+ desc:'שעועית לבנה ברוטב עגבניות מרוקאי — מרק סמיך ומשביע.',
+ time:'50 דקות',serv:'4–6 מנות',diff:'קל',img:'',
+ mem:'"שעועית טובה היא כמו שכן טוב," אמרה אמא — "זולה ותמיד שם בשבילך." היא הפכה ירק צנוע לארוחה מלכותית בלי להתפאר.',
+ ingr:[
+  {q:'2 כוסות (400 גרם)',i:'שעועית לבנה מבושלת — שטופה'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'3 עגבניות',i:'מגורדות'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'פפריקה חריפה'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'750 מ"ל',i:'מים'},
+  {q:'חופן',i:'פטרוזיליה קצוצה — לסיום'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'8 דק׳',s:'מחממים שמן זית, מטגנים בצל ושום עד זהוב.'},
+  {t:'5 דק׳',s:'מוסיפים עגבניות מגורדות ותבלינים, מבשלים עד שהרוטב מסמיך.'},
+  {t:'2 דק׳',s:'מוסיפים שעועית ומערבבים לציפוי ברוטב.'},
+  {t:'2 דק׳',s:'מוסיפים מים ומלח, מביאים לרתיחה.'},
+  {t:'30 דק׳',s:'מנמיכים לאש נמוכה ומבשלים 30 דקות. מוסיפים פטרוזיליה קצוצה בסיום.'},
+ ],
+ tip:'לסמיכות טבעית — לוחצים בגב כף על חלק מהשעועית בתוך הסיר. ללא קמח, ללא עמילן.'},
+
+{id:'s4',cat:'soups',title:'מרק ירקות מרוקאי',
+ desc:'מרק ירקות צבעוני עם גזר, קישוא ותפוח אדמה — קל וחמים.',
+ time:'45 דקות',serv:'4–6 מנות',diff:'קל',img:'',
+ mem:'"לא זורקים כלום," אמרה אמא. "הכל נהיה מרק." בחורף קזבלנקה היא הייתה שמה כל מה שנשאר בתחתית המקרר — והתוצאה הייתה תמיד מדהימה.',
+ ingr:[
+  {q:'3 בינוניים',i:'גזרים — קלופים, חתוכים לעיגולים'},
+  {q:'2 בינוניים',i:'קישואים — חתוכים לקוביות'},
+  {q:'2 בינוניים',i:'תפוחי אדמה — קלופים, חתוכים לקוביות'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'3 שיני',i:'שום — כתוש'},
+  {q:'1 כפית',i:'כורכום'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'2 כפות',i:'שמן זית'},
+  {q:'1.2 ליטר',i:'מים'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'8 דק׳',s:'מחממים שמן זית, מטגנים בצל ושום עד שקוף.'},
+  {t:'2 דק׳',s:'מוסיפים כורכום וכמון, מערבבים.'},
+  {t:'2 דק׳',s:'מוסיפים כל הירקות, מערבבים לציפוי.'},
+  {t:'2 דק׳',s:'מוסיפים מים ומלח, מביאים לרתיחה.'},
+  {t:'30 דק׳',s:'מנמיכים לאש נמוכה ומבשלים 30 דקות עד ריכוך הירקות.'},
+ ],
+ tip:'מוסיפים כוסברה טרייה בסיום — הטעם פורח. אפשר גם ענף שמיר שלם בזמן הבישול.'},
+
+{id:'s5',cat:'soups',title:'מרק עגבניות ושום',
+ desc:'מרק עגבניות עוצמתי עם שום שלם — ספרדי-מרוקאי קלאסי.',
+ time:'30 דקות',serv:'4 מנות',diff:'קל',img:'',
+ mem:'המתכון הגיע מחמותה של אמא — לבל — שהביאה אותו מהמורשת הספרדית. הסגנון האנדלוסי ניכר בפשטותו ובעוצמת השום.',
+ ingr:[
+  {q:'8 בשלות',i:'עגבניות — חתוכות לרבעים'},
+  {q:'8 שיני',i:'שום — שלמות'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'פפריקה חריפה'},
+  {q:'500 מ"ל',i:'מים'},
+  {q:'לפי הטעם',i:'מלח ופלפל שחור'},
+ ],
+ steps:[
+  {t:'3 דק׳',s:'מחממים שמן זית, מוסיפים שיני שום שלמות ומטגנים עד שמתחילות להשחים קלות.'},
+  {t:'5 דק׳',s:'מוסיפים עגבניות ותבלינים, מבשלים תוך ערבוב.'},
+  {t:'2 דק׳',s:'מוסיפים מים ומלח, מביאים לרתיחה.'},
+  {t:'20 דק׳',s:'מבשלים 20 דקות. טוחנים בלנדר מוט לחלקות.'},
+ ],
+ tip:'מגישים עם פרוסת לחם ביתי קלוי בשמן זית — הדרך הספרדית לאכול: לטבול ולספוג. שיני השום בבישול נותנות עומק עדין.'},
+
+{id:'s6',cat:'soups',title:'מרק דלעת מתוק-חריף',
+ desc:'מרק דלעת קטיפתי עם כורכום, ג׳ינג׳ר ונגיעת דבש — ייחודי ומיוחד.',
+ time:'40 דקות',serv:'4 מנות',diff:'קל',img:'',
+ mem:'בעונת הדלעות, אמא הייתה קונה דלעת ענקית בשוק ומכינה ממנה שלושה תבשילים שונים. "הדלעת הכי טובה היא הדלעת הכי כבדה," היא אמרה.',
+ ingr:[
+  {q:'700 גרם',i:'דלעת — קלופה, חתוכה לקוביות'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'3 שיני',i:'שום — כתוש'},
+  {q:'1 כפית',i:'כורכום'},
+  {q:'½ כפית',i:'ג׳ינג׳ר טחון'},
+  {q:'קורט',i:'פפריקה חריפה'},
+  {q:'1 כף',i:'דבש'},
+  {q:'2 כפות',i:'שמן זית'},
+  {q:'800 מ"ל',i:'מים'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'8 דק׳',s:'מחממים שמן זית, מטגנים בצל ושום עד זהוב.'},
+  {t:'2 דק׳',s:'מוסיפים כורכום, ג׳ינג׳ר ופפריקה חריפה, מערבבים.'},
+  {t:'2 דק׳',s:'מוסיפים דלעת, מים ומלח, מביאים לרתיחה.'},
+  {t:'25 דק׳',s:'מבשלים 25 דקות עד ריכוך מלא של הדלעת.'},
+  {t:'2 דק׳',s:'מוסיפים דבש וטוחנים לחלקות מוחלטת עם לנדר מוט.'},
+ ],
+ tip:'הדבש מאזן את החריפות — אל תדלגו עליו. הדלעת המרוקאית מתוקה יותר — הוסיפו כף נוספת אם נחוץ.'},
+
+{id:'s7',cat:'soups',title:'מרק עוף מרוקאי',
+ desc:'מרק עוף קלאסי עם כורכום, גזר וסלרי — מרפא, מחמם ומלא אהבה.',
+ time:'70 דקות',serv:'6 מנות',diff:'קל',img:'',
+ mem:'כשמישהו היה חולה בבית, אמא שמה סיר עוף על האש ללא היסוס. "מרק עוף טוב הוא הטיפול הכי טוב שיש." בין אם זה היה נכון רפואית — הרגשנו תמיד טוב יותר אחרי.',
+ ingr:[
+  {q:'1 ק"ג',i:'עוף — חתוך לחתיכות (עם עצמות)'},
+  {q:'בצל גדול',i:'חצוי'},
+  {q:'3 בינוניים',i:'גזרים — חצויים לאורך'},
+  {q:'2 גבעולים',i:'סלרי — חתוכים'},
+  {q:'1 כפית',i:'כורכום'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'¼ כפית',i:'ג׳ינג׳ר'},
+  {q:'1.8 ליטר',i:'מים'},
+  {q:'לפי הטעם',i:'מלח ופלפל שחור'},
+  {q:'אופציונלי',i:'אטריות דקות — לבישול במרק'},
+ ],
+ steps:[
+  {t:'2 דק׳',s:'מניחים עוף, בצל, גזר, סלרי ותבלינים בסיר גדול. מכסים במים.'},
+  {t:'3 דק׳',s:'מביאים לרתיחה, מסירים קצף עם כף מחוררת.'},
+  {t:'55 דק׳',s:'מנמיכים לאש נמוכה ומבשלים 55 דקות.'},
+  {t:'10 דק׳',s:'מסננים את המרק. אופציונלי: מבשלים אטריות דקות ישירות במרק.'},
+ ],
+ tip:'אמא הוסיפה ענף פטרוזיליה שלם וכמה עלי שמיר — ומוציאה אותם לפני ההגשה. הטעם עובר למרק ומוסיף עומק שלא ניתן לשכפל.'},
+
+{id:'s8',cat:'soups',badge:'חגיגי',title:'חרירה חגיגית',
+ desc:'גרסת החג של החרירה — עשירה יותר, מורכבת יותר, מרגשת יותר.',
+ time:'80 דקות',serv:'8–10 מנות',diff:'בינוני',img:IMG.harira,
+ vid:'https://www.youtube.com/results?search_query=harira+moroccan+festive+holiday',
+ mem:'בצום יום כיפור ובחגים, החרירה הייתה הראשונה לפרוץ את הדממה. כשאמא פתחה את הסיר, האדים עלו כמו ברכה. כולנו ישבנו סביב השולחן ואכלנו בשקט ובהרגשה של "עם אחד".',
+ ingr:[
+  {q:'500 גרם',i:'בשר בקר — קוביות קטנות'},
+  {q:'½ כוס',i:'עדשים כתומות'},
+  {q:'½ כוס',i:'חומוס מבושל'},
+  {q:'4 גדולות',i:'עגבניות מגורדות'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'4 שיני',i:'שום'},
+  {q:'חופן',i:'כוסברה'},
+  {q:'חופן',i:'פטרוזיליה'},
+  {q:'1 כפית',i:'כורכום'},
+  {q:'1 כפית',i:'כמון'},
+  {q:'1 כפית',i:'ג׳ינג׳ר'},
+  {q:'½ כפית',i:'קינמון'},
+  {q:'2 ליטר',i:'מים'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'8 דק׳',s:'מטגנים בצל ושום עד זהוב.'},
+  {t:'5 דק׳',s:'מוסיפים בשר וצורבים.'},
+  {t:'10 דק׳',s:'מוסיפים עגבניות ותבלינים ומבשלים.'},
+  {t:'5 דק׳',s:'מוסיפים מים, עדשים וחומוס. מביאים לרתיחה.'},
+  {t:'60 דק׳',s:'מבשלים 60 דקות על אש נמוכה.'},
+  {t:'סיום',s:'מוסיפים כוסברה ופטרוזיליה קצוצות.'},
+ ],
+ tip:'"החרירה של יום כיפור חייבת להיות מוכנה לפחות 3 שעות לפני הצום — היא משתבחת ככל שעומדת." — פרלה'},
+
+/* ── SALADS ── */
+{id:'sa1',cat:'salads',badge:'מלכה',title:'מטבוחה קלאסית',
+ desc:'מלכת הסלטים המרוקאיים — רוטב עגבניות מבושל שעה וחצי על אש נמוכה.',
+ time:'100 דקות',serv:'8 מנות',diff:'בינוני',img:IMG.matbucha,
+ vid:'https://www.youtube.com/results?search_query=matbucha+moroccan+classic',
+ mem:'בכל שישי בבוקר, הריח הראשון שהגיע מהמטבח של אמא היה מטבוחה על אש נמוכה. "לא נוגעים בה," היא הייתה אומרת, "היא מכינה את עצמה." שעה וחצי של בישול איטי — ובסיום טעם שאי אפשר לדמות.',
+ ingr:[
+  {q:'8 גדולות (≈1 ק"ג)',i:'עגבניות בשלות — מגורדות על פומפייה גסה'},
+  {q:'5 שיני',i:'שום — כתוש דק'},
+  {q:'½ כוס',i:'שמן זית כתית מעולה'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'פפריקה חריפה'},
+  {q:'לפי הטעם',i:'מלח'},
+  {q:'אופציונלי',i:'פלפל ירוק חריף — קצוץ דק'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מגרדים עגבניות על פומפייה גסה ישירות לסיר שטוח ורחב (לא סיר גבוה — שטח פנים גדול חיוני). מוסיפים מלח.'},
+  {t:'60 דק׳',s:'מבשלים ללא מכסה על אש נמוכה, מערבבים כל 10 דקות. הנוזלים מתאדים והעגבניות מסמיכות — לא למהר.'},
+  {t:'2 דק׳',s:'מוסיפים שמן זית, שום, פפריקה מתוקה, פפריקה חריפה ופלפל חריף אם רוצים.'},
+  {t:'30 דק׳',s:'ממשיכים לבשל עוד 30 דקות על אש נמוכה מאוד, תוך ערבוב תכוף. המרקם הסופי: עבה כריבה.'},
+ ],
+ tip:'"מטבוחה שמחה ב-90 דקות" — כל ניסיון לקצר יביא תוצאה חסרה. שמרו על האש הנמוכה. המרקם הסופי צריך להיות עבה כריבה — לא נוזלי.'},
+
+{id:'sa2',cat:'salads',title:'זאלוק — חצילים מבושלים',
+ desc:'חצילים קלויים ומבושלים עם עגבניות ושום — אחד הסלטים האהובים במרוקו.',
+ time:'50 דקות',serv:'6 מנות',diff:'קל',img:IMG.zaalouk,
+ vid:'https://www.youtube.com/results?search_query=zaalouk+moroccan+eggplant',
+ mem:'הזאלוק של אמא היה מצוין גם כמנה עצמאית עם לחם. בספרד קוראים לגרסה דומה "Almodrote" — וזה בדיוק מה שמשפחת קארו הביאה ממגורשי ספרד.',
+ ingr:[
+  {q:'2 גדולים',i:'חצילים'},
+  {q:'3 בינוניות',i:'עגבניות — מגורדות'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+  {q:'אופציונלי',i:'מיץ לימון — לסיום'},
+ ],
+ steps:[
+  {t:'25 דק׳',s:'קולים חצילים שלמים ישירות על להבת כיריים גז — מסובבים כל 5 דקות עד שהקליפה נשרפת מכל הצדדים.'},
+  {t:'10 דק׳',s:'מניחים לחצילים להתקרר, מקלפים, מסננים נוזלים עודפים וקוצצים גס — לא טוחנים.'},
+  {t:'10 דק׳',s:'מחממים שמן זית, מוסיפים שום 2 דקות, מוסיפים עגבניות ותבלינים — 8 דקות.'},
+  {t:'20 דק׳',s:'מוסיפים חצילים קצוצים, מערבבים ומבשלים על אש נמוכה 20 דקות תוך לחיצה בכף.'},
+ ],
+ tip:'קלייה על אש פתוחה נותנת לחצילים ריח עשן ייחודי שאי אפשר לשכפל. לא לקלות בתנור בלבד אם רוצים את הטעם האמיתי.'},
+
+{id:'sa3',cat:'salads',title:'טקטוקה — פלפלים ועגבניות',
+ desc:'פלפלים אדומים קלויים עם עגבניות ושום — סלט מרוקאי-ספרדי קלאסי.',
+ time:'40 דקות',serv:'6 מנות',diff:'קל',img:'',
+ mem:'הטקטוקה הייתה על שולחן השבת בכל שישי. הצבע האדום-כתום שלה קישט את השולחן עם שאר הסלטים כמו ציור.',
+ ingr:[
+  {q:'4 גדולים',i:'פלפלים אדומים'},
+  {q:'3 בינוניות',i:'עגבניות — מגורדות'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'אופציונלי',i:'פפריקה חריפה'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'20 דק׳',s:'קולים פלפלים ישירות על להבת הכיריים — מסובבים עד שהקליפה נשרפת מכל הצדדים.'},
+  {t:'10 דק׳',s:'מכניסים לשקית ניילון סגורה 10 דקות. מקלפים, מנקים גרעינים וחותכים גס.'},
+  {t:'10 דק׳',s:'מחממים שמן, מטגנים שום 2 דקות, מוסיפים עגבניות ותבלינים — 8 דקות.'},
+  {t:'10 דק׳',s:'מוסיפים פלפלים קצוצים, מבשלים עוד 10 דקות על אש נמוכה.'},
+ ],
+ tip:'קלייה ישירה על אש פתוחה — לא בגריל תנור בלבד — נותנת את הטעם האמיתי.'},
+
+{id:'sa4',cat:'salads',title:'סלט גזר מרוקאי מבושל',
+ desc:'גזר מבושל עם כמון, שום ולימון — הסלט הכי פשוט שנגמר ראשון.',
+ time:'25 דקות',serv:'6 מנות',diff:'קל',img:'',
+ mem:'"תלמדי קודם גזר מבושל — ואז שאר הסלטים קלים," אמרה אמא לבנותיה. הסלט הכי קל — ותמיד הראשון שנגמר.',
+ ingr:[
+  {q:'500 גרם',i:'גזרים — קלופים, פרוסים לעיגולים דקים'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'1 כפית',i:'כמון טחון'},
+  {q:'½ כפית',i:'פפריקה מתוקה'},
+  {q:'2 כפות',i:'שמן זית'},
+  {q:'2 כפות',i:'מיץ לימון טרי'},
+  {q:'לפי הטעם',i:'מלח'},
+  {q:'אופציונלי',i:'כוסברה קצוצה'},
+ ],
+ steps:[
+  {t:'15 דק׳',s:'מבשלים גזרים פרוסים בסיר עם מים ומלח — עד שרכים אך לא מתפרקים.'},
+  {t:'2 דק׳',s:'מסננים, מניחים בקערה.'},
+  {t:'2 דק׳',s:'מוסיפים שום, כמון, פפריקה, שמן זית, לימון ומלח. מערבבים.'},
+  {t:'10 דק׳',s:'מניחים 10 דקות לספיגת הטעמים. מגישים בטמפרטורת החדר.'},
+ ],
+ tip:'כוסברה טרייה קצוצה מעל לפני ההגשה — מוסיפה חיות. אל תשים במקרר — הטעם נפגע בקור.'},
+
+{id:'sa5',cat:'salads',title:'סלט חצילים קלויים',
+ desc:'חצילים קלויים עם שום, שמן זית ולימון — פשוט, עשיר ונהדר.',
+ time:'35 דקות',serv:'6 מנות',diff:'קל',img:'',
+ mem:'זה היה הסלט הראשון שאמא לימדה את בנותיה. "תלמדי חצילים קלויים — ואז שאר הסלטים קלים."',
+ ingr:[
+  {q:'2 גדולים',i:'חצילים'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'2 כפות',i:'מיץ לימון'},
+  {q:'לפי הטעם',i:'מלח ופלפל שחור'},
+ ],
+ steps:[
+  {t:'25 דק׳',s:'קולים חצילים שלמים על להבה ישירה עד ריכוך מלא וקליפה שרופה.'},
+  {t:'10 דק׳',s:'מצננים, מקלפים, מסננים ומועכים בידיים — לא טוחנים. הטקסטורה צריכה להיות גסה.'},
+  {t:'3 דק׳',s:'מערבבים עם שום, שמן זית, לימון ומלח. מגישים.'},
+ ],
+ tip:'אל תשתמשו בפוד פרוסצור — הסלט צריך להיות גס ומחוספס, לא חלק. הגסות היא הזהות שלו.'},
+
+{id:'sa6',cat:'salads',title:'סלט פלפלים קלויים',
+ desc:'פלפלים אדומים קלויים עם שום ושמן זית — אחד הסלטים היפים ביותר.',
+ time:'30 דקות',serv:'6 מנות',diff:'קל',img:'',
+ mem:'הצבע של הסלט הזה — אדום-כסוף שמנוני — קישט כל שולחן שישי.',
+ ingr:[
+  {q:'4 גדולים',i:'פלפלים אדומים'},
+  {q:'3 שיני',i:'שום — כתוש'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'20 דק׳',s:'קולים פלפלים על להבת גז — מסובבים עד שקליפה שחורה מכל הצדדים.'},
+  {t:'10 דק׳',s:'שמים בשקית ניילון סגורה 10 דקות. מקלפים, מנקים גרעינים.'},
+  {t:'5 דק׳',s:'קוצצים גס, מערבבים עם שום, שמן ומלח.'},
+ ],
+ tip:'השמן ספח את טעם הפלפל השרוף — עומק שלא ניתן לשכפל. שמירה 3 ימים במקרר בקלות.'},
+
+{id:'sa7',cat:'salads',title:'סלט עגבניות מרוקאי',
+ desc:'עגבניות, בצל אדום, שמן זית ולימון — פשוט ועוצמתי.',
+ time:'10 דקות',serv:'4 מנות',diff:'קל',img:'',
+ mem:'הכי פשוט שיש — ותמיד על השולחן. לא היה שולחן שישי בלי קערה של עגבניות טריות.',
+ ingr:[
+  {q:'4 גדולות ובשלות',i:'עגבניות — חתוכות לקוביות'},
+  {q:'½ בינוני',i:'בצל אדום — קצוץ דק'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'1 כף',i:'מיץ לימון'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'קוצצים עגבניות ובצל.'},
+  {t:'2 דק׳',s:'מערבבים עם שמן, לימון ומלח.'},
+  {t:'מיד',s:'מגישים מיד בטמפרטורת החדר.'},
+ ],
+ tip:'אל תשים עגבניות במקרר — הן מאבדות טעם וטקסטורה בקור. עגבניות טובות הן הסוד.'},
+
+{id:'sa8',cat:'salads',title:'סלט כרוב מרוקאי',
+ desc:'כרוב לבן קריספי עם לימון ושמן זית — מרענן ופריך.',
+ time:'15 דקות',serv:'6 מנות',diff:'קל',img:'',
+ mem:'סלט הכרוב הגיע לשולחן ברגע שהיה נחיצות לעוד "מילוי" — ותמיד עבד מעולה.',
+ ingr:[
+  {q:'¼ ראש',i:'כרוב לבן — מגורר דק'},
+  {q:'2 כפות',i:'מיץ לימון טרי'},
+  {q:'2 כפות',i:'שמן זית'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מגררים כרוב דק.'},
+  {t:'3 דק׳',s:'מוסיפים מלח, לוחצים בידיים כדי לרכך ולהוציא נוזלים.'},
+  {t:'2 דק׳',s:'מוסיפים לימון, שמן וכמון. מערבבים.'},
+  {t:'10 דק׳',s:'מניחים 10 דקות לספיגת הטעמים.'},
+ ],
+ tip:'לחיצה ידנית על הכרוב עם מלח מרכך אותו ומוציא נוזלים — זה ההבדל בין סלט כרוב סביר לסלט נהדר.'},
+
+{id:'sa9',cat:'salads',title:'סלט חומוס חם',
+ desc:'חומוס מחומם עם כמון ושמן זית — מוגש חם כסלט ראשון.',
+ time:'10 דקות',serv:'4 מנות',diff:'קל',img:'',
+ mem:'אמא הייתה מגישה חומוס חם עם לחם מרוקאי ישיר מהתנור. פשטות מלאת מלכות.',
+ ingr:[
+  {q:'400 גרם',i:'חומוס מבושל — שטוף'},
+  {q:'1 כפית',i:'כמון'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח'},
+  {q:'לקישוט',i:'פפריקה אדומה'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מחממים חומוס בסיר עם מעט מים.'},
+  {t:'2 דק׳',s:'מסננים, מניחים בצלחת הגשה.'},
+  {t:'1 דק׳',s:'מוסיפים שמן זית, כמון ומלח. מפזרים פפריקה מעל.'},
+ ],
+ tip:'מגישים חם מיד. טפטוף שמן זית נדיב הוא הסוד.'},
+
+{id:'sa10',cat:'salads',title:'סלט תפוחי אדמה מרוקאי',
+ desc:'תפוחי אדמה מבושלים עם כמון ולימון — ספרדי-מרוקאי קלאסי.',
+ time:'30 דקות',serv:'6 מנות',diff:'קל',img:'',
+ mem:'הספרדים קוראים לסלט תפוחי אדמה "Ensaladilla". אמא הכינה את הגרסה המרוקאית — פחות מיונז, יותר שמן זית ולימון.',
+ ingr:[
+  {q:'4 בינוניים',i:'תפוחי אדמה — קלופים'},
+  {q:'1 כפית',i:'כמון'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'2 כפות',i:'מיץ לימון'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'18 דק׳',s:'מבשלים תפוחי אדמה שלמים עם קליפה עד ריכוך.'},
+  {t:'3 דק׳',s:'קולפים וחותכים לקוביות של 2 ס"מ.'},
+  {t:'2 דק׳',s:'מערבבים עם שמן, לימון, כמון ומלח.'},
+ ],
+ tip:'מגישים בטמפרטורת החדר, לא קר. הקור מכבה את הטעמים.'},
+
+/* ── VEGETABLES ── */
+{id:'v1',cat:'veg',badge:'אהוב',title:'חצילים ברוטב עגבניות מרוקאי',
+ desc:'חצילים מטוגנים ברוטב עגבניות עמוק עם שום ותבלינים — מנה עיקרית שלמה.',
+ time:'45 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ mem:'"חציל הוא כמו לוח ריק — הוא קולט כל טעם שנותנים לו," אמרה אמא. הסוד הוא לא לחסוך בשמן בזמן הטיגון.',
+ ingr:[
+  {q:'2 גדולים',i:'חצילים — חתוכים לקוביות 2 ס"מ'},
+  {q:'4 בינוניות',i:'עגבניות — מגורדות'},
+  {q:'5 שיני',i:'שום — כתוש'},
+  {q:'½ כוס',i:'שמן זית (לטיגון ולרוטב)'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'פפריקה חריפה'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מחממים 3 כפות שמן במחבת רחבה על אש גבוהה. מטגנים חצילים בשכבה אחת (לא לדחוס!) עד זהוב מכל הצדדים. מוציאים לנייר סופג.'},
+  {t:'2 דק׳',s:'בסיר נפרד מחממים 2 כפות שמן, מוסיפים שום ומטגנים דקה.'},
+  {t:'10 דק׳',s:'מוסיפים עגבניות מגורדות ותבלינים. מבשלים 10 דקות על אש בינונית עד הסמכה.'},
+  {t:'20 דק׳',s:'מוסיפים חצילים מטוגנים לרוטב. מנמיכים אש ומבשלים מכוסה חלקית 20 דקות.'},
+ ],
+ tip:'אל תדחסו חצילים במחבת — הם "מתייבשים" ונהיים גומי. שכבה אחת, מקום לכל קוביה — זה ההבדל.'},
+
+{id:'v2',cat:'veg',title:'במיה ברוטב עגבניות',
+ desc:'במיה מטוגנת ומבושלת ברוטב עגבניות — ללא ריר, מלא טעם.',
+ time:'40 דקות',serv:'4 מנות',diff:'בינוני',img:'',
+ mem:'הסוד של אמא לבמיה ללא ריר: "מטגנים אותה קודם — ואז הריר נעלם." שיטה שלמדה מחמותה הספרדייה.',
+ ingr:[
+  {q:'400 גרם',i:'במיה — שטופה, קצות חתוכים'},
+  {q:'3 בינוניות',i:'עגבניות — מגורדות'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מחממים שמן, מטגנים במיה 5 דקות על אש גבוהה עד שמתחילה להשחים — זה מונע ריר.'},
+  {t:'2 דק׳',s:'מוסיפים שום ומטגנים דקה.'},
+  {t:'5 דק׳',s:'מוסיפים עגבניות ותבלינים, מבשלים 5 דקות.'},
+  {t:'25 דק׳',s:'מנמיכים אש, מכסים ומבשלים 25 דקות על אש נמוכה. לא לערבב יותר מדי.'},
+ ],
+ tip:'לא לערבב יותר מדי לאחר הוספת הבמיה לרוטב — הערבוב שובר אותה. מנענעים את הסיר בעדינות.'},
+
+{id:'v3',cat:'veg',title:'קישואים ברוטב שום וכוסברה',
+ desc:'קישואים מטוגנים עם שום וכוסברה טרייה — קל, בריא וארומטי.',
+ time:'25 דקות',serv:'4 מנות',diff:'קל',img:'',
+ mem:'"קישוא הוא ענו," אמרה אמא, "הוא מקבל את הטעם של מה שמבשלים איתו." הכוסברה הטרייה בסוף — זה הכל.',
+ ingr:[
+  {q:'5 בינוניים',i:'קישואים — חתוכים לעיגולים'},
+  {q:'5 שיני',i:'שום — כתוש'},
+  {q:'חופן גדול',i:'כוסברה טרייה — קצוצה'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'6 דק׳',s:'מטגנים קישואים בשמן זית עד שמזהיבים.'},
+  {t:'2 דק׳',s:'מוסיפים שום ומטגנים.'},
+  {t:'15 דק׳',s:'מנמיכים אש, מוסיפים מלח, מכסים ומבשלים 15 דקות.'},
+  {t:'סיום',s:'מפזרים כוסברה טרייה לפני ההגשה.'},
+ ],
+ tip:'הכוסברה חייבת להיות טרייה — לא יבשה. היא נותנת את הטעם החי של המנה.'},
+
+{id:'v4',cat:'veg',title:'דלעת מתוקה מרוקאית',
+ desc:'דלעת מבושלת עם סוכר וקינמון — בין מנה לקינוח.',
+ time:'30 דקות',serv:'4 מנות',diff:'קל',img:'',
+ mem:'הדלעת המתוקה הגיעה על שולחן השבת כמנה ירק — אבל כולם אכלו אותה גם כקינוח.',
+ ingr:[
+  {q:'700 גרם',i:'דלעת — קלופה, חתוכה לקוביות'},
+  {q:'2 כפות',i:'סוכר'},
+  {q:'1 כפית',i:'קינמון'},
+  {q:'2 כפות',i:'שמן זית'},
+  {q:'½ כוס',i:'מים'},
+ ],
+ steps:[
+  {t:'2 דק׳',s:'מחממים שמן, מוסיפים דלעת ומערבבים.'},
+  {t:'25 דק׳',s:'מוסיפים מים, מכסים ומבשלים 25 דקות עד ריכוך.'},
+  {t:'3 דק׳',s:'מוסיפים סוכר וקינמון, מבשלים עוד 3 דקות ללא מכסה.'},
+ ],
+ tip:'ניתן להוסיף גם ג׳ינג׳ר טרי מגורר — מוסיף חיות למתיקות.'},
+
+{id:'v5',cat:'veg',title:'שעועית ירוקה ברוטב עגבניות',
+ desc:'שעועית ירוקה ברוטב עגבניות ושום — תבשיל קלאסי.',
+ time:'40 דקות',serv:'4 מנות',diff:'קל',img:'',
+ mem:'שעועית ירוקה הייתה תמיד זמינה בשוק — ואמא ידעה להפוך אותה למשהו מיוחד.',
+ ingr:[
+  {q:'500 גרם',i:'שעועית ירוקה — קטומה'},
+  {q:'3 עגבניות',i:'מגורדות'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'½ כפית',i:'פפריקה'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'3 דק׳',s:'מחממים שמן, מטגנים שום.'},
+  {t:'5 דק׳',s:'מוסיפים עגבניות ותבלינים.'},
+  {t:'2 דק׳',s:'מוסיפים שעועית ומערבבים.'},
+  {t:'25 דק׳',s:'מנמיכים אש, מכסים ומבשלים 25 דקות עד ריכוך.'},
+ ],
+ tip:'לא לבשל יותר מדי — השעועית צריכה לשמור קצת "נגיסה".'},
+
+{id:'v6',cat:'veg',title:'כרוב מבושל מרוקאי',
+ desc:'כרוב רך עם בצל, שום ותבלינים — מנה חורפית ומחממת.',
+ time:'55 דקות',serv:'4–6 מנות',diff:'קל',img:'',
+ mem:'"כרוב בחורף — הוא הדוד הטוב של הסיר," אמרה אמא וצחקה.',
+ ingr:[
+  {q:'½ ראש',i:'כרוב לבן — חתוך לרצועות'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'4 שיני',i:'שום'},
+  {q:'1 כפית',i:'פפריקה'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'250 מ"ל',i:'מים'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'8 דק׳',s:'מטגנים בצל בשמן זית עד זהוב.'},
+  {t:'2 דק׳',s:'מוסיפים שום ותבלינים.'},
+  {t:'2 דק׳',s:'מוסיפים כרוב ומים.'},
+  {t:'40 דק׳',s:'מבשלים 40 דקות מכוסה על אש נמוכה.'},
+ ],
+ tip:'הוסיפו פפריקה מעושנת — מוסיפה עומק ייחודי לכרוב.'},
+
+/* ── FISH ── */
+{id:'f1',cat:'fish',badge:'שבת',title:'דג חריף של שבת',
+ desc:'המנה הסמלית של שבת מרוקאית — דג ברוטב פפריקה, שום וכוסברה.',
+ time:'25 דקות',serv:'4–6 מנות',diff:'בינוני',img:IMG.fish,
+ vid:'https://www.youtube.com/results?search_query=moroccan+shabbat+fish+red+spicy+sauce',
+ mem:'כל שישי בערב, ריח הדג עלה מהמטבח של אמא. "דג שבת לא מחכה — הוא מגיע חם לשולחן." הדג הזה מייצג כל שישי שחי בזיכרוננו.',
+ ingr:[
+  {q:'1 ק"ג',i:'דג טרי שלם (לוקוס/דניס/מוסר ים) — נקוי ופרוס לסטייקים עבים'},
+  {q:'6 שיני',i:'שום — כתוש'},
+  {q:'חופן גדול',i:'כוסברה טרייה — קצוצה'},
+  {q:'3 כפות',i:'פפריקה מתוקה'},
+  {q:'1 כפית',i:'פפריקה חריפה'},
+  {q:'½ כוס',i:'שמן תירס או חמניות'},
+  {q:'2 כוסות',i:'מים חמים'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'2 דק׳',s:'מחממים שמן בסיר רחב ושטוח על אש בינונית-גבוהה.'},
+  {t:'60 שנ׳',s:'מוסיפים שום כתוש — 60 שניות בלבד. לא לשרוף!'},
+  {t:'2 דק׳',s:'מוסיפים פפריקה מתוקה וחריפה ומערבבים מהר.'},
+  {t:'3 דק׳',s:'מוסיפים מים חמים ומלח. מביאים לרתיחה.'},
+  {t:'12–15 דק׳',s:'מניחים סטייקי דג ברוטב הרותח. מבשלים מכוסה 12–15 דקות. בסיום מפזרים כוסברה.'},
+ ],
+ tip:'כלל הזהב: לא להפוך את הדג יותר מפעם אחת — ואפשר בכלל לא להפוך. הוא מתבשל מלמטה ומלמעלה ברוטב. כל הפיכה מסכנת אותו להתפרק.'},
+
+{id:'f2',cat:'fish',title:'דג עם צ׳רמולה',
+ desc:'דג מוכן בתיבול צ׳רמולה — כמון, פפריקה, כוסברה ולימון.',
+ time:'50 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ mem:'הצ׳רמולה הייתה "המרינדה" האהובה על אמא. "הדג צריך לנשום את התבלינים," היא אמרה — ולכן תמיד המרינדה קדמה לבישול.',
+ ingr:[
+  {q:'1 ק"ג',i:'פילה דג טרי (לוקוס/מקרל)'},
+  {q:'6 שיני',i:'שום — כתוש'},
+  {q:'חופן גדול',i:'כוסברה טרייה — קצוצה דק'},
+  {q:'1 כפית',i:'כמון'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'פפריקה חריפה'},
+  {q:'3 כפות',i:'מיץ לימון טרי'},
+  {q:'4 כפות',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מערבבים שום, כוסברה, כמון, פפריקה, לימון, שמן ומלח לצ׳רמולה.'},
+  {t:'30 דק׳',s:'מורחים את הצ׳רמולה על הדג משני הצדדים. משרים 30 דקות במקרר.'},
+  {t:'15 דק׳',s:'מבשלים ברוטב עגבניות — או אופים 180° 15–18 דקות.'},
+ ],
+ tip:'הצ׳רמולה שומרת 3 ימים במקרר — מצוינת גם על עוף וירקות.'},
+
+{id:'f3',cat:'fish',title:'קציצות דגים ברוטב אדום',
+ desc:'קציצות דגים רכות ועסיסיות מבושלות ברוטב עגבניות מרוקאי.',
+ time:'45 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ mem:'"קציצה טובה לא מתפרקת — היא יציבה אבל רכה," אמרה אמא. הסוד: דג טרי, לא קפוא.',
+ ingr:[
+  {q:'500 גרם',i:'דג טחון טרי (מרלוז/מוסר)'},
+  {q:'בצל קטן',i:'מגורר דק'},
+  {q:'1',i:'ביצה'},
+  {q:'חופן',i:'כוסברה קצוצה'},
+  {q:'1 כפית',i:'פפריקה'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+  {q:'לרוטב',i:''},
+  {q:'4 עגבניות',i:'מגורדות'},
+  {q:'5 שיני',i:'שום, 3 כפות שמן, פפריקה, מלח'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מערבבים דג טחון, בצל מגורר, ביצה, כוסברה, פפריקה ומלח לתערובת אחידה.'},
+  {t:'5 דק׳',s:'יוצרים קציצות בגודל כדור גולף — ידיים רטובות מונעות הידבקות.'},
+  {t:'10 דק׳',s:'מכינים רוטב: מטגנים שום 2 דקות, מוסיפים עגבניות ותבלינים — 8 דקות.'},
+  {t:'25 דק׳',s:'מניחים קציצות ברוטב. מבשלים מכוסה 25 דקות על אש נמוכה. לא מערבבים!'},
+ ],
+ tip:'לא לערבב אחרי הנחת הקציצות — הן עדינות. מנענעים את הסיר בעדינות.'},
+
+{id:'f4',cat:'fish',title:'סרדינים ממולאים בצ׳רמולה',
+ desc:'סרדינים טריים ממולאים בשום, כוסברה ופפריקה — מרוקאי קלאסי.',
+ time:'35 דקות',serv:'4 מנות',diff:'בינוני',img:'',
+ mem:'סרדינים טריים מהשוק של קזבלנקה — ריח הים, שמש ותבלינים. אמא קנתה אותם בבוקר מוקדם.',
+ ingr:[
+  {q:'8–10 גדולים',i:'סרדינים טריים — נקויים ופתוחים לאורך'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'חופן',i:'כוסברה קצוצה'},
+  {q:'1 כפית',i:'פפריקה'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'2 כפות',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מערבבים שום, כוסברה, פפריקה, כמון ושמן זית למילוי.'},
+  {t:'5 דק׳',s:'מורחים מילוי על כל סרדין פתוח, מקפלים וסוגרים בקיסם.'},
+  {t:'20 דק׳',s:'אופים 180° 20 דקות — או מטגנים במחבת 4 דקות מכל צד.'},
+ ],
+ tip:'על גריל פחמים — יוצא מיוחד במינו עם ריח עשן.'},
+
+{id:'f5',cat:'fish',title:'דג אפוי בתנור עם לימון ושום',
+ desc:'דג שלם אפוי בתנור עם שמן זית, לימון ועשבים — פשוט ומדהים.',
+ time:'30 דקות',serv:'4 מנות',diff:'קל',img:'',
+ mem:'כשלא היה זמן לרוטב המורכב, אמא הייתה אופה דג שלם בתנור. "תנור טוב מבשל דג טוב."',
+ ingr:[
+  {q:'1 שלם (1.2 ק"ג)',i:'דג (לוקוס/דניס) — נקוי'},
+  {q:'1',i:'לימון — פרוס'},
+  {q:'6 שיני',i:'שום'},
+  {q:'4 כפות',i:'שמן זית'},
+  {q:'ענפים',i:'רוזמרין ו/או אורגנו טרי'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מחממים תנור ל-190 מעלות.'},
+  {t:'5 דק׳',s:'מתבלים דג מבחוץ ומבפנים. ממלאים בבטן: פרוסות לימון, שיני שום ועשבים.'},
+  {t:'20–25 דק׳',s:'אופים 20–25 דקות. הדג מוכן כשהבשר מתנתק מהעצם בקלות.'},
+ ],
+ tip:'לא לייבש — אם הדג מוכן מוקדם, עדיף להוציא לפני הזמן.'},
+
+/* ── MEAT ── */
+{id:'m1',cat:'meat',badge:'אהוב',title:'קציצות בקר ברוטב עגבניות עם ביצים',
+ desc:'קציצות בקר עסיסיות ברוטב עגבניות ועליהן ביצים שבורות — מנת שבת מושלמת.',
+ time:'50 דקות',serv:'4–6 מנות',diff:'בינוני',img:IMG.kefta,
+ vid:'https://www.youtube.com/results?search_query=moroccan+kefta+tagine+eggs+recipe',
+ mem:'המנה הזאת הייתה "ה-קציצות" של אמא. כשהגיעו אורחים לא מוזמנים בשישי, היא הכינה אותן תוך 50 דקות ומגישה כאילו בישלה כל היום. "המטבח תמיד מוכן," היא אמרה.',
+ ingr:[
+  {q:'500 גרם',i:'בשר בקר טחון (80% רזה, 20% שומן)'},
+  {q:'בצל קטן',i:'מגורר דק'},
+  {q:'1',i:'ביצה'},
+  {q:'חופן',i:'פטרוזיליה קצוצה'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+  {q:'לרוטב',i:''},
+  {q:'4 גדולות',i:'עגבניות — מגורדות'},
+  {q:'4 שיני',i:'שום'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'פפריקה חריפה'},
+  {q:'4',i:'ביצים — לשבירה מעל'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מערבבים בשר, בצל מגורר, ביצה, פטרוזיליה וכל התבלינים עד תערובת אחידה.'},
+  {t:'5 דק׳',s:'יוצרים קציצות אורכיות או עגולות — בגודל שתי אצבעות.'},
+  {t:'10 דק׳',s:'מכינים רוטב: מחממים שמן, מטגנים שום 2 דקות, מוסיפים עגבניות ותבלינים — 8 דקות.'},
+  {t:'25 דק׳',s:'מניחים קציצות ברוטב. מבשלים מכוסה 25 דקות על אש נמוכה. לא לערבב!'},
+  {t:'5 דק׳',s:'שוברים 4 ביצים מעל הקציצות, מכסים ומבשלים עוד 5 דקות עד שהחלמון חצי קשה.'},
+ ],
+ tip:'"אחרי שהכנסת קציצות לרוטב — לא נוגעים." הערבוב מפרק אותן. סיר עם מכסה כבד הוא השקעה שמשתלמת.'},
+
+{id:'m2',cat:'meat',title:'קציצות עם חומוס',
+ desc:'קציצות בקר מבושלות עם חומוס ברוטב עגבניות — שילוב ספרדי-מרוקאי.',
+ time:'55 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ mem:'גרסה מרוקאית של "Cocido Madrileño" הספרדי — בשר עם קטניות. חמותה של אמא הביאה את הרעיון מספרד.',
+ ingr:[
+  {q:'500 גרם',i:'בשר בקר טחון'},
+  {q:'400 גרם',i:'חומוס מבושל'},
+  {q:'3 עגבניות',i:'מגורדות'},
+  {q:'4 שיני',i:'שום'},
+  {q:'1 כפית',i:'כמון'},
+  {q:'1 כפית',i:'פפריקה'},
+  {q:'לפי הטעם',i:'מלח, ביצה, פטרוזיליה — לקציצות'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מכינים קציצות מהבשר עם תבלינים, ביצה ופטרוזיליה.'},
+  {t:'10 דק׳',s:'מכינים רוטב עגבניות ושום.'},
+  {t:'5 דק׳',s:'מוסיפים קציצות וחומוס לרוטב.'},
+  {t:'30 דק׳',s:'מבשלים 30 דקות על אש נמוכה עד ספיגת טעמים.'},
+ ],
+ tip:'הטעמים מתמזגים ביום למחרת — מנה מצוינת להכנה מראש.'},
+
+{id:'m3',cat:'meat',title:'תבשיל בשר עם שזיפים ושקדים',
+ desc:'בשר בקר עם שזיפים מיובשים, שקדים קלויים ודבש — מנת חג מרוקאית.',
+ time:'100 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ mem:'"טעם החגים" אמרה אמא. המתיקות של השזיפים עם עומק הבשר — שילוב שאפיין את שולחן ראש השנה.',
+ ingr:[
+  {q:'800 גרם',i:'בשר בקר (שריר) — קוביות גדולות'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'200 גרם',i:'שזיפים מיובשים — ללא גרעין'},
+  {q:'½ כוס',i:'שקדים קלויים'},
+  {q:'2 כפות',i:'דבש'},
+  {q:'1 כפית',i:'קינמון'},
+  {q:'½ כפית',i:'ג׳ינג׳ר'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'400 מ"ל',i:'מים'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מחממים שמן, מטגנים בצל 8 דקות.'},
+  {t:'10 דק׳',s:'מוסיפים בשר וצורבים מכל הצדדים.'},
+  {t:'2 דק׳',s:'מוסיפים קינמון, ג׳ינג׳ר, מלח ומים.'},
+  {t:'60 דק׳',s:'מבשלים מכוסה 60 דקות על אש נמוכה.'},
+  {t:'30 דק׳',s:'מוסיפים שזיפים ודבש, ממשיכים 30 דקות. מפזרים שקדים לפני ההגשה.'},
+ ],
+ tip:'הדבש מאזן את חמיצות השזיפים. מגישים על קוסקוס — שילוב מושלם.'},
+
+/* ── CHICKEN ── */
+{id:'c1',cat:'chick',badge:'קלאסי',title:'עוף עם זיתים ולימון כבוש',
+ desc:'מנת השבת הספרדית-מרוקאית הקלאסית — עוף, זיתים ולימון כבוש.',
+ time:'65 דקות',serv:'4–6 מנות',diff:'בינוני',img:IMG.chickenlemon,
+ vid:'https://www.youtube.com/results?search_query=moroccan+chicken+preserved+lemon+olives',
+ mem:'בכל שישי, ריח הזיתים והלימון הכבוש שאל "איפה עוף השבת?" ואמא ענתה עם סיר ענק על האש. "לא מגישים עוף ללא זיתים — זה כמו שבת ללא קידוש."',
+ ingr:[
+  {q:'1 שלם',i:'עוף — חתוך ל-8 חתיכות (עם עצמות)'},
+  {q:'1 כוס',i:'זיתים ירוקים שלמים — עדיף מלוחים'},
+  {q:'1 גדול',i:'לימון כבוש — חתוך לרצועות דקות'},
+  {q:'6 שיני',i:'שום — כתוש'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'½ כוס',i:'שמן זית'},
+  {q:'1 כפית',i:'כורכום'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'½ כפית',i:'ג׳ינג׳ר טחון'},
+  {q:'1 כוס',i:'מים'},
+  {q:'לפי הטעם',i:'מלח — בזהירות: הזיתים מלוחים!'},
+ ],
+ steps:[
+  {t:'2 דק׳',s:'מחממים שמן זית בסיר רחב וכבד.'},
+  {t:'2 דק׳',s:'מוסיפים שום ומטגנים דקה.'},
+  {t:'10 דק׳',s:'מוסיפים חתיכות עוף ומשחימים מכל הצדדים עד קליפה זהובה.'},
+  {t:'3 דק׳',s:'מוסיפים בצל ומטגנים 3 דקות.'},
+  {t:'2 דק׳',s:'מוסיפים כורכום, פפריקה, ג׳ינג׳ר ומים. מביאים לרתיחה.'},
+  {t:'30 דק׳',s:'מנמיכים לאש בינונית, מכסים ומבשלים 30 דקות.'},
+  {t:'20 דק׳',s:'מוסיפים זיתים ולימון כבוש, ממשיכים עוד 20 דקות.'},
+ ],
+ tip:'כלל אחד: לא להגזים בלימון כבוש — רבע לימון כבוש למנה שלמה. טועמים לפני שמוסיפים מלח — הזיתים כבר מלוחים.'},
+
+{id:'c2',cat:'chick',title:'עוף עם שקדים וצימוקים',
+ desc:'עוף מתוק-מלוח עם שקדים קלויים וצימוקים — מנת חג אנדלוסית-מרוקאית.',
+ time:'70 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ mem:'המנה הגיעה מהמטבח האנדלוסי של ספרד. חמותה של אמא אמרה שהיא מסורת של 500 שנה.',
+ ingr:[
+  {q:'1 שלם',i:'עוף — חתוך לחתיכות'},
+  {q:'½ כוס',i:'שקדים קלויים'},
+  {q:'½ כוס',i:'צימוקים'},
+  {q:'1 כפית',i:'קינמון'},
+  {q:'1 כפית',i:'כמון'},
+  {q:'2 כפות',i:'דבש'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'1 כוס',i:'מים'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'צורבים עוף בשמן זית מכל הצדדים. מוסיפים בצל ומטגנים 5 דקות.'},
+  {t:'2 דק׳',s:'מוסיפים קינמון, כמון, מלח ומים.'},
+  {t:'40 דק׳',s:'מבשלים מכוסה 40 דקות על אש נמוכה.'},
+  {t:'20 דק׳',s:'מוסיפים צימוקים ודבש. ממשיכים 15 דקות.'},
+  {t:'סיום',s:'מפזרים שקדים קלויים לפני ההגשה.'},
+ ],
+ tip:'מגישים על אורז לבן — הרוטב המתוק-מלוח נספג לתוך האורז.'},
+
+{id:'c3',cat:'chick',badge:'שבת',title:'סקינה — חמין מרוקאי',
+ desc:'תבשיל שבת שמתבשל כל הלילה על אש נמוכה. מוגש בשבת בצהריים.',
+ time:'12 שעות',serv:'6–8 מנות',diff:'מאתגר',img:'',
+ vid:'https://www.youtube.com/results?search_query=skhina+moroccan+shabbat+overnight',
+ mem:'בכל ליל שישי, אמא סידרה את הסקינה בסיר הגדול ושמה אותה על הפלטה. בבוקר שבת — הבית היה מלא בריח עמוק שלא דומה לשום דבר אחר. "לא פותחים את הסיר בלילה," היא אמרה. "הסקינה ישנה."',
+ ingr:[
+  {q:'800 גרם',i:'בשר בקר (שריר) — קוביות גדולות'},
+  {q:'1 כוס',i:'חומוס — מושרה ללילה'},
+  {q:'4 גדולים',i:'תפוחי אדמה — קלופים שלמים'},
+  {q:'5',i:'ביצים שלמות — בקליפתן'},
+  {q:'1 כוס',i:'אורז (עטוף בכיס בד)'},
+  {q:'בצל גדול',i:'חצוי'},
+  {q:'1 כפית',i:'כורכום'},
+  {q:'1 כפית',i:'פפריקה'},
+  {q:'½ כפית',i:'כמון'},
+  {q:'4 כפות',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'15 דק׳',s:'מסדרים בסיר גדול: בשר בתחתית, מעליו בצל, חומוס, תפוחי אדמה, ביצים שלמות בקליפתן, ואורז עטוף.'},
+  {t:'3 דק׳',s:'מוסיפים שמן זית, תבלינים ומלח.'},
+  {t:'5 דק׳',s:'מוסיפים מים עד כיסוי מלא. מביאים לרתיחה.'},
+  {t:'10–12 שע׳',s:'מנמיכים לאש נמוכה מאוד (פלטת שבת). מבשלים 10–12 שעות ללא פתיחה.'},
+ ],
+ tip:'הסוד: לא לפתוח את הסיר כל הלילה. הביצים יהיו חומות וקרמיות — כך מתכוונים.'},
+
+{id:'c4',cat:'chick',title:'עוף עם בצל מקורמל',
+ desc:'עוף עם בצל מקורמל עמוק ומתוק — מנה ספרדית-מרוקאית נפלאה.',
+ time:'65 דקות',serv:'4 מנות',diff:'בינוני',img:'',
+ mem:'"בצל מקורמל לא מצליח בגב," אמרה אמא. 20 דקות ליד הסיר — לא עוזבים.',
+ ingr:[
+  {q:'1 שלם',i:'עוף — חתוך לחתיכות'},
+  {q:'4 גדולים',i:'בצלים — פרוסים דק'},
+  {q:'1 כפית',i:'סוכר'},
+  {q:'1 כפית',i:'קינמון'},
+  {q:'4 כפות',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'20 דק׳',s:'מחממים שמן, מוסיפים בצל וסוכר. מקרמלים 20 דקות על אש בינונית-נמוכה תוך ערבוב תכוף — עד זהוב-חום עמוק.'},
+  {t:'10 דק׳',s:'מוסיפים עוף לבצל ומשחימים מכל הצדדים.'},
+  {t:'2 דק׳',s:'מוסיפים קינמון ומלח.'},
+  {t:'30 דק׳',s:'מוסיפים מעט מים, מכסים ומבשלים 30 דקות על אש נמוכה.'},
+ ],
+ tip:'20 דקות לקרמול הן המינימום. 30 דקות — תוצאה עמוקה יותר. אין דרך לזרז.'},
+
+{id:'c5',cat:'chick',badge:'שבת מלכה',title:'קוסקוס חגיגי של שבת',
+ desc:'קוסקוס מרוקאי אמיתי עם מרק עוף, ירקות וחומוס — מנת שבת מלכה.',
+ time:'90 דקות',serv:'6–8 מנות',diff:'מאתגר',img:IMG.couscous,
+ vid:'https://www.youtube.com/results?search_query=moroccan+couscous+shabbat+traditional',
+ mem:'הקוסקוס היה מנת השבת המרכזית. אמא הכינה אותו בקוסקוסיירה — סיר מיוחד. "קוסקוס לא מבשלים — מאדים אותו," היא תמיד הסבירה.',
+ ingr:[
+  {q:'500 גרם',i:'קוסקוס גס (לא דק)'},
+  {q:'1 שלם',i:'עוף — חתוך לחתיכות'},
+  {q:'3 גדולים',i:'גזרים — חצויים'},
+  {q:'3 בינוניים',i:'קישואים — חצויים'},
+  {q:'¼ ראש',i:'כרוב — גזרים'},
+  {q:'1 כוס',i:'חומוס מבושל'},
+  {q:'בצל גדול',i:'חצוי'},
+  {q:'1 כפית',i:'כורכום'},
+  {q:'1 כפית',i:'כמון'},
+  {q:'4 כפות',i:'שמן זית'},
+  {q:'2 ליטר',i:'מים'},
+  {q:'2 כפות',i:'חמאה (לקוסקוס)'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'60 דק׳',s:'מבשלים מרק עוף: שמים עוף, בצל, גזר, כרוב, תבלינים ומים בסיר. מביאים לרתיחה ומבשלים 50 דקות. מוסיפים קישוא וחומוס ב-15 הדקות האחרונות.'},
+  {t:'5 דק׳',s:'מניחים קוסקוס בקערה, מוסיפים 1.5 כוסות מרק רותח, מכסים 5 דקות.'},
+  {t:'5 דק׳',s:'פורדים בידיים עם חמאה ושמן. חוזרים על שלב ההשרייה 2–3 פעמים עד גרגרים נפרדים ורכים.'},
+  {t:'הגשה',s:'מניחים קוסקוס בצלחת עגולה גדולה, בשר וירקות מסביב, מרק בצד לטבילה.'},
+ ],
+ tip:'הקוסקוס האמיתי פורדים בידיים — לא מערבבים בכף. כל גרגר צריך להיות נפרד. זה לוקח סבלנות — וזה שווה.'},
+
+/* ── HOLIDAY ── */
+{id:'h1',cat:'hol',badge:'ראש השנה',title:'עוף חגיגי עם פירות יבשים',
+ desc:'עוף עם משמשים, צימוקים ושקדים — מנה מרוקאית-אנדלוסית לחגים.',
+ time:'70 דקות',serv:'4–6 מנות',diff:'בינוני',img:IMG.tagine,
+ mem:'"שנה מתוקה מתחילה בסיר מתוק," אמרה אמא. הפירות היבשים הביאו מתיקות אנדלוסית לאוכל המרוקאי — מורשת 500 שנה של ספרד.',
+ ingr:[
+  {q:'1 שלם',i:'עוף — חתוך'},
+  {q:'½ כוס',i:'משמשים מיובשים'},
+  {q:'¼ כוס',i:'צימוקים'},
+  {q:'¼ כוס',i:'שקדים קלויים'},
+  {q:'1 כפית',i:'קינמון'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'1 כוס',i:'מים'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'צורבים עוף, מוסיפים מים ותבלינים.'},
+  {t:'40 דק׳',s:'מבשלים 40 דקות על אש נמוכה.'},
+  {t:'20 דק׳',s:'מוסיפים פירות יבשים, ממשיכים 20 דקות.'},
+  {t:'סיום',s:'מפזרים שקדים לפני ההגשה.'},
+ ],
+ tip:'מגישים עם אורז לבן בתוספת קינמון.'},
+
+{id:'h2',cat:'hol',badge:'חינה',title:'מאפה בשר לחינה',
+ desc:'מאפה בשר מרוקאי מסורתי — מוגש בחגיגת החינה לפני החתונה.',
+ time:'60 דקות',serv:'8 מנות',diff:'בינוני',img:'',
+ mem:'לחגיגת החינה, שולחן הכיבוד הכיל תמיד מגש מאפה בשר ענקי. הריח הגיע מרחוק.',
+ ingr:[
+  {q:'לבצק',i:''},
+  {q:'3 כוסות',i:'קמח לבן'},
+  {q:'½ כוס',i:'שמן זית'},
+  {q:'¾ כוס',i:'מים פושרים'},
+  {q:'1 כפית',i:'מלח'},
+  {q:'למילוי',i:''},
+  {q:'400 גרם',i:'בשר בקר טחון'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'2 עגבניות',i:'מגורדות'},
+  {q:'1 כפית',i:'פפריקה'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מכינים בצק: מערבבים קמח, שמן, מלח ומים. לשים 5 דקות. מניחים 15 דקות.'},
+  {t:'20 דק׳',s:'מכינים מילוי: מטגנים בצל, מוסיפים בשר ועגבניות ותבלינים. מבשלים 15 דקות.'},
+  {t:'5 דק׳',s:'פותחים בצק לשתי שכבות. מניחים מילוי, מכסים, מהדקים שוליים עם מזלג.'},
+  {t:'25 דק׳',s:'אופים 180° 25 דקות עד זהוב.'},
+ ],
+ tip:'ניתן לאפות גרסאות קטנות אישיות — כל אחד מקבל מאפה משלו.'},
+
+{id:'h3',cat:'hol',badge:'שבת',title:'טאג׳ין חגיגי עם שזיפים ושקדים',
+ desc:'בשר עם שזיפים מיובשים, שקדים קלויים ודבש — מנת החג האייקונית.',
+ time:'100 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ vid:'https://www.youtube.com/results?search_query=moroccan+tagine+lamb+prunes+almonds',
+ mem:'הטאג׳ין הזה היה על שולחן ראש השנה בכל שנה. ריח הקינמון והשזיפים אומר: "יש חג."',
+ ingr:[
+  {q:'800 גרם',i:'בשר כבש/בקר — קוביות גדולות'},
+  {q:'1 כוס',i:'שזיפים מיובשים — ללא גרעין'},
+  {q:'½ כוס',i:'שקדים קלויים'},
+  {q:'2 כפות',i:'דבש'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'1 כפית',i:'קינמון'},
+  {q:'½ כפית',i:'ג׳ינג׳ר'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'400 מ"ל',i:'מים'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מחממים שמן, מטגנים בצל.'},
+  {t:'10 דק׳',s:'מוסיפים בשר, צורבים מכל הצדדים.'},
+  {t:'2 דק׳',s:'מוסיפים תבלינים ומים.'},
+  {t:'60 דק׳',s:'מבשלים מכוסה 60 דקות.'},
+  {t:'30 דק׳',s:'מוסיפים שזיפים ודבש. ממשיכים 30 דקות. מפזרים שקדים לפני ההגשה.'},
+ ],
+ tip:'מגישים על קוסקוס — השילוב מושלם לשולחן חג.'},
+
+/* ── DESSERT ── */
+{id:'d1',cat:'des',badge:'מימונה',title:'מופלטה מסורתית',
+ desc:'הלביבה המרוקאית האייקונית — מוגשת בחג המימונה. סמל שמחה וחידוש.',
+ time:'80 דקות',serv:'20 יח׳',diff:'מאתגר',img:'',
+ vid:'https://www.youtube.com/results?search_query=mofletta+moroccan+mimouna+recipe',
+ mem:'ליל המימונה בבית אמא: שולחן לבן עם חיטה, ביצים, ריבות ועלי מנתא. ריח המופלטות שנאפות על מחבת — אחת אחרי השנייה. "המופלטה צריכה לרצות להיסחט," אמרה, "לא לרוץ."',
+ ingr:[
+  {q:'1 ק"ג',i:'קמח לבן (לחם)'},
+  {q:'1 כף',i:'שמרים יבשים'},
+  {q:'1 כף',i:'סוכר'},
+  {q:'1 כפית',i:'מלח'},
+  {q:'כ-600 מ"ל',i:'מים פושרים'},
+  {q:'בנדיבות',i:'שמן תירס — לעבודה'},
+  {q:'להגשה',i:'דבש, חמאה, ריבה'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מערבבים קמח, שמרים, סוכר ומלח. מוסיפים מים פושרים בהדרגה ולשים 10 דקות עד שמתקבל בצק רך מאוד (מותר שיהיה דביק).'},
+  {t:'30 דק׳',s:'מחלקים ל-20 כדורים בגודל תפוז. מסדרים על משטח משומן. מניחים מנוחה 30 דקות מכוסים.'},
+  {t:'5 דק׳',s:'פותחים כל כדור בידיים משומנות לדיסק דק ככל האפשר — כמעט שקוף. לא להשתמש במערוך.'},
+  {t:'2 דק׳',s:'מחממים מחבת ברזל ללא שמן. מניחים דיסק ראשון. אחרי 30 שנ׳ — שני מעליו. כך שכבות. מהפכים כיחידה.'},
+  {t:'מיד',s:'מגישים חם עם דבש, חמאה וריבה.'},
+ ],
+ tip:'הסוד ברכות הבצק. אם קשה — הוסיפו מים. המופלטה טובה רק כשחמה — אל תחכו.'},
+
+{id:'d2',cat:'des',title:'ספינג׳ — סופגניות מרוקאיות',
+ desc:'ספינג׳ים פריכים מבחוץ, רכים מבפנים — מוגשים עם דבש.',
+ time:'75 דקות',serv:'15–20 יח׳',diff:'בינוני',img:'',
+ vid:'https://www.youtube.com/results?search_query=sfenj+moroccan+doughnuts',
+ mem:'בחנוכה ובמימונה, הספינג׳ים עפו מהמחבת לפה. אמא עמדה ליד הסיר שמן כל הזמן ולא זזה. "שמן חם לא מחכה לך."',
+ ingr:[
+  {q:'500 גרם',i:'קמח לבן'},
+  {q:'1 כף',i:'שמרים יבשים'},
+  {q:'1 כף',i:'סוכר'},
+  {q:'1 כפית',i:'מלח'},
+  {q:'כ-350 מ"ל',i:'מים פושרים'},
+  {q:'לטיגון',i:'שמן תירס עמוק'},
+  {q:'להגשה',i:'דבש, סוכר אבקה'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מערבבים קמח, שמרים, סוכר ומלח. מוסיפים מים ומערבבים לבצק דביק ורך מאוד.'},
+  {t:'60 דק׳',s:'מכסים ומניחים להתפחה שעה במקום חמים — הבצק יכפיל נפחו.'},
+  {t:'3 דק׳',s:'מחממים שמן עמוק ל-170 מעלות. בדיקה: פיסת בצק צפה ומבעבעת מיד.'},
+  {t:'3–4 דק׳',s:'בידיים רטובות, קורצים כדורי בצק, מתחים לטבעת ומטגנים 1.5–2 דקות מכל צד עד זהוב.'},
+  {t:'סיום',s:'מוציאים לנייר סופג, מגישים חם עם דבש.'},
+ ],
+ tip:'שמן חם מדי = שרוף מבחוץ, חי מבפנים. שמן קר מדי = ספוג שמן. הטמפרטורה האידיאלית: 165–175 מעלות.'},
+
+{id:'d3',cat:'des',title:'מקרוד תמרים',
+ desc:'עוגיות סולת ממולאות תמרים, מטוגנות וטבולות בדבש — קינוח מרוקאי קלאסי.',
+ time:'60 דקות',serv:'25–30 יח׳',diff:'מאתגר',img:'',
+ mem:'ריח הדבש הרותח — אמא הכינה עשרות מקרודים לחגים. מהר מאוד היו נעלמים.',
+ ingr:[
+  {q:'2 כוסות (300 גרם)',i:'סולת גסה'},
+  {q:'½ כוס',i:'שמן צמחי'},
+  {q:'קורט',i:'מלח'},
+  {q:'מעט',i:'מים לאיחוד'},
+  {q:'למילוי',i:''},
+  {q:'250 גרם',i:'תמרים — ללא גרעין, מרוסקים'},
+  {q:'1 כפית',i:'קינמון'},
+  {q:'1 כף',i:'שמן'},
+  {q:'לציפוי',i:''},
+  {q:'1 כוס',i:'דבש (לחימום וטבילה)'},
+  {q:'לקישוט',i:'שומשום'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מערבבים סולת, שמן ומלח. מוסיפים מים במידה לקבלת בצק שמתאחד אך לא דביק.'},
+  {t:'5 דק׳',s:'מערבבים תמרים, קינמון ושמן למילוי אחיד.'},
+  {t:'15 דק׳',s:'פותחים בצק לצורת גליל, עושים חריץ, ממלאים, סוגרים ומחתכים ליהלומים.'},
+  {t:'10 דק׳',s:'מטגנים בשמן עמוק עד זהוב.'},
+  {t:'5 דק׳',s:'מחממים דבש בסיר קטן. טובלים כל מקרוד בדבש, מניחים לניקוז. מפזרים שומשום.'},
+ ],
+ tip:'הדבש צריך להיות חמים — קר לא נדבק. אמא עבדה בזוג: אחת מטגנת, אחת טובלת.'},
+
+{id:'d4',cat:'des',title:'עוגיות שקדים מרוקאיות',
+ desc:'עוגיות שקדים רכות מבפנים, פריכות מבחוץ — ספרדיות-מרוקאיות לחגים.',
+ time:'35 דקות',serv:'20–25 יח׳',diff:'קל',img:'',
+ mem:'עוגיות שקדים הגיעו מהפסטלריה הספרדית — חמותה של אמא הכינה אותן לחגים. הטעם: פשוט ועמוק.',
+ ingr:[
+  {q:'200 גרם',i:'שקדים טחונים (אבקת שקדים)'},
+  {q:'100 גרם',i:'סוכר'},
+  {q:'2',i:'חלמונים'},
+  {q:'1 כפית',i:'מי ורדים'},
+  {q:'אופציונלי',i:'שקד שלם לקישוט כל עוגייה'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מחממים תנור 170 מעלות.'},
+  {t:'5 דק׳',s:'מערבבים שקדים טחונים, סוכר, חלמונים ומי ורדים לבצק אחיד.'},
+  {t:'5 דק׳',s:'יוצרים כדורים קטנים, מניחים על נייר אפייה, מניחים שקד שלם למעלה.'},
+  {t:'15 דק׳',s:'אופים 15 דקות עד שהשוליים קלות זהובות.'},
+ ],
+ tip:'לא לאפות יותר מ-15 דקות — העוגיות צריכות להיות רכות מבפנים גם לאחר קירור.'},
+
+{id:'d5',cat:'des',badge:'מסורת',title:'תה נענע מרוקאי',
+ desc:'התה הלאומי של מרוקו — תה ירוק, נענע טרייה, סוכר רב ומזיגה מגובה.',
+ time:'10 דקות',serv:'4 כוסות',diff:'קל',img:IMG.tea,
+ mem:'אצל אמא, כל אורח קיבל תה — לא שאלו "רוצה?" פשוט הכינו. "תה ללא נענע זה מים," היא אמרה. "נענע ללא סוכר זה תרופה."',
+ ingr:[
+  {q:'1 כף',i:'תה ירוק (Gunpowder)'},
+  {q:'חופן גדול',i:'נענע טרייה — ענפים שלמים'},
+  {q:'3–4 כפות',i:'סוכר — לפי הטעם'},
+  {q:'3 כוסות',i:'מים רותחים'},
+ ],
+ steps:[
+  {t:'2 דק׳',s:'מניחים תה ירוק בקומקום. מוסיפים כוס מים רותחים — שוטפים ומשליכים (שטיפת התה).'},
+  {t:'2 דק׳',s:'מוסיפים נענע טרייה וסוכר.'},
+  {t:'3 דק׳',s:'מוסיפים 3 כוסות מים רותחים. מניחים 3 דקות לחליטה.'},
+  {t:'הגשה',s:'מוזגים מגובה של לפחות 30 ס"מ לכוסות — ליצירת קצף אופייני.'},
+ ],
+ tip:'המזיגה מגובה יוצרת קצף שהוא חלק בלתי נפרד מהתה. לא לחסוך בגובה המזיגה.'},
+
+{id:'d6',cat:'des',title:'ריבת תפוזים מרוקאית',
+ desc:'ריבת תפוזים ביתית מבושלת לאט — מסורת ספרדית-מרוקאית.',
+ time:'70 דקות',serv:'3–4 צנצנות',diff:'קל',img:'',
+ mem:'"ריבה ביתית לא מסבירה — היא נאכלת," אמרה אמא. בחורף עם שפע תפוזים, היא הייתה מבשלת ריבה כל שבוע.',
+ ingr:[
+  {q:'1 ק"ג',i:'תפוזים (עדיף שמוטי)'},
+  {q:'700 גרם',i:'סוכר'},
+  {q:'3 כפות',i:'מיץ לימון'},
+  {q:'200 מ"ל',i:'מים'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מסירים קליפות ומפרסים תפוזים.'},
+  {t:'5 דק׳',s:'מחממים תפוזים, סוכר, לימון ומים בסיר.'},
+  {t:'60 דק׳',s:'מבשלים 60 דקות על אש נמוכה-בינונית תוך ערבוב עד הסמכה.'},
+  {t:'סיום',s:'בדיקה: כפית על צלחת קרה — אם מתגבשת, הריבה מוכנה. מעבירים לצנצנות מעוקרות.'},
+ ],
+ tip:'מוסיפים קינמון וג׳ינג׳ר לגרסה מרוקאית מלאה.'},
+
+/* ── SPANISH HERITAGE ── */
+{id:'sp1',cat:'span',badge:'מורשת ספרד',title:'סופריטו — הבסיס הספרדי',
+ desc:'רוטב עגבניות, פלפלים ושום ספרדי — הבסיס של המטבח האנדלוסי שהגיע למרוקו.',
+ time:'40 דקות',serv:'6 מנות',diff:'קל',img:'',
+ mem:'לבל — חמותה של אמא — הגיעה ממשפחת קארו ממגורשי ספרד. הסופריטו הזה היה הבסיס של המטבח שלה. אמא למדה ממנה ועירבבה אותו עם המרוקאי — ויצא משהו חדש ומדהים.',
+ ingr:[
+  {q:'4 בשלות',i:'עגבניות — חתוכות גס'},
+  {q:'2 גדולים',i:'פלפלים אדומים — חתוכים'},
+  {q:'6 שיני',i:'שום — כתוש'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'4 כפות',i:'שמן זית'},
+  {q:'1 כפית',i:'פפריקה מעושנת'},
+  {q:'לפי הטעם',i:'מלח ופלפל שחור'},
+ ],
+ steps:[
+  {t:'8 דק׳',s:'מחממים שמן, מטגנים בצל עד שקוף.'},
+  {t:'3 דק׳',s:'מוסיפים שום ופלפלים.'},
+  {t:'5 דק׳',s:'מוסיפים עגבניות ותבלינים.'},
+  {t:'20 דק׳',s:'מבשלים 20 דקות על אש נמוכה תוך ערבוב עד הסמכה.'},
+ ],
+ tip:'הסופריטו שומר 5 ימים במקרר ו-3 חודשים במקפיא — כדאי להכין כמות כפולה.'},
+
+{id:'sp2',cat:'span',badge:'מורשת ספרד',title:'אלבונדיגס — קציצות ספרדיות',
+ desc:'קציצות בשר ספרדיות ברוטב סופריטו — מסורת 500 שנה ממגורשי ספרד.',
+ time:'55 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ mem:'לבל חמות אמא הכינה "Albóndigas" כמו שספרד לימדה אותה. אמא שינתה את הרוטב למרוקאי — והתוצאה הייתה מנה שחצתה שתי תרבויות.',
+ ingr:[
+  {q:'500 גרם',i:'בשר בקר טחון'},
+  {q:'2 פרוסות',i:'לחם לבן — ספוג במים וסחוט'},
+  {q:'1',i:'ביצה'},
+  {q:'3 שיני',i:'שום — כתוש'},
+  {q:'חופן',i:'פטרוזיליה קצוצה'},
+  {q:'לפי הטעם',i:'מלח, פלפל שחור'},
+  {q:'לרוטב',i:'סופריטו מוכן (ראו מתכון)'},
+ ],
+ steps:[
+  {t:'8 דק׳',s:'מערבבים בשר, לחם ספוג, ביצה, שום, פטרוזיליה ותבלינים.'},
+  {t:'5 דק׳',s:'יוצרים קציצות עגולות קטנות (גודל אגוז).'},
+  {t:'5 דק׳',s:'מטגנים מהר בשמן עד שמשחימות — לא עד הסוף.'},
+  {t:'25 דק׳',s:'מכניסים לסופריטו חם ומבשלים יחד 25 דקות.'},
+ ],
+ tip:'הלחם הספוג הוא הסוד לקציצות רכות ואוורירות — לא לדחוס חזק.'},
+
+{id:'sp3',cat:'span',badge:'מורשת ספרד',title:'גספאצ׳ו אנדלוסי',
+ desc:'מרק עגבניות קר מאנדלוסיה — מנת הקיץ שהביאה לבל ממגורשי ספרד.',
+ time:'15 דקות + קירור',serv:'4–6 מנות',diff:'קל',img:'',
+ mem:'הגספאצ׳ו היה מנת הקיץ של לבל. אמא למדה ממנה והכינה אותו בחודשי הקיץ החמים של קזבלנקה.',
+ ingr:[
+  {q:'6 גדולות',i:'עגבניות בשלות'},
+  {q:'½',i:'מלפפון — קלוף'},
+  {q:'½',i:'פלפל אדום — מנוקה'},
+  {q:'2 שיני',i:'שום'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'2 כפות',i:'חומץ יין אדום'},
+  {q:'2 פרוסות',i:'לחם לבן — ספוגות במים'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'טוחנים בלנדר: עגבניות, מלפפון, פלפל, שום, לחם, שמן זית וחומץ.'},
+  {t:'2 דק׳',s:'מסננים דרך מסננת דקה. מתקנים תיבול.'},
+  {t:'2 שע׳',s:'מצננים במקרר לפחות 2 שעות.'},
+  {t:'הגשה',s:'מגישים קר עם קרוטונים וטפטוף שמן זית.'},
+ ],
+ tip:'ככל שהעגבניות יותר בשלות ומתוקות — כך הגספאצ׳ו יהיה טעים יותר.'},
+
+{id:'sp4',cat:'span',badge:'מורשת ספרד',title:'אמפנדה בשרית',
+ desc:'מאפה בשר ספרדי — מסורת מגורשי ספרד שהגיעה למרוקו דרך לבל.',
+ time:'60 דקות',serv:'8 מנות',diff:'בינוני',img:'',
+ mem:'לבל הכינה אמפנדות לשבת. אמא שמרה על המתכון ושינתה את התיבול למרוקאי.',
+ ingr:[
+  {q:'לבצק',i:''},
+  {q:'3 כוסות',i:'קמח לבן'},
+  {q:'½ כוס',i:'שמן זית'},
+  {q:'¾ כוס',i:'מים פושרים'},
+  {q:'1 כפית',i:'מלח'},
+  {q:'למילוי',i:''},
+  {q:'400 גרם',i:'בשר בקר טחון'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'2 עגבניות',i:'מגורדות'},
+  {q:'1 כפית',i:'פפריקה'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מכינים בצק: מערבבים קמח, שמן, מלח ומים. לשים 5 דקות. מניחים 15 דקות.'},
+  {t:'20 דק׳',s:'מכינים מילוי: מטגנים בצל, מוסיפים בשר ועגבניות ותבלינים. מבשלים 15 דקות.'},
+  {t:'5 דק׳',s:'פותחים בצק לשתי שכבות. מניחים מילוי, מכסים, מהדקים שוליים עם מזלג.'},
+  {t:'25 דק׳',s:'אופים 180° 25 דקות עד זהוב.'},
+ ],
+ tip:'אפשר לאפות גרסאות קטנות אישיות.'},
+
+{id:'sp5',cat:'span',badge:'מורשת ספרד',title:'אארוז קון פולו — אורז עם עוף',
+ desc:'אורז עם עוף ספרדי ברוטב עגבניות וזעפרן — מנה אנדלוסית קלאסית.',
+ time:'60 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ mem:'לבל הכינה "Arroz con Pollo" בכל שישי ספרדי. אמא אימצה אותו והוסיפה את הטעמים המרוקאיים שלה.',
+ ingr:[
+  {q:'1 שלם',i:'עוף — חתוך לחתיכות'},
+  {q:'1.5 כוסות',i:'אורז בסמטי'},
+  {q:'3 עגבניות',i:'מגורדות'},
+  {q:'בצל גדול',i:'קצוץ'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'½ כפית',i:'זעפרן (או כורכום)'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'3 כפות',i:'שמן זית'},
+  {q:'3 כוסות',i:'מים'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'מחממים שמן, צורבים עוף מכל הצדדים. מוציאים לצד.'},
+  {t:'8 דק׳',s:'מטגנים בצל ושום עד זהוב.'},
+  {t:'5 דק׳',s:'מוסיפים עגבניות, זעפרן ופפריקה — מבשלים 5 דקות.'},
+  {t:'2 דק׳',s:'מוסיפים אורז שטוף ומערבבים לציפוי.'},
+  {t:'2 דק׳',s:'מחזירים עוף, מוסיפים מים ומלח, מביאים לרתיחה.'},
+  {t:'20 דק׳',s:'מנמיכים לאש נמוכה, מכסים ומבשלים 20 דקות.'},
+ ],
+ tip:'לא לפתוח את המכסה ב-20 דקות הבישול — האורז זקוק לקיטור סגור.'},
+
+{id:'sp6',cat:'span',badge:'מורשת ספרד',title:'קוקידו — נזיד ספרדי',
+ desc:'נזיד בשר, ירקות וקטניות ספרדי — האב הרוחני של הסקינה המרוקאית.',
+ time:'120 דקות',serv:'6–8 מנות',diff:'בינוני',img:'',
+ mem:'לבל הביאה "Cocido" מספרד. אמא תמיד אמרה שהסקינה המרוקאית היא "אחותה הצעירה" של ה-Cocido הספרדי.',
+ ingr:[
+  {q:'500 גרם',i:'בשר בקר עם עצמות'},
+  {q:'1 כוס',i:'חומוס — מושרה ללילה'},
+  {q:'2 עגבניות',i:'חצויות'},
+  {q:'3 גזרים',i:'שלמים'},
+  {q:'2 תפוחי אדמה',i:'קלופים'},
+  {q:'¼ ראש',i:'כרוב'},
+  {q:'בצל גדול',i:'חצוי'},
+  {q:'3 שיני',i:'שום'},
+  {q:'לפי הטעם',i:'מלח ופלפל'},
+ ],
+ steps:[
+  {t:'10 דק׳',s:'שמים בשר, בצל, שום וחומוס בסיר גדול. מכסים במים.'},
+  {t:'5 דק׳',s:'מביאים לרתיחה, מסירים קצף.'},
+  {t:'60 דק׳',s:'מבשלים שעה על אש נמוכה.'},
+  {t:'30 דק׳',s:'מוסיפים ירקות, ממשיכים 30 דקות.'},
+  {t:'הגשה',s:'מגישים בנפרד: מרק, בשר וירקות.'},
+ ],
+ tip:'המרק הוא "הזהב" של ה-Cocido — מגישים אותו ראשון עם אטריות דקות.'},
+];
+
+/* ══════════════════════════════════════
+   STATE
+══════════════════════════════════════ */
+let ACT_CAT='all', SEARCH='';
+const catLbl=id=>(CATS.find(c=>c.id===id)||{}).lbl||id;
+
+/* ══════════════════════════════════════
+   INIT
+══════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('pill-cnt').textContent=R.length+' מתכונים';
+  buildNav(); renderGrid();
+  window.addEventListener('scroll',()=>document.getElementById('stb').classList.toggle('on',scrollY>450),{passive:true});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+});
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+function buildNav(){
+  document.getElementById('cat-inner').innerHTML=CATS.map((c,i)=>
+    `<button class="cat-btn${i===0?' active':''}" onclick="selCat('${c.id}',this)">${c.lbl}</button>`
+  ).join('');
+}
+function selCat(id,btn){
+  ACT_CAT=id;SEARCH='';
+  document.getElementById('srch').value='';
+  document.getElementById('srch-clr').classList.remove('show');
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('sec-title').textContent=id==='all'?'כל המתכונים':catLbl(id);
+  renderGrid();
+}
+
+/* ══════════════════════════════════════
+   SEARCH
+══════════════════════════════════════ */
+function doSearch(v){
+  SEARCH=v.trim().toLowerCase();
+  document.getElementById('srch-clr').classList.toggle('show',v.length>0);
+  ACT_CAT='all';
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.cat-btn').classList.add('active');
+  document.getElementById('sec-title').textContent=SEARCH?'תוצאות חיפוש':'כל המתכונים';
+  renderGrid();
+}
+function clearSearch(){document.getElementById('srch').value='';doSearch('');}
+
+/* ══════════════════════════════════════
+   FILTER & RENDER
+══════════════════════════════════════ */
+function filtered(){
+  return R.filter(r=>{
+    const cok=ACT_CAT==='all'||r.cat===ACT_CAT;
+    if(!SEARCH)return cok;
+    const h=[r.title,r.desc,r.mem||'',catLbl(r.cat)].join(' ').toLowerCase();
+    return cok&&h.includes(SEARCH);
+  });
+}
+
+function renderGrid(){
+  const list=filtered();
+  const g=document.getElementById('grid');
+  document.getElementById('sec-cnt').textContent=list.length+' מתכונים';
+  if(!list.length){g.innerHTML='<div class="no-res">לא נמצאו מתכונים — נסו חיפוש אחר</div>';return;}
+  g.innerHTML=list.map(r=>{
+    const ph=PH[r.cat]||'';
+    const imgH=r.img
+      ?`<img src="${r.img}" alt="${r.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      :'';
+    const phD=r.img?'style="display:none"':'';
+    return`<article class="card" role="listitem" tabindex="0"
+      onclick="openM('${r.id}')" onkeydown="if(event.key==='Enter')openM('${r.id}')">
+      <div class="c-img">
+        ${imgH}
+        <div class="c-ph ${ph}" ${phD}></div>
+        ${r.badge?`<span class="c-badge">${r.badge}</span>`:''}
+        <div class="c-arch"><svg viewBox="0 0 400 22" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,22 C100,0 300,0 400,22 Z" fill="var(--parch)"/></svg></div>
+      </div>
+      <div class="c-body">
+        <h3 class="c-title">${r.title}</h3>
+        <p class="c-desc">${r.desc}</p>
+        <div class="c-foot">
+          <span class="c-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${r.time}</span>
+          <span class="c-diff">${r.diff}</span>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════
+   MODAL
+══════════════════════════════════════ */
+function openM(id){
+  const r=R.find(x=>x.id===id);if(!r)return;
+  const hz=document.getElementById('m-hero');
+  hz.querySelectorAll('img,.m-hero-ph').forEach(e=>e.remove());
+  if(r.img){
+    const img=document.createElement('img');
+    img.src=r.img;img.alt=r.title;
+    img.onerror=()=>{img.remove();addPh()};
+    hz.insertBefore(img,hz.firstChild);
+  } else addPh();
+  function addPh(){const d=document.createElement('div');d.className='m-hero-ph '+(PH[r.cat]||'');hz.insertBefore(d,hz.firstChild);}
+  const b=document.getElementById('m-badge');
+  if(r.badge){b.textContent=r.badge;b.style.display='';}else b.style.display='none';
+  document.getElementById('m-title').textContent=r.title;
+  document.getElementById('m-subdesc').textContent=r.desc;
+  document.getElementById('m-mem-txt').textContent=r.mem||'';
+  document.getElementById('m-meta').innerHTML=[['קטגוריה',catLbl(r.cat)],['זמן',r.time],['קושי',r.diff],['מנות',r.serv]]
+    .map(([k,v])=>`<span class="m-chip"><strong>${k}:</strong> ${v}</span>`).join('');
+  document.getElementById('m-ingr').innerHTML=(r.ingr||[]).map(item=>{
+    if(!item.i)return`<div class="m-sep">${item.q}</div>`;
+    return`<div class="m-ing"><div class="m-dot"></div><div><span class="m-qty">${item.q}</span> ${item.i}</div></div>`;
+  }).join('');
+  document.getElementById('m-steps').innerHTML=(r.steps||[]).map((s,i)=>
+    `<li class="m-step"><div class="m-snum">${i+1}</div><div class="m-sbody"><span class="m-sdur">${s.t}</span>${s.s}</div></li>`
+  ).join('');
+  const tw=document.getElementById('m-tip-wrap');
+  if(r.tip){document.getElementById('m-tip-txt').textContent=r.tip;tw.style.display='';}else tw.style.display='none';
+  const vw=document.getElementById('m-vid-wrap');
+  if(r.vid){document.getElementById('m-vid-link').href=r.vid;vw.style.display='';}else vw.style.display='none';
+  document.getElementById('ovl').classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('ovl').scrollTop=0;
+}
+function closeM(){document.getElementById('ovl').classList.remove('open');document.body.style.overflow='';}
+function ovlClose(e){if(e.target===document.getElementById('ovl'))closeM();}
+</script>
+</body>
+</html>
