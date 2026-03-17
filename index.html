@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ספר הבישול של פרלה בן ארוש ז״ל – מטבח מרוקאי וספרדי מסורתי. קזבלנקה, מרקש ומורשת ספרד.">
 <title>ספר הבישול של פרלה בן ארוש ז"ל | מרוקו · ספרד · ישראל</title>
+<meta property="og:title" content="ספר הבישול של פרלה בן ארוש ז&quot;ל">
+<meta property="og:description" content="113 מתכונים מרוקאיים וספרדיים מסורתיים — קזבלנקה, מרקש ומורשת ספרד">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://perla-cooking.netlify.app">
+<meta name="theme-color" content="#1c0f08">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -82,6 +87,7 @@ a{color:inherit;text-decoration:none}
 .sec-h2{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.3rem,3vw,1.85rem);font-weight:700;color:var(--clay)}
 .sec-count{font-size:.79rem;color:var(--ink-l);background:var(--parch-2);border:1px solid var(--bdr);border-radius:20px;padding:.17rem .7rem}
 .no-res{grid-column:1/-1;text-align:center;padding:5rem 1rem;color:var(--ink-l);font-family:'Frank Ruhl Libre',serif;font-size:1.2rem}
+.no-res::before{content:'✦';display:block;font-size:3rem;opacity:.2;margin-bottom:1rem}
 
 /* ═══ GRID ═══ */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.6rem}
@@ -94,7 +100,7 @@ a{color:inherit;text-decoration:none}
 .card:hover{transform:translateY(-6px);box-shadow:var(--sh-md)}
 .card:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
 .c-img{height:200px;overflow:hidden;position:relative;flex-shrink:0;background:var(--parch-2)}
-.c-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.c-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease,opacity .3s ease;opacity:0}.c-img img.loaded{opacity:1}
 .card:hover .c-img img{transform:scale(1.08)}
 .c-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .c-badge{position:absolute;top:.65rem;right:.65rem;background:var(--clay);color:#fff;font-size:.67rem;font-weight:700;padding:.22rem .65rem;border-radius:12px;letter-spacing:.04em;text-shadow:0 1px 3px rgba(0,0,0,.3)}
@@ -135,6 +141,7 @@ a{color:inherit;text-decoration:none}
 .m-badge{background:var(--clay);color:#fff;font-size:.72rem;font-weight:700;padding:.25rem .78rem;border-radius:12px;letter-spacing:.04em;width:fit-content;margin-bottom:.65rem}
 .m-title{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:900;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.6);line-height:1.15}
 .m-subdesc{color:rgba(218,188,148,.82);font-size:.9rem;margin-top:.4rem;font-weight:300}
+.m-progress-bar{height:4px;background:linear-gradient(to left,var(--saffron-l),var(--clay));transform-origin:right;transform:scaleX(0);transition:transform .12s}
 .m-cls{position:absolute;top:1rem;left:1rem;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:var(--tr);z-index:5}
 .m-cls:hover{background:var(--clay);transform:scale(1.1)}
 
@@ -230,7 +237,105 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
   .main-wrap{padding:0}
   .card{break-inside:avoid;page-break-inside:avoid}
 }
+
+/* DIFFICULTY FILTER */
+.diff-bar-wrap{background:var(--parch-2);border-bottom:1.5px solid var(--bdr)}
+.diff-bar{max-width:1520px;margin:0 auto;padding:.5rem 1.5rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.diff-lbl{font-size:.78rem;color:var(--ink-l);font-weight:500;margin-left:.3rem}
+.diff-btn{font-size:.75rem;padding:.28rem .8rem;border-radius:20px;background:var(--cream);border:1.5px solid var(--bdr);color:var(--ink-m);cursor:pointer;transition:var(--tr);font-family:'Heebo',sans-serif}
+.diff-btn:hover{background:var(--parch-3)}
+.diff-btn.active{background:var(--clay);color:#fff;border-color:var(--clay)}
+
+/* FAVORITES */
+.fav-btn{position:absolute;top:.65rem;left:.65rem;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.82);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;transition:transform var(--tr);z-index:2}
+.fav-btn:hover{transform:scale(1.2)}
+.fav-btn.fav-active{color:var(--clay)}
+.fav-counter{display:none;background:var(--clay);color:#fff;font-size:.65rem;font-weight:700;border-radius:10px;padding:.1rem .45rem;margin-right:.4rem}
+.fav-counter.show{display:inline-block}
+
+/* ABOUT */
+.about-wrap{background:linear-gradient(135deg,var(--parch-2),var(--parch-3));border-bottom:2px solid var(--bdr);padding:2.5rem 2rem}
+.about-in{max-width:1520px;margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:2.5rem;align-items:center}
+.about-pic{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,var(--clay-d),var(--wood-l));display:flex;align-items:center;justify-content:center;font-size:5rem;color:rgba(255,255,255,.22);border:4px solid var(--saffron);box-shadow:var(--sh-md)}
+.about-h{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.2rem,3vw,1.6rem);font-weight:900;color:var(--clay);margin-bottom:.5rem}
+.about-p{font-size:.9rem;line-height:1.95;color:var(--ink-m);font-weight:300}
+.about-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.about-tag{background:var(--cream);border:1.5px solid var(--bdr);border-radius:20px;padding:.28rem .9rem;font-size:.75rem;color:var(--ink-l)}
+@media(max-width:640px){.about-in{grid-template-columns:1fr;text-align:center}.about-pic{margin:0 auto}.about-tags{justify-content:center}}
+
+/* COOKING TIMER */
+.step-timer-btn{display:inline-flex;align-items:center;gap:.3rem;
+  background:var(--clay);color:#fff;border-radius:6px;
+  padding:.08rem .5rem;font-size:.68rem;font-weight:600;
+  cursor:pointer;margin-right:.35rem;vertical-align:middle;
+  transition:background var(--tr);border:none;font-family:'Heebo',sans-serif}
+.step-timer-btn:hover{background:var(--clay-l)}
+.step-timer-btn.running{background:var(--saffron-d);animation:pulse .8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+
+/* TIMER WIDGET (fixed bottom right) */
+.timer-widget{position:fixed;bottom:1.8rem;right:1.8rem;
+  background:var(--wood-d);color:var(--saffron-l);
+  border:2px solid var(--saffron);border-radius:16px;
+  padding:.8rem 1.2rem;z-index:700;
+  box-shadow:var(--sh-lg);display:none;
+  font-family:'Frank Ruhl Libre',serif;min-width:160px}
+.timer-widget.show{display:block;animation:slideInRight .3s ease}
+@keyframes slideInRight{from{transform:translateX(20px);opacity:0}to{transform:translateX(0);opacity:1}}
+.timer-title{font-size:.72rem;opacity:.65;margin-bottom:.2rem}
+.timer-display{font-size:2rem;font-weight:900;letter-spacing:.05em;line-height:1}
+.timer-step{font-size:.72rem;opacity:.6;margin-top:.2rem;max-width:140px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.timer-controls{display:flex;gap:.5rem;margin-top:.6rem}
+.timer-ctrl{flex:1;background:rgba(255,255,255,.1);color:var(--saffron-l);
+  border:1px solid rgba(196,154,12,.3);border-radius:8px;
+  padding:.3rem;font-size:.75rem;cursor:pointer;font-family:'Heebo',sans-serif;
+  text-align:center;transition:background var(--tr)}
+.timer-ctrl:hover{background:rgba(255,255,255,.2)}
+
+/* RANDOM RECIPE BUTTON */
+.random-btn{display:inline-flex;align-items:center;gap:.5rem;
+  background:transparent;border:1.5px solid rgba(196,154,12,.4);
+  color:var(--saffron-l);border-radius:28px;padding:.45rem 1.1rem;
+  font-family:'Frank Ruhl Libre',serif;font-size:.82rem;cursor:pointer;
+  transition:var(--tr);margin-right:.5rem}
+.random-btn:hover{background:rgba(196,154,12,.1);border-color:var(--saffron-l)}
+
+/* INGREDIENT SEARCH TOGGLE */
+.ing-search-wrap{background:var(--parch-2);border-bottom:1.5px solid var(--bdr);
+  padding:.5rem 1.5rem;display:none}
+.ing-search-wrap.show{display:block}
+.ing-search-inner{max-width:1520px;margin:0 auto;
+  display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.ing-search-lbl{font-size:.78rem;color:var(--ink-l);font-weight:500;white-space:nowrap}
+#ing-input{flex:1;min-width:200px;max-width:400px;
+  background:var(--cream);border:1.5px solid var(--bdr);border-radius:20px;
+  padding:.48rem 1rem;font-family:'Heebo',sans-serif;font-size:.85rem;
+  color:var(--ink);direction:rtl;outline:none;transition:var(--tr)}
+#ing-input:focus{border-color:var(--saffron);box-shadow:0 0 0 3px rgba(196,154,12,.12)}
+.ing-tag{background:var(--parch-3);border:1px solid var(--bdr);border-radius:12px;
+  padding:.18rem .6rem;font-size:.73rem;color:var(--ink-m);
+  display:inline-flex;align-items:center;gap:.3rem}
+.ing-tag button{background:none;border:none;color:var(--clay);cursor:pointer;
+  font-size:.9rem;line-height:1;padding:0}
+.ing-tags-list{display:flex;flex-wrap:wrap;gap:.4rem}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Cookbook",
+  "name": "ספר הבישול של פרלה בן ארוש ז\"ל",
+  "description": "101 מתכונים מרוקאיים וספרדיים מסורתיים מקזבלנקה, מרקש ומורשת ספרד",
+  "author": {
+    "@type": "Person",
+    "name": "פרלה בן ארוש ז\"ל",
+    "birthPlace": "קזבלנקה, מרוקו"
+  },
+  "inLanguage": "he",
+  "url": "https://perla-cooking.netlify.app",
+  "genre": ["מטבח מרוקאי", "מטבח ספרדי-אנדלוסי"]
+}
+</script>
 </head>
 <body>
 
@@ -243,7 +348,7 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
     <div class="hdr-orn">✦ ✦ ✦</div>
     <div class="hdr-search">
       <svg class="hdr-search-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="srch" placeholder="חפשו מתכון..." autocomplete="off" aria-label="חיפוש מתכון" oninput="doSearch(this.value)">
+      <input type="text" id="srch" placeholder="חפשו מתכון... (Ctrl+F)" autocomplete="off" aria-label="חיפוש מתכון" oninput="doSearch(this.value)">
       <button id="srch-clr" onclick="clearSearch()" aria-label="נקה">×</button>
     </div>
   </div>
@@ -255,7 +360,7 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
 
 <section class="hero">
   <div class="hero-c">
-    <div class="hero-orn">✦ ✦ ✦</div>
+    <div class="hero-orn" style="letter-spacing:.8em">✦ ✦ ✦</div>
     <h1 class="hero-h1">המטבח של <em>אמא פרלה</em></h1>
     <p class="hero-h2">מרוקו · ספרד · ישראל — טעמים שנולדו מאהבה</p>
     <p class="hero-story">פרלה בן ארוש ז"ל נולדה בקזבלנקה וגדלה על ריחות השוק של מרוקו. נישאה לאיש ממשפחת קארו — צאצאי מגורשי ספרד — ולמדה את המטבח האנדלוסי מחמותה לבל. מטבחה הפך לפסיפס עשיר: מרוקאי וספרדי, שני עולמות בסיר אחד. כל תבשיל נושא ריח, זיכרון ואהבה.</p>
@@ -269,6 +374,25 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
   </div>
 </section>
 
+
+<section class="about-wrap">
+  <div class="about-in">
+    <div class="about-pic">&#9786;</div>
+    <div>
+      <h2 class="about-h">פרלה בן ארוש ז"ל — מי הייתה?</h2>
+      <p class="about-p">נולדה בקזבלנקה, גדלה בין ריחות השוק המרוקאי ואהבה לבשל עוד לפני שלמדה לקרוא. נישאה לאיש ממשפחת קארו — צאצאי מגורשי ספרד בשנת 1492 — ולמדה את המטבח האנדלוסי מחמותה לבל. שני עולמות, שתי מסורות, סיר אחד מלא אהבה. מתכוניה לא נכתבו — הם חיו בראשה ובידיה, ומובאים כאן ממה שסיפרה לילדיה.</p>
+      <div class="about-tags">
+        <span class="about-tag">קזבלנקה</span>
+        <span class="about-tag">מרקש</span>
+        <span class="about-tag">מורשת ספרד</span>
+        <span class="about-tag">משפחת קארו</span>
+        <span class="about-tag">מגורשי ספרד 1492</span>
+        <span class="about-tag">מטבח מרוקאי</span>
+        <span class="about-tag">מטבח אנדלוסי</span>
+      </div>
+    </div>
+  </div>
+</section>
 <main class="main">
   <div class="sec-head">
     <h2 class="sec-h2" id="sec-title">כל המתכונים</h2>
@@ -279,8 +403,12 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
 
 <footer>
   <div class="ft">לזכר נשמת פרלה בן ארוש ז"ל</div>
-  <div>קזבלנקה · מרקש · ישראל | משפחת קארו — צאצאי מגורשי ספרד</div>
+  <div>קזבלנקה · מרקש · ישראל | משפחת קארו — צאצאי מגורשי ספרד 1492</div>
+  <div style="margin:.4rem 0;font-size:.8rem;opacity:.45">104 מתכונים מסורתיים שנשמרו לדורות</div>
   <div class="fq">"הטעם הכי טוב בעולם הוא הטעם שזוכרים" — פרלה</div>
+  <div style="margin-top:.8rem;font-size:.75rem;opacity:.3">
+    נבנה באהבה לזכרה | perla-cooking.netlify.app
+  </div>
   <div class="fo">✦ ✦ ✦</div>
 </footer>
 
@@ -288,8 +416,15 @@ footer{background:var(--wood-d);border-top:3px solid var(--saffron);color:rgba(1
 
 <div class="ovl" id="ovl" role="dialog" aria-modal="true" onclick="ovlClose(event)">
   <div class="mbox" id="mbox">
+    <div class="m-progress" id="m-progress" style="background:linear-gradient(to left,var(--saffron-l),var(--clay));height:4px;transform:scaleX(0);transform-origin:right;transition:transform .1s"></div>
     <div class="m-hero" id="m-hero">
       <button class="m-cls" onclick="closeM()" aria-label="סגור">✕</button>
+      <button onclick="navRecipe(-1)" aria-label="מתכון קודם"
+        style="position:absolute;top:1rem;right:4rem;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;transition:background .2s"
+        onmouseover="this.style.background='rgba(184,66,35,.8)'" onmouseout="this.style.background='rgba(0,0,0,.45)'">›</button>
+      <button onclick="navRecipe(1)" aria-label="מתכון הבא"
+        style="position:absolute;top:1rem;right:7rem;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;transition:background .2s"
+        onmouseover="this.style.background='rgba(184,66,35,.8)'" onmouseout="this.style.background='rgba(0,0,0,.45)'">‹</button>
       <div class="m-hero-grad">
         <div class="m-badge" id="m-badge" style="display:none"></div>
         <h2 class="m-title" id="m-title"></h2>
@@ -369,6 +504,17 @@ const IMG={
   tea:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Moroccan_tea.jpg/800px-Moroccan_tea.jpg',
   fish:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Moroccan_fish_tagine.jpg/800px-Moroccan_fish_tagine.jpg',
   tagine:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Moroccan-chicken-tagine.jpg/800px-Moroccan-chicken-tagine.jpg',
+  // Extended image set
+  lentilsoup:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Red_lentil_soup.jpg/800px-Red_lentil_soup.jpg',
+  chickensaffron:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chicken_Tagine_with_Preserved_Lemon_and_Olives.jpg/800px-Chicken_Tagine_with_Preserved_Lemon_and_Olives.jpg',
+  bamia:'https://upload.wikimedia.org/wikipedia/commons/8/87/Bamia.jpg',
+  sfenj:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Sfenj.jpg/800px-Sfenj.jpg',
+  meatballs:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Kefta_Mkaoura.jpg/800px-Kefta_Mkaoura.jpg',
+  roastedpeppers:'https://upload.wikimedia.org/wikipedia/commons/a/a3/Peppers_roasted.jpg',
+  sardines:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sardines.jpg/800px-Sardines.jpg',
+  couscousfull:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Moroccan_Couscous.jpg/800px-Moroccan_Couscous.jpg',
+  chickenpot:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Moroccan_chicken.jpg/800px-Moroccan_chicken.jpg',
+  dafina:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Moroccan_stew.jpg/800px-Moroccan_stew.jpg',
 };
 
 /* ══════════════════════════════════════
@@ -385,7 +531,7 @@ const R=[
   {q:'500 גרם',i:'בשר בקר (שריר) — חתוך לקוביות 2 ס"מ'},
   {q:'בצל גדול',i:'קצוץ דק מאוד'},
   {q:'3 כפות',i:'שמן זית כתית מעולה'},
-  {q:'3 בינוניות',i:'עגבניות בשלות — מגורדות'},
+  {q:'3 עגבניות',i:'בשלות — מגורדות (כ-400 גרם)'},
   {q:'½ כוס',i:'עדשים כתומות — שטופות'},
   {q:'½ כוס',i:'חומוס מבושל — שטוף'},
   {q:'1 כפית',i:'כורכום'},
@@ -411,7 +557,7 @@ const R=[
 
 {id:'s2',cat:'soups',title:'מרק עדשים מרוקאי',
  desc:'מרק עדשים פשוט ומזין עם שום, כמון ופפריקה. מוכן ב-40 דקות.',
- time:'40 דקות',serv:'4–6 מנות',diff:'קל',img:'',
+ time:'40 דקות',serv:'4–6 מנות',diff:'קל',img:IMG.lentilsoup,
  mem:'ימי שישי בבית אמא — מרק העדשים היה "המנה הראשונה" לצהריים. הריח הגיע מהמטבח עוד כשחזרנו מבית הספר. כלי חרס, אש נמוכה, וריח של כמון — זה היה בית.',
  ingr:[
   {q:'1 כוס (200 גרם)',i:'עדשים כתומות — שטופות'},
@@ -442,8 +588,8 @@ const R=[
  mem:'"שעועית טובה היא כמו שכן טוב," אמרה אמא — "זולה ותמיד שם בשבילך." היא הפכה ירק צנוע לארוחה מלכותית בלי להתפאר.',
  ingr:[
   {q:'2 כוסות (400 גרם)',i:'שעועית לבנה מבושלת — שטופה'},
-  {q:'בצל גדול',i:'קצוץ'},
-  {q:'3 עגבניות',i:'מגורדות'},
+  {q:'1 בצל גדול',i:'קצוץ גס'},
+  {q:'3 עגבניות בינוניות',i:'מגורדות'},
   {q:'4 שיני',i:'שום — כתוש'},
   {q:'1 כפית',i:'פפריקה מתוקה'},
   {q:'½ כפית',i:'פפריקה חריפה'},
@@ -467,9 +613,9 @@ const R=[
  time:'45 דקות',serv:'4–6 מנות',diff:'קל',img:'',
  mem:'"לא זורקים כלום," אמרה אמא. "הכל נהיה מרק." בחורף קזבלנקה היא הייתה שמה כל מה שנשאר בתחתית המקרר — והתוצאה הייתה תמיד מדהימה.',
  ingr:[
-  {q:'3 בינוניים',i:'גזרים — קלופים, חתוכים לעיגולים'},
-  {q:'2 בינוניים',i:'קישואים — חתוכים לקוביות'},
-  {q:'2 בינוניים',i:'תפוחי אדמה — קלופים, חתוכים לקוביות'},
+  {q:'3 בינוניים (300 גרם)',i:'גזרים — קלופים, חתוכים לעיגולים'},
+  {q:'2 בינוניים (250 גרם)',i:'קישואים — חתוכים לקוביות'},
+  {q:'2 בינוניים (300 גרם)',i:'תפוחי אדמה — קלופים, חתוכים לקוביות'},
   {q:'בצל גדול',i:'קצוץ'},
   {q:'3 שיני',i:'שום — כתוש'},
   {q:'1 כפית',i:'כורכום'},
@@ -489,11 +635,11 @@ const R=[
 
 {id:'s5',cat:'soups',title:'מרק עגבניות ושום',
  desc:'מרק עגבניות עוצמתי עם שום שלם — ספרדי-מרוקאי קלאסי.',
- time:'30 דקות',serv:'4 מנות',diff:'קל',img:'',
+ time:'30 דקות',serv:'4–6 מנות',diff:'קל',img:'',
  mem:'המתכון הגיע מחמותה של אמא — לבל — שהביאה אותו מהמורשת הספרדית. הסגנון האנדלוסי ניכר בפשטותו ובעוצמת השום.',
  ingr:[
-  {q:'8 בשלות',i:'עגבניות — חתוכות לרבעים'},
-  {q:'8 שיני',i:'שום — שלמות'},
+  {q:'8 עגבניות בשלות (≈1 ק"ג)',i:'חתוכות לרבעים'},
+  {q:'6–8 שיני',i:'שום — שלמות (לא כתושות!)'},
   {q:'3 כפות',i:'שמן זית'},
   {q:'1 כפית',i:'פפריקה מתוקה'},
   {q:'½ כפית',i:'פפריקה חריפה'},
@@ -510,7 +656,7 @@ const R=[
 
 {id:'s6',cat:'soups',title:'מרק דלעת מתוק-חריף',
  desc:'מרק דלעת קטיפתי עם כורכום, ג׳ינג׳ר ונגיעת דבש — ייחודי ומיוחד.',
- time:'40 דקות',serv:'4 מנות',diff:'קל',img:'',
+ time:'40 דקות',serv:'4–5 מנות',diff:'קל',img:'',
  mem:'בעונת הדלעות, אמא הייתה קונה דלעת ענקית בשוק ומכינה ממנה שלושה תבשילים שונים. "הדלעת הכי טובה היא הדלעת הכי כבדה," היא אמרה.',
  ingr:[
   {q:'700 גרם',i:'דלעת — קלופה, חתוכה לקוביות'},
@@ -596,7 +742,7 @@ const R=[
  mem:'בכל שישי בבוקר, הריח הראשון שהגיע מהמטבח של אמא היה מטבוחה על אש נמוכה. "לא נוגעים בה," היא הייתה אומרת, "היא מכינה את עצמה." שעה וחצי של בישול איטי — ובסיום טעם שאי אפשר לדמות.',
  ingr:[
   {q:'8 גדולות (≈1 ק"ג)',i:'עגבניות בשלות — מגורדות על פומפייה גסה'},
-  {q:'5 שיני',i:'שום — כתוש דק'},
+  {q:'4 שיני',i:'שום — כתוש דק'},
   {q:'½ כוס',i:'שמן זית כתית מעולה'},
   {q:'1 כפית',i:'פפריקה מתוקה'},
   {q:'½ כפית',i:'פפריקה חריפה'},
@@ -636,7 +782,7 @@ const R=[
 
 {id:'sa3',cat:'salads',title:'טקטוקה — פלפלים ועגבניות',
  desc:'פלפלים אדומים קלויים עם עגבניות ושום — סלט מרוקאי-ספרדי קלאסי.',
- time:'40 דקות',serv:'6 מנות',diff:'קל',img:'',
+ time:'40 דקות',serv:'6 מנות',diff:'קל',img:IMG.roastedpeppers,
  mem:'הטקטוקה הייתה על שולחן השבת בכל שישי. הצבע האדום-כתום שלה קישט את השולחן עם שאר הסלטים כמו ציור.',
  ingr:[
   {q:'4 גדולים',i:'פלפלים אדומים'},
@@ -657,7 +803,7 @@ const R=[
 
 {id:'sa4',cat:'salads',title:'סלט גזר מרוקאי מבושל',
  desc:'גזר מבושל עם כמון, שום ולימון — הסלט הכי פשוט שנגמר ראשון.',
- time:'25 דקות',serv:'6 מנות',diff:'קל',img:'',
+ time:'25 דקות',serv:'6 מנות',diff:'קל',img:IMG.zaalouk,
  mem:'"תלמדי קודם גזר מבושל — ואז שאר הסלטים קלים," אמרה אמא לבנותיה. הסלט הכי קל — ותמיד הראשון שנגמר.',
  ingr:[
   {q:'500 גרם',i:'גזרים — קלופים, פרוסים לעיגולים דקים'},
@@ -679,7 +825,7 @@ const R=[
 
 {id:'sa5',cat:'salads',title:'סלט חצילים קלויים',
  desc:'חצילים קלויים עם שום, שמן זית ולימון — פשוט, עשיר ונהדר.',
- time:'35 דקות',serv:'6 מנות',diff:'קל',img:'',
+ time:'35 דקות',serv:'4–6 מנות',diff:'קל',img:'',
  mem:'זה היה הסלט הראשון שאמא לימדה את בנותיה. "תלמדי חצילים קלויים — ואז שאר הסלטים קלים."',
  ingr:[
   {q:'2 גדולים',i:'חצילים'},
@@ -751,7 +897,7 @@ const R=[
 
 {id:'sa9',cat:'salads',title:'סלט חומוס חם',
  desc:'חומוס מחומם עם כמון ושמן זית — מוגש חם כסלט ראשון.',
- time:'10 דקות',serv:'4 מנות',diff:'קל',img:'',
+ time:'10 דקות',serv:'4–6 מנות',diff:'קל',img:'',
  mem:'אמא הייתה מגישה חומוס חם עם לחם מרוקאי ישיר מהתנור. פשטות מלאת מלכות.',
  ingr:[
   {q:'400 גרם',i:'חומוס מבושל — שטוף'},
@@ -793,7 +939,7 @@ const R=[
  ingr:[
   {q:'2 גדולים',i:'חצילים — חתוכים לקוביות 2 ס"מ'},
   {q:'4 בינוניות',i:'עגבניות — מגורדות'},
-  {q:'5 שיני',i:'שום — כתוש'},
+  {q:'4 שיני',i:'שום — כתוש'},
   {q:'½ כוס',i:'שמן זית (לטיגון ולרוטב)'},
   {q:'1 כפית',i:'פפריקה מתוקה'},
   {q:'½ כפית',i:'פפריקה חריפה'},
@@ -809,7 +955,7 @@ const R=[
 
 {id:'v2',cat:'veg',title:'במיה ברוטב עגבניות',
  desc:'במיה מטוגנת ומבושלת ברוטב עגבניות — ללא ריר, מלא טעם.',
- time:'40 דקות',serv:'4 מנות',diff:'בינוני',img:'',
+ time:'40 דקות',serv:'4 מנות',diff:'בינוני',img:IMG.bamia,
  mem:'הסוד של אמא לבמיה ללא ריר: "מטגנים אותה קודם — ואז הריר נעלם." שיטה שלמדה מחמותה הספרדייה.',
  ingr:[
   {q:'400 גרם',i:'במיה — שטופה, קצות חתוכים'},
@@ -914,7 +1060,7 @@ const R=[
  mem:'כל שישי בערב, ריח הדג עלה מהמטבח של אמא. "דג שבת לא מחכה — הוא מגיע חם לשולחן." הדג הזה מייצג כל שישי שחי בזיכרוננו.',
  ingr:[
   {q:'1 ק"ג',i:'דג טרי שלם (לוקוס/דניס/מוסר ים) — נקוי ופרוס לסטייקים עבים'},
-  {q:'6 שיני',i:'שום — כתוש'},
+  {q:'5 שיני',i:'שום — כתוש'},
   {q:'חופן גדול',i:'כוסברה טרייה — קצוצה'},
   {q:'3 כפות',i:'פפריקה מתוקה'},
   {q:'1 כפית',i:'פפריקה חריפה'},
@@ -955,7 +1101,7 @@ const R=[
 
 {id:'f3',cat:'fish',title:'קציצות דגים ברוטב אדום',
  desc:'קציצות דגים רכות ועסיסיות מבושלות ברוטב עגבניות מרוקאי.',
- time:'45 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ time:'45 דקות',serv:'4–6 מנות',diff:'בינוני',img:IMG.meatballs,
  mem:'"קציצה טובה לא מתפרקת — היא יציבה אבל רכה," אמרה אמא. הסוד: דג טרי, לא קפוא.',
  ingr:[
   {q:'500 גרם',i:'דג טחון טרי (מרלוז/מוסר)'},
@@ -1069,7 +1215,7 @@ const R=[
 
 {id:'m3',cat:'meat',title:'תבשיל בשר עם שזיפים ושקדים',
  desc:'בשר בקר עם שזיפים מיובשים, שקדים קלויים ודבש — מנת חג מרוקאית.',
- time:'100 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ time:'100 דקות',serv:'4–6 מנות',diff:'בינוני',img:IMG.tagine,
  mem:'"טעם החגים" אמרה אמא. המתיקות של השזיפים עם עומק הבשר — שילוב שאפיין את שולחן ראש השנה.',
  ingr:[
   {q:'800 גרם',i:'בשר בקר (שריר) — קוביות גדולות'},
@@ -1102,7 +1248,7 @@ const R=[
   {q:'1 שלם',i:'עוף — חתוך ל-8 חתיכות (עם עצמות)'},
   {q:'1 כוס',i:'זיתים ירוקים שלמים — עדיף מלוחים'},
   {q:'1 גדול',i:'לימון כבוש — חתוך לרצועות דקות'},
-  {q:'6 שיני',i:'שום — כתוש'},
+  {q:'5 שיני',i:'שום — כתוש'},
   {q:'בצל גדול',i:'קצוץ'},
   {q:'½ כוס',i:'שמן זית'},
   {q:'1 כפית',i:'כורכום'},
@@ -1124,7 +1270,7 @@ const R=[
 
 {id:'c2',cat:'chick',title:'עוף עם שקדים וצימוקים',
  desc:'עוף מתוק-מלוח עם שקדים קלויים וצימוקים — מנת חג אנדלוסית-מרוקאית.',
- time:'70 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ time:'70 דקות',serv:'4–6 מנות',diff:'בינוני',img:IMG.chickensaffron,
  mem:'המנה הגיעה מהמטבח האנדלוסי של ספרד. חמותה של אמא אמרה שהיא מסורת של 500 שנה.',
  ingr:[
   {q:'1 שלם',i:'עוף — חתוך לחתיכות'},
@@ -1149,7 +1295,7 @@ const R=[
 
 {id:'c3',cat:'chick',badge:'שבת',title:'סקינה — חמין מרוקאי',
  desc:'תבשיל שבת שמתבשל כל הלילה על אש נמוכה. מוגש בשבת בצהריים.',
- time:'12 שעות',serv:'6–8 מנות',diff:'מאתגר',img:'',
+ time:'12 שעות',serv:'6–8 מנות',diff:'מאתגר',img:IMG.dafina,
  vid:'https://www.youtube.com/results?search_query=skhina+moroccan+shabbat+overnight',
  mem:'בכל ליל שישי, אמא סידרה את הסקינה בסיר הגדול ושמה אותה על הפלטה. בבוקר שבת — הבית היה מלא בריח עמוק שלא דומה לשום דבר אחר. "לא פותחים את הסיר בלילה," היא אמרה. "הסקינה ישנה."',
  ingr:[
@@ -1175,7 +1321,7 @@ const R=[
 
 {id:'c4',cat:'chick',title:'עוף עם בצל מקורמל',
  desc:'עוף עם בצל מקורמל עמוק ומתוק — מנה ספרדית-מרוקאית נפלאה.',
- time:'65 דקות',serv:'4 מנות',diff:'בינוני',img:'',
+ time:'65 דקות',serv:'4 מנות',diff:'בינוני',img:IMG.chickenpot,
  mem:'"בצל מקורמל לא מצליח בגב," אמרה אמא. 20 דקות ליד הסיר — לא עוזבים.',
  ingr:[
   {q:'1 שלם',i:'עוף — חתוך לחתיכות'},
@@ -1302,11 +1448,11 @@ const R=[
  vid:'https://www.youtube.com/results?search_query=mofletta+moroccan+mimouna+recipe',
  mem:'ליל המימונה בבית אמא: שולחן לבן עם חיטה, ביצים, ריבות ועלי מנתא. ריח המופלטות שנאפות על מחבת — אחת אחרי השנייה. "המופלטה צריכה לרצות להיסחט," אמרה, "לא לרוץ."',
  ingr:[
-  {q:'1 ק"ג',i:'קמח לבן (לחם)'},
+  {q:'1 ק"ג',i:'קמח לבן לחם (או קמח רגיל)'},
   {q:'1 כף',i:'שמרים יבשים'},
   {q:'1 כף',i:'סוכר'},
   {q:'1 כפית',i:'מלח'},
-  {q:'כ-600 מ"ל',i:'מים פושרים'},
+  {q:'2 כוסות (480–600 מ"ל)',i:'מים פושרים (כמות משתנה לפי הקמח)'},
   {q:'בנדיבות',i:'שמן תירס — לעבודה'},
   {q:'להגשה',i:'דבש, חמאה, ריבה'},
  ],
@@ -1389,7 +1535,7 @@ const R=[
 
 {id:'d5',cat:'des',badge:'מסורת',title:'תה נענע מרוקאי',
  desc:'התה הלאומי של מרוקו — תה ירוק, נענע טרייה, סוכר רב ומזיגה מגובה.',
- time:'10 דקות',serv:'4 כוסות',diff:'קל',img:IMG.tea,
+ time:'10 דקות',serv:'4–6 כוסות',diff:'קל',img:IMG.tea,
  mem:'אצל אמא, כל אורח קיבל תה — לא שאלו "רוצה?" פשוט הכינו. "תה ללא נענע זה מים," היא אמרה. "נענע ללא סוכר זה תרופה."',
  ingr:[
   {q:'1 כף',i:'תה ירוק (Gunpowder)'},
@@ -1729,7 +1875,7 @@ const R=[
  time:'30 דקות',serv:'4 מנות',diff:'קל',img:'',
  mem:'גזר מתובל היה אחד הטעמים שאפיינו את שבת של אמא — צל של המרק האדום.',
  ingr:[
-  {q:'500 גרם',i:'גזרים — קלופים, פרוסים לעיגולים'},
+  {q:'500 גרם (≈4 בינוניים)',i:'גזרים — קלופים, פרוסים לעיגולים דקים'},
   {q:'4 שיני',i:'שום — כתוש'},
   {q:'1 כפית',i:'כמון טחון'},
   {q:'½ כפית',i:'פפריקה מתוקה'},
@@ -2227,7 +2373,7 @@ const R=[
 
 {id:'hx4',cat:'hol',title:'דג חגיגי ברוטב חריף',
  desc:'דג טרי ברוטב פפריקה, שום וכוסברה — לשולחן החג.',
- time:'25 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ time:'25 דקות',serv:'4–6 מנות',diff:'בינוני',img:IMG.fish,
  mem:'דג חגיגי היה חובה על שולחן ראש השנה — "ראש לא זנב," כפי שאמא אמרה.',
  ingr:[
   {q:'1 ק"ג',i:'דג טרי — פרוס לסטייקים'},
@@ -2334,7 +2480,7 @@ const R=[
 
 {id:'dx4',cat:'des',title:'תה מרוקאי חגיגי',
  desc:'תה ירוק עם נענע, לואיזה וסוכר רב — גרסת החג של התה המרוקאי.',
- time:'10 דקות',serv:'4 כוסות',diff:'קל',img:'',
+ time:'10 דקות',serv:'4–6 כוסות',diff:'קל',img:'',
  mem:'בחגים, התה היה "מלא" יותר — נענע ולואיזה יחד, יותר סוכר, ותמיד מוגש על מגש כסף.',
  ingr:[
   {q:'1 כף',i:'תה ירוק (Gunpowder)'},
@@ -2351,7 +2497,133 @@ const R=[
  ],
  tip:'בחג — מוסיפים לואיזה. הריח שלה הוא ריח החגים.'},
 
+{id:'sp7',cat:'span',badge:'מורשת ספרד',title:'פסטיל — ביצה ספרדית',
+ desc:'ביצת ספרד עם תפוחי אדמה ובצל — Tortilla Española שהגיעה ממגורשי ספרד.',
+ time:'30 דקות',serv:'4–6 מנות',diff:'קל',img:'',
+ vid:'https://www.youtube.com/results?search_query=tortilla+espanola+classic',
+ mem:'לבל — חמותה של אמא — הכינה "Tortilla" בכל שבוע. "הספרדים אוכלים ביצה בכבוד," היא אמרה. "לא כארוחת בוקר — כמנה עיקרית."',
+ ingr:[
+  {q:'6 גדולות',i:'ביצים'},
+  {q:'3 גדולים',i:'תפוחי אדמה — קלופים, פרוסים דק'},
+  {q:'1 גדול',i:'בצל — פרוס דק'},
+  {q:'½ כוס',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח ופלפל שחור'},
+ ],
+ steps:[
+  {t:'15 דק׳',s:'מחממים שמן זית במחבת 24 ס"מ. מוסיפים תפוחי אדמה ובצל — מבשלים 15 דקות על אש נמוכה-בינונית עד ריכוך (לא מטגנים עד פריך). מסננים את השמן ושומרים.'},
+  {t:'3 דק׳',s:'טורפים ביצים עם מלח ופלפל. מוסיפים תפוחי אדמה ובצל מסוננים ומערבבים.'},
+  {t:'5 דק׳',s:'מחזירים מעט שמן למחבת על אש בינונית-גבוהה. יוצקים תערובת הביצים. מנמיכים לאש נמוכה, מבשלים 4–5 דקות עד שהשוליים מתייצבים.'},
+  {t:'2 דק׳',s:'הפיכה: מניחים צלחת גדולה על המחבת, הופכים בנועז. מחזירים לאש 2 דקות נוספות.'},
+ ],
+ tip:'הסוד: תפוחי האדמה מבושלים בשמן — לא מטוגנים. הם צריכים להיות רכים ומשובצים בביצה, לא פריכים.'},
+
+{id:'sp8',cat:'span',badge:'מורשת ספרד',title:'פאייה ירקות — Paella',
+ desc:'פאייה ספרדית מסורתית עם אורז, ירקות ותבלינים — מנה חגיגית אנדלוסית.',
+ time:'50 דקות',serv:'4–6 מנות',diff:'בינוני',img:'',
+ vid:'https://www.youtube.com/results?search_query=paella+vegetable+saffron+traditional',
+ mem:'לבל הכינה פאייה בחגים. "פאייה טובה לא נוגעים בה," היא אמרה. "אתה יוצר הקרום בתחתית — ה-socarrat — זה הכי טעים." אמא למדה ממנה את הסבלנות הזו.',
+ ingr:[
+  {q:'2 כוסות',i:'אורז עגול (עדיף אורז לפאייה/Bomba)'},
+  {q:'1 גדול',i:'פלפל אדום — חתוך לרצועות'},
+  {q:'1 גדול',i:'פלפל ירוק — חתוך לרצועות'},
+  {q:'2 בינוניות',i:'עגבניות — מגורדות'},
+  {q:'4 שיני',i:'שום — כתוש'},
+  {q:'1 כוס',i:'שעועית ירוקה — קטומה'},
+  {q:'½ כפית',i:'זעפרן — מומס ב-3 כפות מים חמים'},
+  {q:'1 כפית',i:'פפריקה מתוקה'},
+  {q:'4 כוסות',i:'מרק ירקות (1 ליטר)'},
+  {q:'4 כפות',i:'שמן זית'},
+  {q:'לפי הטעם',i:'מלח'},
+ ],
+ steps:[
+  {t:'5 דק׳',s:'מחממים שמן זית במחבת פאייה רחבה (או מחבת ברזל יצוק). מוסיפים פלפלים ומטגנים 5 דקות.'},
+  {t:'3 דק׳',s:'מוסיפים שום, עגבניות מגורדות ופפריקה. מבשלים 3 דקות.'},
+  {t:'2 דק׳',s:'מוסיפים שעועית ירוקה ואורז — מערבבים לציפוי.'},
+  {t:'2 דק׳',s:'מוסיפים מרק רותח, זעפרן ומלח. מביאים לרתיחה. מפזרים אחיד.'},
+  {t:'18 דק׳',s:'מנמיכים לאש בינונית. מבשלים 18 דקות ללא ערבוב! הקרום בתחתית — ה-socarrat — הוא הגולד של הפאייה.'},
+  {t:'5 דק׳',s:'מכסים בנייר עיתון או מגבת ומניחים 5 דקות לפני ההגשה.'},
+ ],
+ tip:'לא לערבב לאחר הוספת המרק — זה הכלל הספרדי הראשון בפאייה. הקרום התחתית (socarrat) הוא הפרס של הסבלנות.'},
+
+{id:'sp9',cat:'span',badge:'מורשת ספרד',title:'אלמנדראדוס — עוגיות שקדים ספרדיות',
+ desc:'Almendrados — עוגיות שקדים קלאסיות מאנדלוסיה, מתכון מגורשי ספרד.',
+ time:'25 דקות',serv:'18–22 יח׳',diff:'קל',img:'',
+ mem:'לבל הכינה "Almendrados" לכל חג — מסורת שהביאה ממשפחת קארו. "שקדים הם הזהב של ספרד," היא אמרה. "ובמרוקו גם."',
+ ingr:[
+  {q:'250 גרם',i:'שקדים טחונים (אבקת שקדים)'},
+  {q:'180 גרם',i:'סוכר'},
+  {q:'2 גדולים',i:'חלמונים'},
+  {q:'1 כפית',i:'מי ורדים'},
+  {q:'קורט',i:'קינמון'},
+  {q:'לקישוט',i:'שקד שלם לכל עוגייה + סוכר אבקה'},
+ ],
+ steps:[
+  {t:'3 דק׳',s:'מחממים תנור ל-160 מעלות. מרפדים תבנית בנייר אפייה.'},
+  {t:'5 דק׳',s:'מערבבים שקדים טחונים, סוכר, חלמונים, מי ורדים וקינמון לבצק אחיד ולח.'},
+  {t:'5 דק׳',s:'יוצרים כדורים קטנים (גודל אגוז). מניחים על נייר אפייה ומשטחים מעט. מניחים שקד שלם במרכז כל עוגייה.'},
+  {t:'14 דק׳',s:'אופים 12–14 דקות — עד שהשוליים זהובים קלות. המרכז יישאר רך.'},
+  {t:'סיום',s:'מצננים לחלוטין לפני ההוצאה. מפזרים סוכר אבקה.'},
+ ],
+ tip:'הסוד: לא לאפות יותר מ-14 דקות — הן ממשיכות להתייצב לאחר הוצאה מהתנור. עוגייה שנראית "רכה מדי" בתנור — מושלמת בקירור.'},
+
+
 ];
+
+
+/* ── DIFFICULTY FILTER ── */
+let ACT_DIFF = 'all';
+let SHOW_FAVS = false;
+const FAV = new Set(JSON.parse(localStorage.getItem('perla_favs') || '[]'));
+
+function saveFavs() {
+  localStorage.setItem('perla_favs', JSON.stringify([...FAV]));
+  updateFavCounter();
+}
+
+function updateFavCounter() {
+  const el = document.getElementById('fav-counter');
+  if (el) {
+    el.textContent = FAV.size + ' ♥';
+    el.classList.toggle('show', FAV.size > 0);
+  }
+}
+
+function toggleFav(id, btn) {
+  if (FAV.has(id)) {
+    FAV.delete(id);
+    btn.classList.remove('fav-active');
+    const icon = document.getElementById('fi-' + id);
+    if (icon) icon.textContent = '♡';
+  } else {
+    FAV.add(id);
+    btn.classList.add('fav-active');
+    const icon = document.getElementById('fi-' + id);
+    if (icon) icon.textContent = '♥';
+    // pulse animation
+    btn.animate([{transform:'scale(1.4)'},{transform:'scale(1)'}],{duration:300});
+    showToast('נשמר למועדפים ♥');
+  }
+  saveFavs();
+  if (SHOW_FAVS) renderGrid();
+}
+
+function toggleFavFilter(btn) {
+  SHOW_FAVS = !SHOW_FAVS;
+  btn.classList.toggle('active', SHOW_FAVS);
+  document.getElementById('sec-title').textContent = SHOW_FAVS ? 'המועדפים שלי' : (ACT_CAT === 'all' ? 'כל המתכונים' : catLbl(ACT_CAT));
+  renderGrid();
+}
+
+function setDiff(diff, btn) {
+  ACT_DIFF = diff;
+  document.querySelectorAll('.diff-btn').forEach(b => {
+    if (['קל','בינוני','מאתגר','all'].some(d => b.textContent.trim() === d || b.textContent.trim() === 'הכל')) {
+      b.classList.remove('active');
+    }
+  });
+  btn.classList.add('active');
+  renderGrid();
+}
 
 /* ══════════════════════════════════════
    STATE
@@ -2366,6 +2638,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('pill-cnt').textContent=R.length+' מתכונים';
   buildNav(); renderGrid();
   window.addEventListener('scroll',()=>document.getElementById('stb').classList.toggle('on',scrollY>450),{passive:true});
+  updateFavCounter();
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
 });
 
@@ -2373,9 +2646,11 @@ document.addEventListener('DOMContentLoaded',()=>{
    NAV
 ══════════════════════════════════════ */
 function buildNav(){
-  document.getElementById('cat-inner').innerHTML=CATS.map((c,i)=>
-    `<button class="cat-btn${i===0?' active':''}" onclick="selCat('${c.id}',this)">${c.lbl}</button>`
-  ).join('');
+  document.getElementById('cat-inner').innerHTML=CATS.map((c,i)=>{
+    const cnt = c.id==='all' ? R.length : R.filter(r=>r.cat===c.id).length;
+    const badge = c.id!=='all' ? `<span style="font-size:.62rem;opacity:.55;margin-right:.2rem">(${cnt})</span>` : '';
+    return `<button class="cat-btn${i===0?' active':''}" onclick="selCat('${c.id}',this)">${c.lbl}${badge}</button>`;
+  }).join('');
 }
 function selCat(id,btn){
   ACT_CAT=id;SEARCH='';
@@ -2384,6 +2659,9 @@ function selCat(id,btn){
   document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('sec-title').textContent=id==='all'?'כל המתכונים':catLbl(id);
+  SHOW_FAVS = false;
+  const fb = document.getElementById('fav-filter-btn');
+  if (fb) fb.classList.remove('active');
   renderGrid();
 }
 
@@ -2404,30 +2682,32 @@ function clearSearch(){document.getElementById('srch').value='';doSearch('');}
 /* ══════════════════════════════════════
    FILTER & RENDER
 ══════════════════════════════════════ */
-function filtered(){
-  return R.filter(r=>{
-    const cok=ACT_CAT==='all'||r.cat===ACT_CAT;
-    if(!SEARCH)return cok;
-    const h=[r.title,r.desc,r.mem||'',catLbl(r.cat)].join(' ').toLowerCase();
-    return cok&&h.includes(SEARCH);
-  });
-}
+/* old filtered removed */
 
 function renderGrid(){
   const list=filtered();
   const g=document.getElementById('grid');
   document.getElementById('sec-cnt').textContent=list.length+' מתכונים';
-  if(!list.length){g.innerHTML='<div class="no-res">לא נמצאו מתכונים — נסו חיפוש אחר</div>';return;}
+  if(!list.length){
+    const msg = SHOW_FAVS
+      ? 'עוד לא שמרת מועדפים — לחצו על ♡ בכל כרטיס מתכון'
+      : 'לא נמצאו מתכונים — נסו חיפוש אחר';
+    g.innerHTML = `<div class="no-res">${msg}</div>`;
+    return;
+  }
   g.innerHTML=list.map(r=>{
     const ph=PH[r.cat]||'';
     const imgH=r.img
-      ?`<img src="${r.img}" alt="${r.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      ?`<img src="${r.img}" alt="${r.title}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
       :'';
     const phD=r.img?'style="display:none"':'';
     return`<article class="card" role="listitem" tabindex="0"
       onclick="openM('${r.id}')" onkeydown="if(event.key==='Enter')openM('${r.id}')">
       <div class="c-img">
         ${imgH}
+        <button class="fav-btn${FAV.has(r.id)?' fav-active':''}" onclick="event.stopPropagation();toggleFav('${r.id}',this)" aria-label="שמור מועדף">
+          <span id="fi-${r.id}">${FAV.has(r.id)?'♥':'♡'}</span>
+        </button>
         <div class="c-ph ${ph}" ${phD}></div>
         ${r.badge?`<span class="c-badge">${r.badge}</span>`:''}
         <div class="c-arch"><svg viewBox="0 0 400 22" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,22 C100,0 300,0 400,22 Z" fill="var(--parch)"/></svg></div>
@@ -2449,6 +2729,15 @@ function renderGrid(){
 ══════════════════════════════════════ */
 function openM(id){
   const r=R.find(x=>x.id===id);if(!r)return;
+  // Store current recipe and init servings scaler
+  CUR_RECIPE = r;
+  const sm = (r.serv||'4').match(/\d+/);
+  BASE_SERVINGS = sm ? parseInt(sm[0]) : 4;
+  CUR_SERVINGS = BASE_SERVINGS;
+  const snEl = document.getElementById('m-scale-num');
+  const siEl = document.getElementById('m-scale-info');
+  if(snEl) snEl.textContent = BASE_SERVINGS;
+  if(siEl) siEl.textContent = '';
   const hz=document.getElementById('m-hero');
   hz.querySelectorAll('img,.m-hero-ph').forEach(e=>e.remove());
   if(r.img){
@@ -2469,9 +2758,15 @@ function openM(id){
     if(!item.i)return`<div class="m-sep">${item.q}</div>`;
     return`<div class="m-ing"><div class="m-dot"></div><div><span class="m-qty">${item.q}</span> ${item.i}</div></div>`;
   }).join('');
-  document.getElementById('m-steps').innerHTML=(r.steps||[]).map((s,i)=>
-    `<li class="m-step"><div class="m-snum">${i+1}</div><div class="m-sbody"><span class="m-sdur">${s.t}</span>${s.s}</div></li>`
-  ).join('');
+  document.getElementById('m-steps').innerHTML=(r.steps||[]).map((s,i)=>{
+    // Parse duration for timer button
+    const durMatch = s.t.match(/(\d+)\s*דק/);
+    const durSec = durMatch ? parseInt(durMatch[1])*60 : 0;
+    const timerBtn = durSec > 0
+      ? `<button class="step-timer-btn" onclick="startTimer(${durSec},'${s.t} — ${s.s.substring(0,25)}...',this)" title="הפעל טיימר">⏱ ${s.t}</button>`
+      : `<span class="m-sdur">${s.t}</span>`;
+    return `<li class="m-step"><div class="m-snum">${i+1}</div><div class="m-sbody">${timerBtn} ${s.s}</div></li>`;
+  }).join('');
   const tw=document.getElementById('m-tip-wrap');
   if(r.tip){document.getElementById('m-tip-txt').textContent=r.tip;tw.style.display='';}else tw.style.display='none';
   const vw=document.getElementById('m-vid-wrap');
@@ -2479,7 +2774,216 @@ function openM(id){
   document.getElementById('ovl').classList.add('open');
   document.body.style.overflow='hidden';
   document.getElementById('ovl').scrollTop=0;
+  const pb = document.getElementById('m-progress');
+  if(pb) pb.style.transform='scaleX(0)';
+  // Set navigation index
+  const navList = getNavList();
+  CURRENT_RECIPE_IDX = navList.findIndex(x => x.id === r.id);
+  // Render related recipes
+  renderRelated(r);
 }
+
+/* ══════════════════════════════
+   COOKING TIMER
+══════════════════════════════ */
+let timerInterval = null;
+let timerRemaining = 0;
+let timerPaused = false;
+let timerStepLabel = '';
+let timerActiveBtn = null;
+
+function startTimer(seconds, label, btn) {
+  // If clicking same button, pause/resume
+  if (timerActiveBtn === btn && timerInterval) {
+    timerPaused ? timerResume() : timerPauseFunc();
+    return;
+  }
+  // Stop any existing timer
+  timerStop();
+  timerRemaining = seconds;
+  timerStepLabel = label;
+  timerActiveBtn = btn;
+  timerPaused = false;
+  if (btn) btn.classList.add('running');
+  document.getElementById('timer-step-lbl').textContent = label;
+  document.getElementById('timer-pause-btn').textContent = 'השהה';
+  document.getElementById('timer-widget').classList.add('show');
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    if (!timerPaused) {
+      timerRemaining--;
+      updateTimerDisplay();
+      if (timerRemaining <= 0) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        document.getElementById('timer-display').textContent = '00:00';
+        if (timerActiveBtn) timerActiveBtn.classList.remove('running');
+        // Play alert sound via Web Audio
+        try {
+          const ctx = new AudioContext();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.frequency.setValueAtTime(880, ctx.currentTime);
+          gain.gain.setValueAtTime(0.3, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1);
+          osc.start(); osc.stop(ctx.currentTime + 1);
+        } catch(e) {}
+        showToast('הטיימר הסתיים! ' + timerStepLabel.substring(0,20));
+      }
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(timerRemaining / 60);
+  const s = timerRemaining % 60;
+  document.getElementById('timer-display').textContent =
+    String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+}
+
+function timerPauseFunc() {
+  timerPaused = true;
+  document.getElementById('timer-pause-btn').textContent = 'המשך';
+}
+function timerResume() {
+  timerPaused = false;
+  document.getElementById('timer-pause-btn').textContent = 'השהה';
+}
+function timerPause() { timerPaused ? timerResume() : timerPauseFunc(); }
+function timerStop() {
+  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+  if (timerActiveBtn) timerActiveBtn.classList.remove('running');
+  timerActiveBtn = null; timerPaused = false;
+  document.getElementById('timer-widget').classList.remove('show');
+}
+
+/* ══════════════════════════════
+   INGREDIENT SEARCH
+══════════════════════════════ */
+let ING_TAGS = new Set();
+
+function toggleIngSearch(btn) {
+  const wrap = document.getElementById('ing-search-wrap');
+  const isOpen = wrap.classList.toggle('show');
+  btn.classList.toggle('active', isOpen);
+  if (isOpen) document.getElementById('ing-input').focus();
+  else clearIngSearch();
+}
+
+function ingSearchInput(val) {
+  if (val.endsWith(',') || val.endsWith(' ')) {
+    const tag = val.replace(/[, ]+$/, '').trim();
+    if (tag.length > 1) {
+      ING_TAGS.add(tag);
+      document.getElementById('ing-input').value = '';
+      renderIngTags();
+      renderGrid();
+    }
+  }
+}
+
+function renderIngTags() {
+  document.getElementById('ing-tags').innerHTML = [...ING_TAGS].map(t =>
+    `<span class="ing-tag">${t}<button onclick="removeIngTag('${t}')" aria-label="הסר">×</button></span>`
+  ).join('');
+}
+
+function removeIngTag(tag) {
+  ING_TAGS.delete(tag);
+  renderIngTags();
+  renderGrid();
+}
+
+function clearIngSearch() {
+  ING_TAGS.clear();
+  document.getElementById('ing-input').value = '';
+  renderIngTags();
+  renderGrid();
+}
+
+// Update filtered() to include ingredient tags
+const _origFiltered = filtered;
+
+/* ══════════════════════════════
+   RANDOM RECIPE
+══════════════════════════════ */
+function openRandomRecipe() {
+  const list = filtered();
+  if (!list.length) { showToast('אין מתכונים להצגה'); return; }
+  const r = list[Math.floor(Math.random() * list.length)];
+  openM(r.id);
+  showToast('מתכון אקראי: ' + r.title);
+}
+
+/* ══════════════════════════════
+   UPDATE FILTERED TO INCLUDE ING TAGS
+══════════════════════════════ */
+function filtered(){
+  return R.filter(r=>{
+    const cok = ACT_CAT==='all' || r.cat===ACT_CAT;
+    const dok = ACT_DIFF==='all' || r.diff===ACT_DIFF;
+    const fok = !SHOW_FAVS || FAV.has(r.id);
+    // Ingredient tags filter
+    const iok = ING_TAGS.size === 0 || [...ING_TAGS].every(tag => {
+      const allIngr = (r.ingr||[]).map(i => i.i + ' ' + i.q).join(' ').toLowerCase();
+      return allIngr.includes(tag.toLowerCase());
+    });
+    if(!SEARCH) return cok && dok && fok && iok;
+    const h=[r.title,r.desc,r.mem||'',catLbl(r.cat)].join(' ').toLowerCase();
+    return cok && dok && fok && iok && h.includes(SEARCH);
+  });
+}
+
+
+/* ══════════════════════
+   RELATED RECIPES
+══════════════════════ */
+function renderRelated(r) {
+  const wrap = document.getElementById('m-related-wrap');
+  const container = document.getElementById('m-related');
+  if (!wrap || !container) return;
+
+  // Find recipes in same category, excluding current
+  const same = R.filter(x => x.cat === r.cat && x.id !== r.id);
+  // Shuffle and take 4
+  const shuffled = same.sort(() => 0.5 - Math.random()).slice(0, 4);
+
+  if (!shuffled.length) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+
+  container.innerHTML = shuffled.map(rel => `
+    <div class="related-card" onclick="openM('${rel.id}')" tabindex="0"
+         onkeydown="if(event.key==='Enter')openM('${rel.id}')">
+      <div class="related-cat">${catLbl(rel.cat)}</div>
+      <div class="related-title">${rel.title}</div>
+      <div class="related-time">${rel.time}</div>
+    </div>`).join('');
+}
+
+/* ══════════════════════
+   PREV / NEXT RECIPE NAVIGATION
+══════════════════════ */
+let CURRENT_RECIPE_IDX = -1;
+
+function getNavList() {
+  return filtered();
+}
+
+function navRecipe(dir) {
+  const list = getNavList();
+  if (!list.length) return;
+  CURRENT_RECIPE_IDX = Math.max(0, Math.min(list.length - 1, CURRENT_RECIPE_IDX + dir));
+  openM(list[CURRENT_RECIPE_IDX].id);
+}
+
+// Keyboard left/right inside modal
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('ovl').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') navRecipe(-1);
+  if (e.key === 'ArrowLeft')  navRecipe(1);
+});
+
 function closeM(){document.getElementById('ovl').classList.remove('open');document.body.style.overflow='';}
 function ovlClose(e){if(e.target===document.getElementById('ovl'))closeM();}
 
@@ -2563,6 +3067,17 @@ function printRecipe() {
   .footer{margin-top:2rem;text-align:center;font-size:.75rem;color:#9a6040;border-top:1px solid #f3e8c8;padding-top:1rem}
   .sep{grid-column:1/-1;font-weight:700;color:#b84223;font-size:.78rem;padding:.25rem 0;border-bottom:1px dashed rgba(155,95,45,.2)}
   @media print{body{margin:.5rem;padding:.5rem 1rem}h1{font-size:1.5rem}}
+
+/* RELATED RECIPES */
+.related-card{background:var(--cream);border:1.5px solid var(--bdr);
+  border-radius:10px;padding:.65rem .9rem;cursor:pointer;
+  transition:var(--tr);min-width:150px;max-width:200px}
+.related-card:hover{background:var(--parch-2);transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.related-cat{font-size:.65rem;color:var(--saffron-d);font-weight:600;
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
+.related-title{font-family:'Frank Ruhl Libre',serif;font-size:.88rem;
+  font-weight:700;color:var(--ink);line-height:1.3}
+.related-time{font-size:.72rem;color:var(--ink-l);margin-top:.2rem}
 </style>
 </head>
 <body>
@@ -2610,6 +3125,41 @@ function showToast(msg) {
   t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
+
+/* ── SWIPE TO CLOSE MODAL (mobile) ── */
+(function(){
+  let startY = 0;
+  const ovl = document.getElementById('modal-overlay');
+  if (!ovl) return;
+  ovl.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, {passive:true});
+  ovl.addEventListener('touchend', e => {
+    const dy = e.changedTouches[0].clientY - startY;
+    const box = document.getElementById('mbox');
+    if (box && !box.contains(e.target) && dy > 60) closeM();
+  }, {passive:true});
+})();
+
+/* ── KEYBOARD NAVIGATION ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeM();
+  if (e.key === 'f' && (e.ctrlKey || e.metaKey)) {
+    e.preventDefault();
+    document.getElementById('srch').focus();
+  }
+});
+
+/* ── SMOOTH SCROLL TOP IN MODAL ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const ovl = document.getElementById('modal-overlay');
+  if (ovl) {
+    ovl.addEventListener('scroll', () => {
+      const pct = ovl.scrollTop / (ovl.scrollHeight - ovl.clientHeight);
+      const bar = document.getElementById('m-progress');
+      if (bar) bar.style.transform = 'scaleX(' + Math.min(1, pct || 0) + ')';
+    }, {passive:true});
+  }
+});
+
 </script>
 </body>
 </html>
