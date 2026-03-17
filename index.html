@@ -100,49 +100,19 @@ a{color:inherit;text-decoration:none}
 .card:hover{transform:translateY(-6px);box-shadow:var(--sh-md)}
 .card:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
 
-/* ─── Gallery Carousel (card) ─── */
+/* ─── Card image ─── */
 .c-img{position:relative;height:200px;overflow:hidden;flex-shrink:0;background:var(--parch-2)}
-.c-gallery{position:relative;width:100%;height:100%}
-.c-gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .5s ease}
-.c-gallery-slide.active{opacity:1}
-.c-gallery-slide img{width:100%;height:100%;object-fit:cover}
-.c-gallery-dots{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
-  display:flex;gap:4px;z-index:3}
-.c-gallery-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);
-  border:none;padding:0;cursor:pointer;transition:background .2s}
-.c-gallery-dot.on{background:#fff}
-.c-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.c-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .5s ease;display:block}
+.card:hover .c-img img{transform:scale(1.06)}
+.c-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 
-/* ─── Gallery Carousel (modal hero) ─── */
-.m-hero-gallery{position:relative;width:100%;height:100%}
-.m-gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
-.m-gallery-slide.active{opacity:1}
-.m-gallery-slide img{width:100%;height:100%;object-fit:cover}
-.m-gal-prev,.m-gal-next{position:absolute;top:50%;transform:translateY(-50%);
-  background:rgba(0,0,0,.45);color:#fff;border:none;border-radius:50%;
-  width:36px;height:36px;font-size:1.1rem;cursor:pointer;z-index:5;
-  display:flex;align-items:center;justify-content:center;transition:background .2s}
-.m-gal-prev{left:10px}
-.m-gal-next{right:10px}
-.m-gal-prev:hover,.m-gal-next:hover{background:rgba(0,0,0,.7)}
-.m-gal-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
-  display:flex;gap:6px;z-index:5}
-.m-gal-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);
-  border:none;padding:0;cursor:pointer;transition:background .2s}
-.m-gal-dot.on{background:#fff}
-.m-gal-count{position:absolute;top:8px;left:12px;background:rgba(0,0,0,.45);
-  color:#fff;font-size:.72rem;padding:.18rem .55rem;border-radius:20px;z-index:5}
+/* ─── Modal gallery strip ─── */
+.m-gal-strip{display:flex;gap:6px;padding:.5rem 1rem;overflow-x:auto;background:rgba(0,0,0,.1)}
+.m-gal-thumb{width:72px;height:54px;object-fit:cover;border-radius:5px;cursor:pointer;
+  opacity:.55;transition:opacity .2s;border:2px solid transparent;flex-shrink:0}
+.m-gal-thumb.active,.m-gal-thumb:hover{opacity:1;border-color:var(--saffron-l)}
 
-.c-badge{position:absolute;top:.65rem;right:.65rem;background:var(--clay);color:#fff;font-size:.67rem;font-weight:700;padding:.22rem .65rem;border-radius:12px;letter-spacing:.04em;text-shadow:0 1px 3px rgba(0,0,0,.3)}
-.c-arch{position:absolute;bottom:-1px;left:0;right:0;height:22px;overflow:hidden}
-.c-arch svg{width:100%;height:100%;display:block}
-.c-body{padding:1.1rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column}
-.c-title{font-family:'Frank Ruhl Libre',serif;font-size:1.12rem;font-weight:700;color:var(--ink);margin-bottom:.35rem;line-height:1.28}
-.c-desc{font-size:.82rem;color:var(--ink-m);line-height:1.65;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.c-foot{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;padding-top:.72rem;border-top:1px solid var(--bdr)}
-.c-time{font-size:.74rem;font-weight:600;color:var(--saffron-d);display:flex;align-items:center;gap:.28rem}
-.c-time svg{width:13px;height:13px;flex-shrink:0}
-.c-diff{font-size:.69rem;background:var(--parch-2);border:1px solid var(--bdr);border-radius:10px;padding:.14rem .55rem;color:var(--ink-l)}
 
 /* Category placeholder gradients — Morocco & Spain */
 .ph-s{background:linear-gradient(140deg,#6b1e0a,#a83522)}
@@ -2898,10 +2868,6 @@ const R=[
   {t:'סיום',s:'מצננים לחלוטין לפני ההוצאה. מפזרים סוכר אבקה.'},
  ],
  tip:'הסוד: לא לאפות יותר מ-14 דקות — הן ממשיכות להתייצב לאחר הוצאה מהתנור. עוגייה שנראית "רכה מדי" בתנור — מושלמת בקירור.'},
-
-,
-
-
 /* ════════════════════════════════════════════
    BATCH 1 — מרקים, סלטים, תבשילי ירקות נוספים
 ════════════════════════════════════════════ */
@@ -6145,9 +6111,6 @@ const R=[
   {t:'הגשה',s:'מניחים לחמון בקלחת עמוקה. יוצקים מרק ובשר מעל. מניחים לספוג.'},
  ],
  tip:'הלחמון הישן מפרר ומתמזג עם הרוטב — חייב להיות ישן יומיים לפחות.'},
-
-,
-
 /* ════════════════════════════════════════════════════════
    MEGA BATCH — 250+ מתכונים לעבור 500
 ════════════════════════════════════════════════════════ */
@@ -6689,9 +6652,6 @@ const R=[
  ingr:[{q:'200 גרם',i:'דבש'},{q:'2',i:'פלפלים חריפים — שלמים'},{q:'1 כפית',i:'זרעי כוסברה'},{q:'1 כפית',i:'שומשום'},],
  steps:[{t:'5 דק׳',s:'מחממים דבש קלות. מוסיפים פלפלים שלמים, זרעי כוסברה ושומשום.'},{t:'2 דק׳',s:'מבשלים 2 דקות על אש נמוכה.'},{t:'סיום',s:'מעבירים לצנצנת. שומרים חודש.'},],
  tip:'מגישים עם גבינה לבנה, לחמון ותה — שולחן מדבר.'},
-
-,
-
 /* ════════════════════════════════════════════
    FINAL BATCH — לעבור 500
 ════════════════════════════════════════════ */
@@ -7128,9 +7088,6 @@ const R=[
  ingr:[{q:'1 כוס',i:'קמח'},{q:'2 ביצים',i:''},{q:'1 כוס',i:'חלב'},{q:'1 כף',i:'מי ורדים'},{q:'1 כף',i:'סוכר'},{q:'לציפוי:',i:'ריבת תפוזים'},],
  steps:[{t:'3 דק׳',s:'מערבבים קמח, ביצים, חלב, מי ורדים וסוכר לבלילה חלקה.'},{t:'15 דק׳',s:'מנוחה 15 דקות.'},{t:'10 דק׳',s:'מבשלים כל קרפ 1–2 דקות מכל צד.'},{t:'סיום',s:'מגישים עם ריבת תפוזים.'},],
  tip:'מי ורדים = ריח שמהווה את ה-SPIRIT.'},
-
-,
-
 /* ════════════════════════════════════════════
    131 מתכונים לעבור 500
 ════════════════════════════════════════════ */
@@ -7582,9 +7539,6 @@ const R=[
  ingr:[{q:'3 כוסות',i:'קמח'},{q:'1 כף',i:'שמרים'},{q:'3 כפות',i:'דבש'},{q:'1 כפית',i:'מלח'},{q:'2 ביצים',i:''},{q:'½ כוס',i:'שמן'},{q:'200 מ"ל',i:'מים'},],
  steps:[{t:'10 דק׳',s:'לשים בצק עם כל המרכיבים.'},{t:'45 דק׳',s:'תפיחה.'},{t:'5 דק׳',s:'מעצבים. מברישים דבש.'},{t:'28 דק׳',s:'אופים 180° — 28 דקות.'},],
  tip:'דבש לפני אפייה + אחרי = מבריק ומתוק.'},
-
-,
-
 /* ════════════════════════════════════════════════════════════
    100 מתכונים נוספים — לעבור 500
    מרוקאי, ספרדי-מרוקאי, אזורי, נדיר
@@ -7999,8 +7953,6 @@ const R=[
  ingr:[{q:'2 כוסות',i:'קמח'},{q:'½ כוס',i:'שמן'},{q:'½ כוס',i:'סוכר'},{q:'1 ביצה',i:''},{q:'1 כפית',i:'אניס'},{q:'½ כפית',i:'אבקת אפייה'},{q:'3 כפות',i:'שומשום'},],
  steps:[{t:'3 דק׳',s:'מחממים תנור 165°. מערבבים הכל לבצק.'},{t:'5 דק׳',s:'יוצרים כדורים. מגלגלים בשומשום.'},{t:'18 דק׳',s:'אופים 18 דקות.'},],
  tip:'לא להזהיב — ח׳מירו חיוורות וזה בסדר.'},
-
-,
 /* ── 30 מתכונים אחרונים לעבור 500 ── */
 {id:'fin1',cat:'soups',title:'מרק כרישה וגבינה',
  desc:'כרישה עם גבינה לבנה ושמן זית — קרמי ועדין.',
@@ -8241,9 +8193,6 @@ const R=[
  ingr:[{q:'2 גזרים',i:'פרוסות'},{q:'½ כרובית',i:'פרחים'},{q:'2 פלפלים',i:'רצועות'},{q:'1 כוס',i:'חומץ יין'},{q:'1 כוס',i:'מים'},{q:'2 כפות',i:'סוכר'},{q:'1 כף',i:'מלח'},{q:'1 כפית',i:'כמון'},{q:'1 כפית',i:'פפריקה'},],
  steps:[{t:'5 דק׳',s:'מחממים חומץ, מים, סוכר, מלח ותבלינים עד שמתמוססים.'},{t:'2 דק׳',s:'יוצקים על ירקות בצנצנות.'},{t:'48 שע׳',s:'מקררים 48 שעות.'},],
  tip:'48 שעות = עמוק. 24 = קל. השבוע הראשון הכי טוב.'},
-
-,
-
 /* ════════════════════════════════════════════════════════
    BATCH v8 — 120 מתכונים נוספים: נדירים, אזוריים, חגיגיים
 ════════════════════════════════════════════════════════ */
@@ -9069,9 +9018,6 @@ const R=[
  ingr:[{q:'½ כרובית',i:'פרחים'},{q:'3 גזרים',i:'פרוסות'},{q:'2 פלפלים',i:'רצועות'},{q:'½ כוס',i:'חומץ יין'},{q:'½ כוס',i:'מים'},{q:'1 כף',i:'סוכר'},{q:'1 כפית',i:'מלח'},{q:'1 כפית',i:'פפריקה מעושנת'},{q:'1 כפית',i:'כמון'},{q:'3 שיני',i:'שום'},],
  steps:[{t:'5 דק׳',s:'מחממים חומץ+מים+סוכר+מלח+תבלינים.'},{t:'2 דק׳',s:'יוצקים על ירקות בצנצנות.'},{t:'48 שע׳',s:'מצננים 48 שעות.'},],
  tip:'פפריקה מעושנת = הנשמה הספרדית של המחמוץ. לא מחליפים.'},
-
-,
-
 /* ══════════════════════════════════════════════════
    BATCH v10 — 100 מתכונים עם כמויות מדויקות
 ══════════════════════════════════════════════════ */
@@ -9436,9 +9382,6 @@ const R=[
  ingr:[{q:'½',i:'מלון בשל — פרוסות'},{q:'200 גרם',i:'גבינה צהובה מעושנת — פרוסות'},{q:'30 גרם',i:'שקדים שטוחים קלויים'},{q:'2 כפות',i:'שמן זית'},],
  steps:[{t:'3 דק׳',s:'מסדרים פרוסות מלון בצלחת.'},{t:'2 דק׳',s:'מניחים גבינה מעל.'},{t:'1 דק׳',s:'מפזרים שקדים ומזליפים שמן.'},],
  tip:'מלון קר + גבינה מעושנת = ניגוד מתוק-מלוח מנצח.'},
-
-,
-
 /* ════════════════════════════════════════════════════════
    BATCH v11 — 100 מתכונים חדשים ייחודיים
    כמויות מדויקות, ללא כפילויות
@@ -16332,23 +16275,6 @@ function clearSearch(){document.getElementById('srch').value='';doSearch('');}
 
 
 
-/* ─── Card gallery auto-rotate ─── */
-const _gTimers = {};
-function initCardGallery(el, id, imgs) {
-  if(imgs.length <= 1) return;
-  let cur = 0;
-  const slides = el.querySelectorAll('.c-gallery-slide');
-  const dots   = el.querySelectorAll('.c-gallery-dot');
-  function go(n) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('on');
-    cur = (n + slides.length) % slides.length;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('on');
-  }
-  dots.forEach((d,i) => d.addEventListener('click', e=>{e.stopPropagation();clearInterval(_gTimers[id]);go(i);_gTimers[id]=setInterval(()=>go(cur+1),3500);}));
-  _gTimers[id] = setInterval(()=>go(cur+1), 3500);
-}
 
 /* ─── Modal gallery ─── */
 let _mGalCur = 0, _mGalImgs = [];
@@ -16414,16 +16340,18 @@ function renderGrid(){
   g.innerHTML=list.map(r=>{
     const ph=PH[r.cat]||'';
     const imgs=getImages(r);
-    const slides=imgs.map((src,i)=>`<div class="c-gallery-slide${i===0?' active':''}"><img src="${src}" alt="${r.title}" loading="${i===0?'eager':'lazy'}" onerror="this.parentElement.style.display='none'"></div>`).join('');
-    const dots=imgs.length>1?`<div class="c-gallery-dots">${imgs.map((_,i)=>`<button class="c-gallery-dot${i===0?' on':''}" aria-label="תמונה ${i+1}"></button>`).join('')}</div>`:'';
+    const src=imgs[0]||'';
+    const imgH=src?`<img data-src="${src}" alt="${r.title}" crossorigin="anonymous"
+      class="lazy-img"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'';
     return`<article class="card" role="listitem" tabindex="0"
-      onclick="openM('${r.id}')" onkeydown="if(event.key==='Enter')openM('${r.id}')" data-id="${r.id}">
+      onclick="openM('${r.id}')" onkeydown="if(event.key==='Enter')openM('${r.id}')">
       <div class="c-img">
-        <div class="c-gallery">${slides}${dots}</div>
+        ${imgH}
         <button class="fav-btn${FAV.has(r.id)?' fav-active':''}" onclick="event.stopPropagation();toggleFav('${r.id}',this)" aria-label="שמור מועדף">
           <span id="fi-${r.id}">${FAV.has(r.id)?'♥':'♡'}</span>
         </button>
-        <div class="c-ph ${ph}" style="display:none"></div>
+        <div class="c-ph ${ph}" ${src?'style="display:none"':''}></div>
         ${r.badge?`<span class="c-badge">${r.badge}</span>`:''}
         <div class="c-arch"><svg viewBox="0 0 400 22" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,22 C100,0 300,0 400,22 Z" fill="var(--parch)"/></svg></div>
       </div>
@@ -16437,13 +16365,7 @@ function renderGrid(){
       </div>
     </article>`;
   }).join('');
-  // init card galleries
-  requestAnimationFrame(()=>{
-    list.forEach(r=>{
-      const el=document.querySelector(`[data-id="${r.id}"] .c-gallery`);
-      if(el) initCardGallery(el, r.id, getImages(r));
-    });
-  });
+  requestAnimationFrame(observeLazyImgs);
 }
 
 /* ══════════════════════════════════════
@@ -16462,7 +16384,33 @@ function openM(id){
   if(siEl) siEl.textContent = '';
   const hz=document.getElementById('m-hero');
   hz.querySelectorAll('img,.m-hero-ph').forEach(e=>e.remove());
-  buildModalGallery(hz, getImages(r));
+  // Main hero image
+  const rImgs = getImages(r);
+  hz.querySelectorAll('img,.m-hero-ph,.m-gal-strip').forEach(e=>e.remove());
+  if(rImgs.length){
+    const img=document.createElement('img');
+    img.src=rImgs[0]; img.alt=r.title; img.loading='eager'; img.crossOrigin='anonymous';
+    img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';
+    img.onerror=()=>{img.remove();addPh()};
+    hz.insertBefore(img,hz.firstChild);
+    // Thumbnail strip (if multiple images)
+    if(rImgs.length>1){
+      const strip=document.createElement('div');
+      strip.className='m-gal-strip';
+      rImgs.forEach((src,i)=>{
+        const t=document.createElement('img');
+        t.src=src; t.className='m-gal-thumb'+(i===0?' active':'');
+        t.alt='תמונה '+(i+1); t.loading='lazy';
+        t.onclick=()=>{
+          img.src=src;
+          strip.querySelectorAll('.m-gal-thumb').forEach(x=>x.classList.remove('active'));
+          t.classList.add('active');
+        };
+        strip.appendChild(t);
+      });
+      hz.parentElement.insertBefore(strip, hz.nextSibling);
+    }
+  } else { addPh(); }
   function addPh(){const d=document.createElement('div');d.className='m-hero-ph '+(PH[r.cat]||'');hz.insertBefore(d,hz.firstChild);}
   const b=document.getElementById('m-badge');
   if(r.badge){b.textContent=r.badge;b.style.display='';}else b.style.display='none';
@@ -16876,6 +16824,107 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {passive:true});
   }
 });
+
+
+/* ══════════════════════════════════════
+   LAZY IMAGE LOADER — IntersectionObserver
+   Prevents 429 by loading only visible images
+══════════════════════════════════════ */
+const _imgObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      const img = entry.target;
+      if(img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+        _imgObserver.unobserve(img);
+      }
+    }
+  });
+}, { rootMargin: '200px 0px', threshold: 0.01 });
+
+function observeLazyImgs() {
+  document.querySelectorAll('img.lazy-img[data-src]').forEach(img => {
+    _imgObserver.observe(img);
+  });
+}
+
+/* ══════════════════════════════════════
+   DEBUG LOG PANEL
+══════════════════════════════════════ */
+(function() {
+  const panel = document.createElement('div');
+  panel.id = 'dbg-panel';
+  panel.style.cssText = [
+    'position:fixed','bottom:0','left:0','right:0',
+    'max-height:220px','overflow-y:auto',
+    'background:rgba(0,0,0,.88)','color:#0f0',
+    'font:12px/1.5 monospace','padding:.4rem .7rem',
+    'z-index:99999','direction:ltr',
+    'border-top:2px solid #0f0',
+    'display:none'
+  ].join(';');
+
+  const toggle = document.createElement('button');
+  toggle.id = 'dbg-toggle';
+  toggle.textContent = 'DEBUG';
+  toggle.style.cssText = [
+    'position:fixed','bottom:0','left:50%','transform:translateX(-50%)',
+    'background:#111','color:#0f0','border:1px solid #0f0',
+    'font:11px monospace','padding:2px 10px',
+    'cursor:pointer','z-index:100000','border-radius:4px 4px 0 0'
+  ].join(';');
+
+  toggle.onclick = () => {
+    const on = panel.style.display === 'none';
+    panel.style.display = on ? 'block' : 'none';
+    toggle.textContent = on ? 'HIDE DEBUG' : 'DEBUG';
+  };
+
+  document.body.appendChild(panel);
+  document.body.appendChild(toggle);
+
+  let logCount = 0;
+  function dbgLog(type, msg, color) {
+    logCount++;
+    const line = document.createElement('div');
+    line.style.color = color || '#0f0';
+    line.textContent = `[${logCount}] [${type}] ${msg}`;
+    panel.appendChild(line);
+    panel.scrollTop = panel.scrollHeight;
+    if(logCount <= 3) panel.style.display = 'block'; // auto-show first errors
+  }
+
+  // Intercept console
+  const _origError = console.error.bind(console);
+  const _origWarn  = console.warn.bind(console);
+  console.error = (...a) => { dbgLog('ERR', a.join(' '), '#f55'); _origError(...a); };
+  console.warn  = (...a) => { dbgLog('WARN', a.join(' '), '#fa0'); _origWarn(...a); };
+
+  // Track image errors globally
+  document.addEventListener('error', e => {
+    if(e.target && e.target.tagName === 'IMG') {
+      const src = e.target.src || e.target.dataset?.src || '(no src)';
+      const short = src.split('/').slice(-1)[0] || src.slice(-40);
+      dbgLog('IMG-FAIL', short, '#f88');
+    }
+  }, true);
+
+  // Track image successes (first 5 only)
+  let imgOk = 0;
+  document.addEventListener('load', e => {
+    if(e.target && e.target.tagName === 'IMG' && imgOk < 5) {
+      imgOk++;
+      const short = (e.target.src||'').split('/').slice(-1)[0];
+      dbgLog('IMG-OK', short, '#4f4');
+    }
+  }, true);
+
+  window._dbgLog = dbgLog;
+  window._dbgPanel = panel;
+})();
+
+/* Call observeLazyImgs after each renderGrid — done inline, no wrapper */
 
 </script>
 </body>
